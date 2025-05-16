@@ -2,13 +2,13 @@
 
 ## Group Members:
 
-names here.(CHANGE THIS!!!!!)
+Raymond Chen, Galen Jack
        
 # IDEAS:
 
-1 statement of the problem you are solving and/or a high level description of the project. (CHANGE THIS!!!!!)
+1. How do small scale social interactions become broadly observable patterns? To answer this question, we propose to to create a simulation of a social phenomenon that is regulated by a set of rules applicable to the individual. Examples of this we are considering include, opinion spread, neighborhood segregation and disease spread.
 
-2 statement of the problem you are solving and/or a high level description of the project. (CHANGE THIS!!!!!)
+2. We propose to create a Synthesizer with a functional UI that allows the user to build unique sounds with choices of different wave types (Sine, Saw, Square) and oscillators. We will create a user friendly interface to allow the user to interact with the program through knobs and sliders.
 
 3 statement of the problem you are solving and/or a high level description of the project. (CHANGE THIS!!!!!)
 
