@@ -3,7 +3,7 @@
 
 AP Computer Science Semester 2 pd. 4 \
 Raymond Chen, Galen Jack \
-[group name] \
+The Desmos Duo \
 This is a replica of the online graphing calculator Desmos. 
 
 # Intended usage:
