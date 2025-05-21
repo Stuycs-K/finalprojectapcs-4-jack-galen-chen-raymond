@@ -15,6 +15,12 @@ UML Diagrams and descriptions of key algorithms, classes, and how things fit tog
 
 ![Alt text](UML.jpg?raw=true "Title")
 
+The Main class has an ArrayList of equations and a corresponding ArrayList of graphs (these will be indexed simultaneously so that edits to equations will show up as edits to the corresponding graph). keyPressed() will mainly edit the equations, mouseClicked() will select equations and click on functions or graphs. addEq and removeEq will add a new equation or remove an equation, and the corresponding graph.
+
+As for the Equation itself, it will have a String as a field and, and addToEq and deleteFromEq to edit the String. makeGraph will create a graph based on the current equation String. 
+
+The Graph object will contain the function (the Equation) and a set of points generated over the range of the graph displayed in an ArrayList. The Graph will have a method to display the graph, graph(), and a method to redo the points, redoPoints, when the equation is changed.
+
     
 # Intended pacing:
 
