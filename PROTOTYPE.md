@@ -13,6 +13,7 @@ A 2D ArrayList will be used to keep track of the equations on the left side of t
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
+![Alt text](UML.jpg?raw=true "Title")
 
     
 # Intended pacing:
