@@ -23,8 +23,12 @@ The Graph object will contain the function (the Equation) and a set of points ge
 
     
 # Intended pacing:
+May 24th:
+- Equation should be completed and tested
+  - Either of us can work on this, Equation on its own shouldn't be hard
 
-How you are breaking down the project and who is responsible for which parts.
-
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
-
+May 26th: 
+- Graph should be completed and tested
+  - An optimal interval for generating points should be found by one person for redoPoints()
+  - graph() should be able to be moved around on the screen and modified based on the size of the grid/the range of the grid
+    - This should be collaborated on by both group members
