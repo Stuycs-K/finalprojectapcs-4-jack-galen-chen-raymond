@@ -32,3 +32,23 @@ May 26th:
   - An optimal interval for generating points should be found by one person for redoPoints()
   - graph() should be able to be moved around on the screen and modified based on the size of the grid/the range of the grid
     - This should be collaborated on by both group members
+
+May 28th:
+- Desmos UI should be created
+  - Both group members know what Desmos looks like and can work on this
+
+May 29th:
+- Integration into main:  
+  - Equations and graphs should be linked and work with both classes
+  - addEq and removeEq should be able to add and remove equations and their corresponding graphs
+  - All of this should work with user input and keyPressed()
+
+May 30th:
+- mouseClicked():
+  - UI should have the keyboard of functions on the bottom already
+  - Now, mouseClicked() should be able to click on a function and insert it into the selected equation
+
+May 31st:
+- More Desmos UI:
+  - Zoom in/out should be done
+  - Should be thoroughly tested by both group members to ensure the program is fast and works properly
