@@ -1,5 +1,5 @@
 void setup() {
-  size(1200, 900);
+  size(1500, 900);
 }
 
 void keyPressed() {
