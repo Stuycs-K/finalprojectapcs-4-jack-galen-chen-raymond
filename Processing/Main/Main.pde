@@ -1,3 +1,9 @@
-public void print() {
-  System.out.println("Hello World");
+void setup() {
+  size(1200, 900);
+}
+
+void keyPressed() {
+}
+
+void draw() {
 }
