@@ -80,6 +80,12 @@ void setup() {
   for (int i=860; i>50; i-=25) {
     line(440, i, 1440, i);
   }
+  
+  // FUNCTION BAR ON THE BOTTOM
+  // initial state is just as the icon
+  strokeWeight(1);
+  fill(190);
+  rect(10, 810, 80, 50, 10);
 }
 
 void keyPressed() {
