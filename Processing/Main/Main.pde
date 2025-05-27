@@ -91,5 +91,8 @@ void setup() {
 void keyPressed() {
 }
 
+void mouseClicked() {
+}
+
 void draw() {
 }
