@@ -1,17 +1,24 @@
+import java.util.Stack;
 public class Equation{
-  private String eq;
+  private static String eq;
 
-  public static void Equation(String s){
+  public Equation(String s){
     eq = s;
+  }
+  public static void main(String[]args){
+    Equation e = new Equation("1+4+(30*6)");
+    convert(e.eq);
+
 
   }
-  public static void convert(String s){
-    exp[] = s.split("(?!^)");
+  public static void convert(String stringInput){
+    String[] exp = new String[stringInput.length()];
+    exp = stringInput.split("(?!^)");
     Stack<String> ops = new Stack<String>();
     Stack<Double> vals = new Stack<Double>();
 
     for(int i = 0; i < exp.length; i++) {
-                    String s = exp[i];
+        String s = exp[i];
         if (s.equals("(")) {
         }
         else if (s.equals("+") || s.equals("*")) {
@@ -25,7 +32,7 @@ public class Equation{
     getComp(ops, vals);
     System.out.println(vals.pop());
   }
-}
+
 
 
 
@@ -36,4 +43,5 @@ private static void getComp(Stack<String> ops, Stack<Double> vals) {
     } else if (op.equals("*")) {
         vals.push(vals.pop() * vals.pop());
     }
+  }
 }
