@@ -87,7 +87,12 @@ void setup() {
   // initial state is just as the icon
   strokeWeight(1);
   fill(190);
-  rect(10, 810, 80, 50, 10);
+  if (functionBoardOpen) {
+    rect(10, 700, 80, 50, 10);
+  }
+  else {
+    rect(10, 810, 80, 50, 10);
+  }
 }
 
 void keyPressed() {
@@ -96,10 +101,17 @@ void keyPressed() {
 void mouseClicked() {
   // TO CLICK THE KEYBOARD ICON
   if (functionBoardOpen) {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=700 && mouseY<=750) {
+      functionBoardOpen=false;
+    }
   }
   else {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=810 && mouseY<=860) {
+      functionBoardOpen=true;
+    }
   }
 }
 
 void draw() {
+  setup();
 }
