@@ -1,3 +1,5 @@
+private boolean functionBoardOpen = false;
+
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
@@ -92,6 +94,11 @@ void keyPressed() {
 }
 
 void mouseClicked() {
+  // TO CLICK THE KEYBOARD ICON
+  if (functionBoardOpen) {
+  }
+  else {
+  }
 }
 
 void draw() {
