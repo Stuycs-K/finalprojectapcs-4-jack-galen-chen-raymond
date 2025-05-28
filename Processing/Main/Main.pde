@@ -92,7 +92,7 @@ void functionsBar() {
   if (functionBoardOpen) {
     rect(10, 500, 80, 50, 10);
     fill(0);
-    triangle(60, 620, 80, 620, 70, 630);
+    triangle(60, 520, 80, 520, 70, 530);
     
     fill(190);
     rect(10, 560, 1420, 300, 10);
@@ -121,7 +121,7 @@ void keyPressed() {
 void mouseClicked() {
   // TO CLICK THE KEYBOARD ICON
   if (functionBoardOpen) {
-    if (mouseX>=10 && mouseX<=90 && mouseY>=600 && mouseY<=650) {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=500 && mouseY<=550) {
       functionBoardOpen=false;
     }
   }
