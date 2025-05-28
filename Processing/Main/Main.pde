@@ -1,17 +1,15 @@
 private boolean functionBoardOpen = false;
 
-void setup() {
-  size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
-  
-  // DESMOS LOGO ON TOP
-  background(255); // clear screen
-  
+void topBar() {
+  // CREATE DESMOS LOGO ON TOP
   fill(0);
   rect(0, 0, 1440, 50);
   fill(255);
   textSize(35);
   text("Desmos", 667, 37);
-  
+}
+
+void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
   fill(226);
   strokeWeight(5);
@@ -23,8 +21,9 @@ void setup() {
   strokeWeight(1);
   line(40, 120, 40, 870);
   line(0, 190, 440, 190);
-  
-  
+}
+
+void grid() {
   // INITIAL GRID
   stroke(0);
   
@@ -83,7 +82,9 @@ void setup() {
   for (int i=860; i>50; i-=25) {
     line(440, i, 1440, i);
   }
-  
+}
+
+void functionsBar() {
   // FUNCTION BAR ON THE BOTTOM
   // initial state is just as the icon
   strokeWeight(1);
@@ -98,6 +99,17 @@ void setup() {
     fill(0);
     triangle(60, 840, 80, 840, 70, 830);
   }
+}
+
+void setup() {
+  size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
+  
+  background(255); // clear screen
+  
+  topBar();
+  equationsBar();
+  grid();
+  functionsBar();
 }
 
 void keyPressed() {
@@ -118,5 +130,5 @@ void mouseClicked() {
 }
 
 void draw() {
-  setup();
+  
 }
