@@ -4,7 +4,8 @@ void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
   // DESMOS LOGO ON TOP
-  background(255);
+  background(255); // clear screen
+  
   fill(0);
   rect(0, 0, 1440, 50);
   fill(255);
@@ -88,10 +89,14 @@ void setup() {
   strokeWeight(1);
   fill(190);
   if (functionBoardOpen) {
-    rect(10, 700, 80, 50, 10);
+    rect(10, 600, 80, 50, 10);
+    fill(0);
+    triangle(60, 620, 80, 620, 70, 630);
   }
   else {
     rect(10, 810, 80, 50, 10);
+    fill(0);
+    triangle(60, 840, 80, 840, 70, 830);
   }
 }
 
@@ -101,7 +106,7 @@ void keyPressed() {
 void mouseClicked() {
   // TO CLICK THE KEYBOARD ICON
   if (functionBoardOpen) {
-    if (mouseX>=10 && mouseX<=90 && mouseY>=700 && mouseY<=750) {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=600 && mouseY<=650) {
       functionBoardOpen=false;
     }
   }
