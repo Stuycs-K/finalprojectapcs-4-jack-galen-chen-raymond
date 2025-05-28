@@ -9,7 +9,7 @@ void topBar() {
   rect(0, 0, 1440, 50);
   fill(255);
   textSize(35);
-  text("Desmos", 667, 37);
+  text("desmos", 667, 37);
 }
 
 
@@ -109,6 +109,7 @@ void functionsBar() {
   
   if (functionBoardOpen) { 
     // create the function board
+    
     rect(10, 595, 80, 50, 10);
     fill(0);
     triangle(60, 615, 80, 615, 70, 625);
@@ -187,7 +188,7 @@ void keyPressed() {
 void mouseClicked() {
   // TO CLICK THE KEYBOARD ICON
   if (functionBoardOpen) {
-    if (mouseX>=10 && mouseX<=90 && mouseY>=500 && mouseY<=550) {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=595 && mouseY<=645) {
       functionBoardOpen=false;
     }
   }
