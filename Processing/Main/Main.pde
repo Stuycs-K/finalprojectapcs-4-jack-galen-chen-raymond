@@ -1,14 +1,21 @@
-void setup() {
-  size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
-  
-  // DESMOS LOGO ON TOP
-  background(255);
+private boolean functionBoardOpen = false;
+
+
+
+
+void topBar() {
+  // CREATE DESMOS LOGO ON TOP
   fill(0);
   rect(0, 0, 1440, 50);
   fill(255);
   textSize(35);
-  text("Desmos", 667, 37);
-  
+  text("desmos", 667, 37);
+}
+
+
+
+
+void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
   fill(226);
   strokeWeight(5);
@@ -20,8 +27,14 @@ void setup() {
   strokeWeight(1);
   line(40, 120, 40, 870);
   line(0, 190, 440, 190);
-  
-  
+}
+
+
+
+
+
+
+void grid() {
   // INITIAL GRID
   stroke(0);
   
@@ -82,8 +95,147 @@ void setup() {
   }
 }
 
+
+
+
+
+
+
+void functionsBar() {
+  // FUNCTION BAR ON THE BOTTOM
+  // initial state is just as the icon
+  strokeWeight(0.5);
+  fill(190);
+  
+  if (functionBoardOpen) { 
+    // create the function board
+    
+    rect(10, 595, 80, 50, 10);
+    fill(0);
+    triangle(60, 615, 80, 615, 70, 625);
+    
+    fill(190);
+    rect(10, 652, 1420, 208, 10);
+    
+    // creating the buttons
+    textSize(20);
+    // variables and special operators
+    String[] buttons = {"   x   ", "   y  ", "a^2 ", "a^b ", 
+                        "   (  ", "   )  ", "   <  ", "   >  ", 
+                        "  |a| ", "   ,  ", " <=  ", " >=  ", 
+                        "ABC", "  ?", "  √  ", "  π  "};
+    int index = 0;
+    for (int i=0; i<4; i++) {
+      for (int j=0; j<4; j++) {
+        fill(255);
+        rect(230+j*(85), 660+i*(50), 80, 45, 5);
+        fill(0);
+        text(buttons[index], 255+j*85, 688+i*(50));
+        index++;
+      }
+    }
+    
+    String[] buttons2 = {"7", "8", "9", "/",
+                         "4", "5", "6", "*",
+                         "1", "2", "3", "-",
+                         "0", ".", "=", "+"};
+    index=0;
+    // numpad and normal operators
+    for (int i=0; i<4; i++) {
+      for (int j=0; j<4; j++) {
+        fill(255);
+        rect(625+j*(85), 660+i*(50), 80, 45, 5);
+        fill(0);
+        text(buttons2[index], 660+j*85, 688+i*(50));
+        index++;
+      }
+    }
+    
+    fill(139);
+    rect(1030, 660, 155, 45, 5);
+    fill(0);
+    text("functions", 1070, 690);
+    
+    fill(139);
+    rect(1030, 710, 75, 45, 5);
+    fill(0);
+    text("<——", 1050, 740);
+    
+    fill(139);
+    rect(1110, 710, 75, 45, 5);
+    fill(0);
+    text("——>", 1130, 740);
+
+    fill(139);
+    rect(1070, 760, 115, 45, 5);
+    fill(0);
+    text("delete", 1105, 790);
+    
+    fill(38, 89, 255);
+    rect(1030, 810, 155, 45, 5);
+    fill(0);
+    text("enter", 1090, 840);
+  }
+  
+  
+  else {
+    rect(10, 810, 80, 50, 10);
+    fill(0);
+    triangle(60, 840, 80, 840, 70, 830);
+  }
+}
+
+
+
+
+
+// -------------------------------------------------
+
+
+
+
+void setup() {
+  size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
+  
+  background(255); // clear screen
+  
+  topBar();
+  equationsBar();
+  grid();
+  functionsBar();
+}
+
+
+
+
+
+
 void keyPressed() {
 }
+
+
+
+
+
+
+
+
+void mouseClicked() {
+  // TO CLICK THE KEYBOARD ICON
+  if (functionBoardOpen) {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=595 && mouseY<=645) {
+      functionBoardOpen=false;
+    }
+  }
+  else {
+    if (mouseX>=10 && mouseX<=90 && mouseY>=810 && mouseY<=860) {
+      functionBoardOpen=true;
+    }
+  }
+  
+  setup();
+}
+
 
 void draw() {
 }
