@@ -90,9 +90,12 @@ void functionsBar() {
   strokeWeight(1);
   fill(190);
   if (functionBoardOpen) {
-    rect(10, 600, 80, 50, 10);
+    rect(10, 500, 80, 50, 10);
     fill(0);
     triangle(60, 620, 80, 620, 70, 630);
+    
+    fill(190);
+    rect(10, 560, 1420, 300, 10);
   }
   else {
     rect(10, 810, 80, 50, 10);
