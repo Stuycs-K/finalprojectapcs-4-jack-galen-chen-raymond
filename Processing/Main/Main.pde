@@ -1,5 +1,8 @@
 private boolean functionBoardOpen = false;
 
+
+
+
 void topBar() {
   // CREATE DESMOS LOGO ON TOP
   fill(0);
@@ -8,6 +11,9 @@ void topBar() {
   textSize(35);
   text("Desmos", 667, 37);
 }
+
+
+
 
 void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
@@ -22,6 +28,11 @@ void equationsBar() {
   line(40, 120, 40, 870);
   line(0, 190, 440, 190);
 }
+
+
+
+
+
 
 void grid() {
   // INITIAL GRID
@@ -84,25 +95,68 @@ void grid() {
   }
 }
 
+
+
+
+
+
+
 void functionsBar() {
   // FUNCTION BAR ON THE BOTTOM
   // initial state is just as the icon
-  strokeWeight(1);
+  strokeWeight(0.5);
   fill(190);
-  if (functionBoardOpen) {
-    rect(10, 500, 80, 50, 10);
+  
+  if (functionBoardOpen) { 
+    // create the function board
+    rect(10, 595, 80, 50, 10);
     fill(0);
-    triangle(60, 520, 80, 520, 70, 530);
+    triangle(60, 615, 80, 615, 70, 625);
     
     fill(190);
-    rect(10, 560, 1420, 300, 10);
+    rect(10, 652, 1420, 208, 10);
+    
+    // creating the buttons
+    // variables and special operators
+    fill(255);
+    for (int i=0; i<4; i++) {
+      for (int j=0; j<4; j++) {
+        rect(230+j*(85), 660+i*(50), 80, 45, 5);
+      }
+    }
+    
+    // numpad and normal operators
+    for (int i=0; i<4; i++) {
+      for (int j=0; j<4; j++) {
+        rect(625+j*(85), 660+i*(50), 80, 45, 5);
+      }
+    }
+    
+    fill(139);
+    rect(1030, 660, 155, 45, 5);
+    rect(1030, 710, 75, 45, 5);
+    rect(1110, 710, 75, 45, 5);
+    rect(1070, 760, 115, 45, 5);
+    fill(38, 89, 255);
+    rect(1030, 810, 155, 45, 5);
   }
+  
+  
   else {
     rect(10, 810, 80, 50, 10);
     fill(0);
     triangle(60, 840, 80, 840, 70, 830);
   }
 }
+
+
+
+
+
+// -------------------------------------------------
+
+
+
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
@@ -115,8 +169,20 @@ void setup() {
   functionsBar();
 }
 
+
+
+
+
+
 void keyPressed() {
 }
+
+
+
+
+
+
+
 
 void mouseClicked() {
   // TO CLICK THE KEYBOARD ICON
@@ -133,6 +199,7 @@ void mouseClicked() {
   
   setup();
 }
+
 
 void draw() {
 }
