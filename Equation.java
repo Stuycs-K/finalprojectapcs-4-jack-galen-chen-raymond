@@ -1,47 +1,81 @@
 import java.util.Stack;
-public class Equation{
+
+public class Equation {
   private static String eq;
 
-  public Equation(String s){
+  public Equation(String s) {
     eq = s;
   }
-  public static void main(String[]args){
-    Equation e = new Equation("1+4+(30*6)");
-    convert(e.eq);
 
+  public static void main(String[] args) {
+    Equation e = new Equation("1+4+(30*6)");
+    e.convert();
 
   }
-  public static void convert(String stringInput){
-    String[] exp = new String[stringInput.length()];
-    exp = stringInput.split("(?!^)");
-    Stack<String> ops = new Stack<String>();
-    Stack<Double> vals = new Stack<Double>();
 
-    for(int i = 0; i < exp.length; i++) {
-        String s = exp[i];
-        if (s.equals("(")) {
+  public void convert(String stringInput) {
+    Stack<Character> ops = new Stack<>();
+    Stack<Double> vals = new Stack<>();
+    String num = "";
+    boolean negate = true;
+    for (int i = 0; i < eq.length(); i++) {
+      char ch = eq.charAt(i);
+
+      if (Character.isWhitespace(ch)) {
+        continue;
+      }
+
+      if (Character.isDigit(ch) || ch == '.') {
+        num += ch;
+        expectingUnary = false;
+      } else if (ch == '-' && expectingUnary) {
+        num += ch; 
+        expectingUnary = false;
+      } else {
+        if (!num.isEmpty()) {
+          vals.push(Double.parseDouble(num));
+          num = "";
         }
-        else if (s.equals("+") || s.equals("*")) {
-            ops.push(s);
-        } else if (s.equals(")")) {
-            getComp(ops, vals);
-        } else {
-            vals.push(Double.parseDouble(s));
+
+        if (ch == '(') {
+          ops.push(ch);
+          expectingUnary = true;
+        } else if (ch == ')') {
+          while (!ops.isEmpty() && ops.peek() != '(') {
+            applyOp(ops, vals);
+          }
+          if (!ops.isEmpty()) {
+            ops.pop(); 
+          }
+          expectingUnary = false;
+        } else if (isOperator(ch)) {
+          while (!ops.isEmpty() && precedence(ops.peek()) >= precedence(ch)) {
+            applyOp(ops, vals);
+          }
+          ops.push(ch);
+          expectingUnary = true;
         }
+      }
     }
-    getComp(ops, vals);
+
+    if (!num.isEmpty()) {
+      vals.push(Double.parseDouble(num));
+    }
+
+    while (!ops.isEmpty()) {
+      applyOp(ops, vals);
+    }
+
     System.out.println(vals.pop());
   }
-
-
+}
 
 
 private static void getComp(Stack<String> ops, Stack<Double> vals) {
-    String op = ops.pop();
-    if (op.equals("+")) {
-        vals.push(vals.pop() + vals.pop());
-    } else if (op.equals("*")) {
-        vals.push(vals.pop() * vals.pop());
-    }
+  String op = ops.pop();
+  if (op.equals("+")) {
+    vals.push(vals.pop() + vals.pop());
+  } else if (op.equals("*")) {
+    vals.push(vals.pop() * vals.pop());
   }
 }
