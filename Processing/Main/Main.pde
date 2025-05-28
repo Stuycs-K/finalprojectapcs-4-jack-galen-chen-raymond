@@ -127,8 +127,9 @@ void mouseClicked() {
       functionBoardOpen=true;
     }
   }
+  
+  setup();
 }
 
 void draw() {
-  
 }
