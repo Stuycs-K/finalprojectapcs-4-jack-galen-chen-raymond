@@ -32,6 +32,10 @@ void equationsBar() {
     fill(226);
     rect(2, 120+70*i, 40, 70);
     line(0, 190+70*i, 440, 190+70*i);
+    
+    fill(0);
+    textSize(15);
+    text(i+1, 10, 140+70*i);
   }
 }
 
@@ -227,14 +231,18 @@ void keyPressed() {
 
 
 void mouseClicked() {
-  // TO CLICK THE KEYBOARD ICON
+  // TO CLICK THE KEYBOARD ICON / FOR THE FUNCTION BAR
   if (functionBoardOpen) {
     if (mouseX>=10 && mouseX<=90 && mouseY>=595 && mouseY<=645) {
       functionBoardOpen=false;
     }
+    
+    // the blue return/add butotn
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
       numEquations++;
     }
+    
+    // the delete button
     if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
       if (numEquations>1) {
          numEquations--;
