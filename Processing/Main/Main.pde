@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-
+private int numEquations = 1;
 
 
 
@@ -17,16 +17,22 @@ void topBar() {
 
 void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
-  fill(226);
+  // the entire rectangle holding the equations bar
+  fill(255);
   strokeWeight(5);
   rect(0, 50, 440, 870);
   
-  strokeWeight(2);
-  line(0, 120, 440, 120);
+  // the topmost bar holding the +, <--, -->, options, and hide equations bar
+  strokeWeight(1);
+  fill(226);
+  rect(2, 50, 436, 70);
   
   strokeWeight(1);
-  line(40, 120, 40, 870);
-  line(0, 190, 440, 190);
+  for (int i=0; i<numEquations; i++) {
+    fill(226);
+    rect(2, 120+70*i, 40, 70);
+    line(0, 190+70*i, 440, 190+70*i);
+  }
 }
 
 
