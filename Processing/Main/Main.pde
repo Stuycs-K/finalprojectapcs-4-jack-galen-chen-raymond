@@ -30,8 +30,17 @@ void equationsBar() {
   
   strokeWeight(1);
   for (int i=0; i<numEquations; i++) {
-    fill(226);
+    if (i == whichEquationSelected) {
+      fill(38, 89, 255);
+      stroke(38, 89, 255);
+    }
+    else {
+      fill(226);
+      stroke(0);
+    }
+    
     rect(2, 120+70*i, 40, 70);
+    line(0, 120+70*i, 440, 120+70*i);
     line(0, 190+70*i, 440, 190+70*i);
     
     fill(0);
