@@ -1,7 +1,7 @@
 private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
 private int numEquations = 1;
-private int whichEquationSelected = 0;
+private int whichEquationSelected = 1;
 
 
 void topBar() {
@@ -30,7 +30,7 @@ void equationsBar() {
   
   strokeWeight(1);
   for (int i=0; i<numEquations; i++) {
-    if (i == whichEquationSelected) {
+    if (i == whichEquationSelected-1) {
       fill(38, 89, 255);
       stroke(38, 89, 255);
     }
@@ -236,8 +236,11 @@ void keyPressed() {
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
     if (numEquations>1) {
-         numEquations--;
-     }
+       numEquations--;
+    }
+    if (whichEquationSelected>1 && whichEquationSelected >= numEquations+1) {
+       whichEquationSelected--;
+    }
   }
   setup();
 }
@@ -266,6 +269,9 @@ void mouseClicked() {
       if (numEquations>1) {
          numEquations--;
       }
+      if (whichEquationSelected > 1 && whichEquationSelected >= numEquations+1) {
+         whichEquationSelected--;
+      }
     }
   }
   else {
@@ -275,6 +281,15 @@ void mouseClicked() {
   }
   
   
+  // FOR THINGS INVOLVING THE EQUATIONS BAR
+  if (equationsBarOpen) {
+    if (mouseX<=440 && mouseY>=120 && mouseY<=(120+70*numEquations)) {
+       // if the mouseClicked is selecting an equation
+       whichEquationSelected = (mouseY/70)-1;
+    }
+  }
+  else {
+  }
   
   setup();
 }
