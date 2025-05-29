@@ -60,7 +60,7 @@ public class Equation {
           negate = true;
         }
       }
-      System.out.println(vals.pop());
+
     }
 
     if (!num.isEmpty()) {
@@ -70,7 +70,7 @@ public class Equation {
     while (!ops.isEmpty()) {
       applyOp(ops, vals);
     }
-
+    System.out.println(vals.pop());
   }
 
 
