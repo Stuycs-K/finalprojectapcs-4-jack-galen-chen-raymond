@@ -235,6 +235,11 @@ void mouseClicked() {
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
       numEquations++;
     }
+    if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
+      if (numEquations>1) {
+         numEquations--;
+      }
+    }
   }
   else {
     if (mouseX>=10 && mouseX<=90 && mouseY>=810 && mouseY<=860) {
