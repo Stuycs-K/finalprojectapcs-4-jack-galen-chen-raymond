@@ -8,12 +8,12 @@ public class Equation {
   }
 
   public static void main(String[] args) {
-    Equation e = new Equation("1 + 4 + (30 * 6 - 5) / 5");
-    e.convert();
+    Equation e = new Equation("x + 4 + (30 * 6 - 5) / 5");
+    System.out.println(e.evaluate(0.5));
 
   }
 
-  public void convert() {
+  public double evaluate(double x) {
     Stack<Character> ops = new Stack<>();
     Stack<Double> vals = new Stack<>();
     String num = "";
@@ -24,10 +24,13 @@ public class Equation {
       if (Character.isWhitespace(ch)) { //Ignores spaces 
         continue;
       }
-
       if (Character.isDigit(ch) || ch == '.') { //Checks for digits
         num += ch; //This works by "buildng" num and then resetting it as appropriate
         negate = false;
+      }
+      else if (ch == 'x'){
+        num = "";
+        num+=x;
       }
       else if (ch == '-' && negate) {
         num += ch; 
@@ -70,7 +73,7 @@ public class Equation {
     while (!ops.isEmpty()) {
       applyOp(ops, vals);
     }
-    System.out.println(vals.pop());
+    return vals.pop();
   }
 
 
