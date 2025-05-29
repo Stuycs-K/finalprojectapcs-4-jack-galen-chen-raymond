@@ -238,8 +238,8 @@ void keyPressed() {
     if (numEquations>1) {
        numEquations--;
     }
-    if (whichEquationSelected>1 && whichEquationSelected >= numEquations+1) {
-       whichEquationSelected--;
+    if (whichEquationSelected>1) {
+      whichEquationSelected--;
     }
   }
   
@@ -282,8 +282,8 @@ void mouseClicked() {
       if (numEquations>1) {
          numEquations--;
       }
-      if (whichEquationSelected > 1 && whichEquationSelected >= numEquations+1) {
-         whichEquationSelected--;
+      if (whichEquationSelected>1) {
+        whichEquationSelected--;
       }
     }
   }
