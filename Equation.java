@@ -29,7 +29,7 @@ public class Equation {
         num += ch; //This works by "buildng" num and then resetting it as appropriate
         negate = false;
       }
-      else if (ch 
+      else if (ch == '-' && negate) {
         num += ch; 
         negate = false;
       } 
@@ -45,7 +45,7 @@ public class Equation {
         } 
         else if (ch == ')') {
           while (!ops.isEmpty() && ops.peek() != '(') { //when you reach the end of the expression, go through and apply everything
-            applyOp(op
+            applyOp(ops, vals);
           }
           if (!ops.isEmpty()) {
             ops.pop(); 
@@ -60,6 +60,7 @@ public class Equation {
           negate = true;
         }
       }
+      System.out.println(vals.pop());
     }
 
     if (!num.isEmpty()) {
@@ -68,7 +69,7 @@ public class Equation {
 
     while (!ops.isEmpty()) {
       applyOp(ops, vals);
- 
+    }
 
   }
 
