@@ -242,6 +242,18 @@ void keyPressed() {
        whichEquationSelected--;
     }
   }
+  
+  if (keyCode == UP) {
+    if (whichEquationSelected > 1) {
+      whichEquationSelected--;
+    }
+  }
+  if (keyCode == DOWN) {
+    if (whichEquationSelected < numEquations) {
+      whichEquationSelected++;
+    }
+  }
+  
   setup();
 }
 
