@@ -12,3 +12,6 @@ This document must be updated daily every time you finish a work session.
 
 ### 2025-05-27 - Created function board
 ~ 1 hr - Created keyboard icon that moves position when clicked, finished function board that pops up with user click, buttons have symbols (not functional yet)
+
+### 2025-05-28 - More functionality in Equation bar and Function bar
+~ 2 hrs - Delete and enter on function bar can add and remove new equations, equation boxes can be selected/highlighted on the left, up/down arrow keys work as in the real Desmos, equations bar looks more like the real Desmos, split Main into two files for convenience
