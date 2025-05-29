@@ -24,6 +24,10 @@ void equationsBar() {
   fill(226);
   rect(2, 50, 436, 70);
   
+  image(loadImage("plus.png"), 20, 65, 40, 40);
+  
+  
+  // the equations
   strokeWeight(1);
   for (int i=0; i<numEquations; i++) {
     if (i == whichEquationSelected-1) {
