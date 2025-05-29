@@ -12,6 +12,12 @@ public class Equation {
     System.out.println(e.evaluate(0.5));
 
   }
+  public void add(String s){
+    eq+=s;
+  }
+  public void remove(){
+    eq=eq.substring(0,eq.length()-1);
+  }
 
   public double evaluate(double x) {
     Stack<Character> ops = new Stack<>();
