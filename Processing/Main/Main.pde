@@ -1,6 +1,6 @@
 private boolean functionBoardOpen = false;
+private boolean equationsBarOpen = true;
 private int numEquations = 1;
-
 
 
 void topBar() {
