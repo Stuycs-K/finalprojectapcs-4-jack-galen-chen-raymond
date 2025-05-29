@@ -21,17 +21,19 @@ public class Equation {
     for (int i = 0; i < eq.length(); i++) {
       char ch = eq.charAt(i);
 
-      if (Character.isWhitespace(ch)) {
+      if (Character.isWhitespace(ch)) { //Ignores spaces 
         continue;
       }
 
-      if (Character.isDigit(ch) || ch == '.') {
-        num += ch;
+      if (Character.isDigit(ch) || ch == '.') { //Checks for digits
+        num += ch; //This works by "buildng" num and then resetting it as appropriate
         negate = false;
-      } else if (ch == '-' && negate) {
+      }
+      else if (ch 
         num += ch; 
         negate = false;
-      } else {
+      } 
+      else { // we're checking if 
         if (!num.isEmpty()) {
           vals.push(Double.parseDouble(num));
           num = "";
@@ -40,15 +42,17 @@ public class Equation {
         if (ch == '(') {
           ops.push(ch);
           negate = true;
-        } else if (ch == ')') {
-          while (!ops.isEmpty() && ops.peek() != '(') {
-            applyOp(ops, vals);
+        } 
+        else if (ch == ')') {
+          while (!ops.isEmpty() && ops.peek() != '(') { //when you reach the end of the expression, go through and apply everything
+            applyOp(op
           }
           if (!ops.isEmpty()) {
             ops.pop(); 
           }
           negate = false;
-        } else if (isOperator(ch)) {
+        } 
+        else if (isOperator(ch)) {
           while (!ops.isEmpty() && precedence(ops.peek()) >= precedence(ch)) {
             applyOp(ops, vals);
           }
@@ -64,13 +68,12 @@ public class Equation {
 
     while (!ops.isEmpty()) {
       applyOp(ops, vals);
-    }
+ 
 
-    System.out.println(vals.pop());
   }
 
 
-  private static boolean isOperator(char ch) {
+  private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want
     return ch == '+' || ch == '-' || ch == '*' || ch == '/';
   }
 
@@ -81,7 +84,7 @@ public class Equation {
     double a = vals.pop();
     char op = ops.pop();
 
-    if (op == '+') {
+    if (op == '+') {   //Checks what the operation is, applies the appropriate operation
         vals.push(a + b);
     } else if (op == '-') {
         vals.push(a - b);
@@ -92,27 +95,13 @@ public class Equation {
     }
   }
 
-
-
-
-
-
-  private static int precedence(char op) {
+  private static int precedence(char op) { //Allows the code to look back at previous terms
     if (op == '+' || op == '-') {
         return 1;
     } else if (op == '*' || op == '/') {
         return 2;
     } else {
         return 0;
-    }
-  }
-
-  private static void getComp(Stack<String> ops, Stack<Double> vals) {
-    String op = ops.pop();
-    if (op.equals("+")) {
-      vals.push(vals.pop() + vals.pop());
-    } else if (op.equals("*")) {
-      vals.push(vals.pop() * vals.pop());
     }
   }
 }
