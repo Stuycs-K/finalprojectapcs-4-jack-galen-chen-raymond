@@ -232,12 +232,17 @@ void mouseClicked() {
     if (mouseX>=10 && mouseX<=90 && mouseY>=595 && mouseY<=645) {
       functionBoardOpen=false;
     }
+    if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
+      numEquations++;
+    }
   }
   else {
     if (mouseX>=10 && mouseX<=90 && mouseY>=810 && mouseY<=860) {
       functionBoardOpen=true;
     }
   }
+  
+  
   
   setup();
 }
