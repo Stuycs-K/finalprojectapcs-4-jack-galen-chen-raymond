@@ -14,12 +14,7 @@ void keyPressed() {
     numEquations++;
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
-    if (numEquations>1) {
-       numEquations--;
-    }
-    if (whichEquationSelected>1) {
-      whichEquationSelected--;
-    }
+    removeEquation();
   }
   
   if (keyCode == UP) {
@@ -44,19 +39,14 @@ void mouseClicked() {
       functionBoardOpen=false;
     }
     
-    // the blue return/add butotn
+    // the blue return/add button
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
       numEquations++;
     }
     
     // the delete button
     if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
-      if (numEquations>1) {
-         numEquations--;
-      }
-      if (whichEquationSelected>1) {
-        whichEquationSelected--;
-      }
+      removeEquation();
     }
   }
   else {
@@ -80,6 +70,19 @@ void mouseClicked() {
 }
 
 
+
+// helper methods
+
+
+
+void removeEquation() {
+  if (numEquations>1) {
+     numEquations--;
+  }
+  if (whichEquationSelected>1) {
+    whichEquationSelected--;
+  }
+}
 
 void draw() {
 }
