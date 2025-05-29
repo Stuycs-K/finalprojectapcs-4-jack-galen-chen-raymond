@@ -221,6 +221,15 @@ void setup() {
 
 
 void keyPressed() {
+  if (keyCode == ENTER) {
+    numEquations++;
+  }
+  if (keyCode == BACKSPACE || keyCode == DELETE) {
+    if (numEquations>1) {
+         numEquations--;
+     }
+  }
+  setup();
 }
 
 
