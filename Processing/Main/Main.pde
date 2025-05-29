@@ -249,9 +249,10 @@ void keyPressed() {
     }
   }
   if (keyCode == DOWN) {
-    if (whichEquationSelected < numEquations) {
-      whichEquationSelected++;
+    if (whichEquationSelected >= numEquations) {
+      numEquations++;
     }
+    whichEquationSelected++;
   }
   
   setup();
