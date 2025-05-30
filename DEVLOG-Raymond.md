@@ -17,4 +17,4 @@ This document must be updated daily every time you finish a work session.
 ~ 2 hrs - Delete and enter on function bar can add and remove new equations, equation boxes can be selected/highlighted on the left, up/down arrow keys work as in the real Desmos, equations bar looks more like the real Desmos, split Main into two files for convenience
 
 ### 2025-05-29 - Streamlined code and functionality in Equations bar
-~2 hr - Made code for the grid (and to create the numbers on the grid) more efficient, created the feature to hide the equations bar and fullscreen the grid
+~3 hr - Made code for the grid (and to create the numbers on the grid) more efficient, created the feature to hide the equations bar and fullscreen the grid, may now be too slow to run so need to fix that
