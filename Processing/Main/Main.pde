@@ -3,9 +3,9 @@ void setup() {
   
   background(255); // clear screen
   
-  topBar();
   equationsBar();
   grid();
+  topBar();
   functionsBar();
 }
 
