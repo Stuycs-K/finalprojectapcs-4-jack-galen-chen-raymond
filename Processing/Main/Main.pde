@@ -64,12 +64,12 @@ void mouseClicked() {
        // if the mouseClicked is selecting an equation
        whichEquationSelected = (mouseY/70)-1;
     }
-    if (mouseX<=440 && mouseX>=400 && mouseY<=120 && mouseY>=50) {
+    if (mouseX<=440 && mouseX>=360 && mouseY<=120 && mouseY>=50) {
       equationsBarOpen=false;
     }
   }
   else {
-    if (mouseX<=50 && mouseY>=50 && mouseY<=100) {
+    if (mouseX<=80 && mouseY>=50 && mouseY<=110) {
       equationsBarOpen=true;
     }
   }

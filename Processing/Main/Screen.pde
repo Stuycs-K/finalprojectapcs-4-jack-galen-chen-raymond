@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = true;
+private boolean equationsBarOpen = false;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -46,7 +46,6 @@ void equationsBar() {
     fill(0);
     
     rotate(PI/2);
-    // image(loadImage("arrow.png"), 380, 80, 50, 50);
     image(loadImage("arrow.png"), 60, -430, 50, 50);
     rotate(3*PI/2);
     
@@ -74,9 +73,9 @@ void equationsBar() {
   }
   
   else {
-    textSize(20);
-    fill(0);
-    text("open eq bar", 10, 70); // CHNAGE THIS!!!
+    rotate(-PI/2);
+    image(loadImage("arrow.png"), -110, 10, 50, 50);
+    rotate(PI/2);
   }
 }
 
@@ -154,53 +153,53 @@ void grid() {
     line(720, 50, 720, 870);
     
     // positive vertical lines + sublines
-    strokeWeight(1.1);
-    for (int i=820; i<1440; i+=100) {
-      line(i, 50, i, 870);
-    }
+    //strokeWeight(1.1);
+    //for (int i=820; i<1440; i+=100) {
+    //  line(i, 50, i, 870);
+    //}
     
-    strokeWeight(0.3);
-    for (int i=720; i<1440; i+=25) {
-      line(i, 50, i, 870);
-    }
+    //strokeWeight(0.3);
+    //for (int i=720; i<1440; i+=25) {
+    //  line(i, 50, i, 870);
+    //}
     
     // negative vertical lines + sublines
-    strokeWeight(1.1);
-    for (int i=820; i<1440; i-=100) {
-      line(i, 50, i, 870);
-    }
+    //strokeWeight(1.1);
+    //for (int i=820; i<1440; i-=100) {
+    //  line(i, 50, i, 870);
+    //}
     
-    strokeWeight(0.3);
-    for (int i=720; i>0; i-=25) {
-      line(i, 50, i, 870);
-    }
+    //strokeWeight(0.3);
+    //for (int i=720; i>0; i-=25) {
+    //  line(i, 50, i, 870);
+    //}
     
     
     // horizontal lines + numbers along y-axis
-    strokeWeight(2);
-    line(0, 460, 1440, 460);
+    //strokeWeight(2);
+    //line(0, 460, 1440, 460);
     
     // positive horizontal lines + sublines
-    strokeWeight(1.1);
-    for (int i=460; i<870; i+=100) {
-      line(0, i, 1440, i);
-    }
+    //strokeWeight(1.1);
+    //for (int i=460; i<870; i+=100) {
+    //  line(0, i, 1440, i);
+    //}
     
-    strokeWeight(0.3);
-    for (int i=460; i<870; i+=25) {
-      line(0, i, 1440, i);
-    }
+    //strokeWeight(0.3);
+    //for (int i=460; i<870; i+=25) {
+    //  line(0, i, 1440, i);
+    //}
     
     // negative horizontal lines + sublines
-    strokeWeight(1.1);
-    for (int i=460; i>50; i-=100) {
-      line(0, i, 1440, i);
-    }
+    //strokeWeight(1.1);
+    //for (int i=460; i>50; i-=100) {
+    //  line(0, i, 1440, i);
+    //}
     
-    strokeWeight(0.3);
-    for (int i=460; i>50; i-=25) {
-      line(0, i, 1440, i);
-    }
+    //strokeWeight(0.3);
+    //for (int i=460; i>50; i-=25) {
+    //  line(0, i, 1440, i);
+    //}
   }
 }
 
