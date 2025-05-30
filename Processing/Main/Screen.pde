@@ -2,7 +2,7 @@ private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
-private int zoomLevel = 0;
+private int zoomLevel = 2; // this is the value at the first marked tick on the grid
 
 void topBar() {
   // CREATE DESMOS LOGO ON TOP
@@ -61,21 +61,6 @@ void grid() {
   // INITIAL GRID
   stroke(0);
   
-  // the numbers
-  textSize(15);
-  fill(0);
-  // on x-axis 
-  text("-10", 445, 477);
-  text("-8", 532, 477);
-  text("-6", 632, 477);
-  text("-4", 732, 477);
-  text("-2", 832, 477);
-  text("0", 927, 477);
-  text("2", 1036, 477);
-  text("4", 1136, 477);
-  text("6", 1236, 477);
-  text("8", 1336, 477);
-  text("10", 1422, 477);
   // on y-axis
   text("8", 927, 65);
   text("6", 927, 165);
@@ -87,13 +72,35 @@ void grid() {
   text("-8", 922, 865);
   
   
-  // vertical lines
+  // vertical lines + numbers along x-axis
   strokeWeight(2);
   line(940, 50, 940, 870);
   
+  int mult = 5; // this is used to display the right number based on the zoomLevel
   strokeWeight(1.1);
   for (int i=1440; i>400; i-=100) {
     line(i, 50, i, 870);
+    
+    if (mult==5) {
+      text(zoomLevel*mult, i-17, 475);
+    }
+    else if (mult>0) {
+      text(zoomLevel*mult, i-3, 475);
+    }
+    else if (mult==0) {
+      text(zoomLevel*mult, i-10, 475);
+    }
+    else if (mult==-5) {
+      text(zoomLevel*mult, i+5, 475);
+    }
+    else if (mult<0) {
+      text(zoomLevel*mult, i-7, 475);
+    }
+    else {
+      text(zoomLevel*mult, i-10, 475);
+    }    
+    
+    mult--;
   }
   
   // vertical sub-lines
