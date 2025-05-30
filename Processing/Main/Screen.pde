@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = true;
+private boolean equationsBarOpen = false;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -28,44 +28,48 @@ void topBar() {
 
 void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
-  // the entire rectangle holding the equations bar
-  fill(255);
-  strokeWeight(5);
-  rect(0, 50, 440, 870);
   
-  // the topmost bar holding the +, <--, -->, options, and hide equations bar
-  strokeWeight(1);
-  fill(226);
-  rect(2, 50, 436, 70);
-  
-  image(loadImage("plus.png"), 20, 65, 40, 40);
-  
-  
-  // the equations
-  strokeWeight(1);
-  for (int i=0; i<numEquations; i++) {
-    if (i == whichEquationSelected-1) {
-      fill(38, 89, 255);
-      stroke(38, 89, 255);
-    }
-    else {
-      fill(226);
-      stroke(0);
-    }
+  if (equationsBarOpen) {
+    // the entire rectangle holding the equations bar
+    fill(255);
+    strokeWeight(5);
+    rect(0, 50, 440, 870);
     
-    rect(2, 120+70*i, 40, 70);
-    line(0, 120+70*i, 440, 120+70*i);
-    line(0, 190+70*i, 440, 190+70*i);
+    // the topmost bar holding the +, <--, -->, options, and hide equations bar
+    strokeWeight(1);
+    fill(226);
+    rect(2, 50, 436, 70);
     
-    fill(0);
-    textSize(15);
-    text(i+1, 10, 140+70*i);
+    image(loadImage("plus.png"), 20, 65, 40, 40);
+    
+    
+    // the equations
+    strokeWeight(1);
+    for (int i=0; i<numEquations; i++) {
+      if (i == whichEquationSelected-1) {
+        fill(38, 89, 255);
+        stroke(38, 89, 255);
+      }
+      else {
+        fill(226);
+        stroke(0);
+      }
+      
+      rect(2, 120+70*i, 40, 70);
+      line(0, 120+70*i, 440, 120+70*i);
+      line(0, 190+70*i, 440, 190+70*i);
+      
+      fill(0);
+      textSize(15);
+      text(i+1, 10, 140+70*i);
+    }
   }
 }
 
 void grid() {
   // INITIAL GRID
   stroke(0);
+  textSize(15);
   
   // vertical lines + numbers along x-axis
   strokeWeight(2);
