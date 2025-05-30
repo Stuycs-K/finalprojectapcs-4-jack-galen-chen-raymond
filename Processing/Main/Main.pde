@@ -1,8 +1,10 @@
+import java.util.Arrays;
+
 private int screenXFull = 1440;
 private int screenXSide = 1000; //starts at 440
 private int screenYFull = 820; //starts at 50
 
-private ArrayList<Equation> eqs = new ArrayList<Equation>();
+private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation()));
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
