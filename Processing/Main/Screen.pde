@@ -2,6 +2,7 @@ private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
+private int zoomLevel = 0;
 
 void topBar() {
   // CREATE DESMOS LOGO ON TOP
@@ -83,7 +84,7 @@ void grid() {
   strokeWeight(2);
   line(940, 50, 940, 870);
   
-  strokeWeight(1.3);
+  strokeWeight(1.1);
   for (int i=1440; i>400; i-=100) {
     line(i, 50, i, 870);
   }
@@ -98,7 +99,7 @@ void grid() {
   strokeWeight(2);
   line(440, 460, 1440, 460);
   
-  strokeWeight(1.3);
+  strokeWeight(1.1);
   for (int i=860; i>50; i-=100) {
     line(440, i, 1440, i);
   }
