@@ -69,7 +69,9 @@ void mouseClicked() {
   // ZOOM IN AND OUT
   if (mouseX>=1395 && mouseX<=1435 && mouseY>=100 && mouseY<=140) {
     // zoom in
-    zoomLevel/=2;
+    if (zoomLevel>1) {
+      zoomLevel/=2;
+    }
   }
   if (mouseX>=1395 && mouseX<=1435 && mouseY>=140 && mouseY<=180) {
     // zoom out

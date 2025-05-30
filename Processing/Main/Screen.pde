@@ -17,6 +17,10 @@ void topBar() {
   rect(1395, 55, 40, 40, 5); // options button
   
   rect(1395, 100, 40, 80, 5); // zoom in / out button
+  if (zoomLevel==1) {
+    fill(100, 255);
+    rect(1395, 100, 40, 40, 5, 5, 1, 1);
+  }
   
   stroke(0);
   line(1395, 140, 1435, 140);
