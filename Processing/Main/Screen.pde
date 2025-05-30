@@ -2,7 +2,7 @@ private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
-private float zoomLevel = 2; // this is the value at the first marked tick on the grid
+private int zoomLevel = 2; // this is the value at the first marked tick on the grid
 
 void topBar() {
   // CREATE DESMOS LOGO ON TOP
@@ -14,8 +14,10 @@ void topBar() {
   
   // Create icons on the right side
   fill(220, 255);
-  rect(1395, 55, 40, 40, 5);
-  rect(1395, 100, 40, 80, 5);
+  rect(1395, 55, 40, 40, 5); // options button
+  
+  rect(1395, 100, 40, 80, 5); // zoom in / out button
+  
   stroke(0);
   line(1395, 140, 1435, 140);
 }
