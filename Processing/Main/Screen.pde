@@ -61,17 +61,6 @@ void grid() {
   // INITIAL GRID
   stroke(0);
   
-  // on y-axis
-  text("8", 927, 65);
-  text("6", 927, 165);
-  text("4", 927, 265);
-  text("2", 927, 365);
-  text("-2", 922, 565);
-  text("-4", 922, 665);
-  text("-6", 922, 765);
-  text("-8", 922, 865);
-  
-  
   // vertical lines + numbers along x-axis
   strokeWeight(2);
   line(940, 50, 940, 870);
@@ -95,10 +84,7 @@ void grid() {
     }
     else if (mult<0) {
       text(zoomLevel*mult, i-7, 475);
-    }
-    else {
-      text(zoomLevel*mult, i-10, 475);
-    }    
+    } 
     
     mult--;
   }
@@ -109,13 +95,25 @@ void grid() {
     line(i, 50, i, 870);
   }
   
-  // horizontal lines
+  
+  
+  // horizontal lines + numbers along y-axis
   strokeWeight(2);
   line(440, 460, 1440, 460);
   
+  int mult2 = -4; // this is used to display the right number based on the zoomLevel
   strokeWeight(1.1);
   for (int i=860; i>50; i-=100) {
     line(440, i, 1440, i);
+    
+    if (mult2>0) {
+      text(zoomLevel*mult2, 928, i+5);
+    }
+    if (mult2<0) {
+      text(zoomLevel*mult2, 922, i+5);
+    }
+    
+    mult2++;
   }
   
   // horizontal sub-lines
