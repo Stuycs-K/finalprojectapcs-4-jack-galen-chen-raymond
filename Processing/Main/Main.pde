@@ -1,3 +1,9 @@
+private int screenXFull = 1440;
+private int screenXSide = 1000; //starts at 440
+private int screenYFull = 820; //starts at 50
+
+
+
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
@@ -9,6 +15,7 @@ void setup() {
   if (equationsBarOpen) {
     functionsBar();
   }
+  graph();
 }
 
 void keyPressed() {
@@ -102,6 +109,19 @@ void removeEquation() {
   if (whichEquationSelected>1) {
     whichEquationSelected--;
   }
+}
+
+void graph() {
+
+ Equation e = new Equation("500"); 
+ strokeWeight(10);
+ stroke(38,89,255);
+ point((float)10, (float)e.evaluate(10));
+ for (int i = 440; i < 1440; i++){
+
+   point((float)i, (float)e.evaluate(i));
+
+ }
 }
 
 void draw() {
