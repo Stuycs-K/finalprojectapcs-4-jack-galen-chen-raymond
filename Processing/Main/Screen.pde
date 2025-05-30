@@ -44,7 +44,11 @@ void equationsBar() {
     
     textSize(20);
     fill(0);
-    text("hide", 400, 100);
+    
+    rotate(PI/2);
+    // image(loadImage("arrow.png"), 380, 80, 50, 50);
+    image(loadImage("arrow.png"), 60, -430, 50, 50);
+    rotate(3*PI/2);
     
     
     // the equations
