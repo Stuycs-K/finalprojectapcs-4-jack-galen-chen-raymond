@@ -112,14 +112,26 @@ void removeEquation() {
 }
 
 void graph() {
+ int x = 0;
+ int start = 720;
+ int startNeg = 0;
+ Equation e = new Equation("x*x"); 
 
- Equation e = new Equation("500"); 
- strokeWeight(10);
+ strokeWeight(5);
  stroke(38,89,255);
- point((float)10, (float)e.evaluate(10));
- for (int i = 440; i < 1440; i++){
+ if (equationsBarOpen){
+   start = 940;
+   startNeg = 440;
+ }
+ for (int i = start; i < 1440; i++){
+   point((float)i, 460 - (float)e.evaluate(x));
+   x++;
 
-   point((float)i, (float)e.evaluate(i));
+ }
+ x = startNeg - start;
+ for (int i = startNeg; i < start; i++){
+   point((float)i, 460 - (float)e.evaluate(x));
+   x++;
 
  }
 }
