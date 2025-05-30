@@ -124,8 +124,8 @@ void graph() {
    startNeg = 440;
  }
  for (int i = start; i < 1440; i++){
-   point((float)i, 460 - (float)e.evaluate(x));
-   x++;
+   point(i, 460 - (100.0/zoomLevel) * (float)e.evaluate(x));
+   x+=zoomLevel/100.0;
 
  }
  x = startNeg - start;
