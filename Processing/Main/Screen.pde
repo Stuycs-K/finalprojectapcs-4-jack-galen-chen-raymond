@@ -33,6 +33,7 @@ void equationsBar() {
     // the entire rectangle holding the equations bar
     fill(255);
     strokeWeight(5);
+    stroke(0);
     rect(0, 50, 440, 870);
     
     // the topmost bar holding the +, <--, -->, options, and hide equations bar
