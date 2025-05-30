@@ -2,7 +2,7 @@ private int screenXFull = 1440;
 private int screenXSide = 1000; //starts at 440
 private int screenYFull = 820; //starts at 50
 
-
+private ArrayList<Equation> eqs = new ArrayList<Equation>();
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
