@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = true;
+private boolean equationsBarOpen = false;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -67,11 +67,11 @@ void equationsBar() {
 }
 
 void grid() {
+  stroke(0);
+  textSize(15);
   if (equationsBarOpen) {
-    // INITIAL GRID
-    stroke(0);
-    textSize(15);
-    
+    // INITIAL GRID / HALF SCREEN GRID
+
     // vertical lines + numbers along x-axis
     strokeWeight(2);
     line(940, 50, 940, 870);
@@ -134,7 +134,59 @@ void grid() {
     }
   }
   
-  else {
+  else { // FOR FULLSCREEN GRID
+    // vertical lines + numbers along x-axis
+    strokeWeight(2);
+    line(720, 50, 720, 870);
+    
+    // positive vertical lines + sublines
+    strokeWeight(1.1);
+    for (int i=820; i<1440; i+=100) {
+      line(i, 50, i, 870);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=720; i<1440; i+=25) {
+      line(i, 50, i, 870);
+    }
+    
+    // negative vertical lines + sublines
+    strokeWeight(1.1);
+    for (int i=820; i<1440; i-=100) {
+      line(i, 50, i, 870);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=720; i>0; i-=25) {
+      line(i, 50, i, 870);
+    }
+    
+    
+    // horizontal lines + numbers along y-axis
+    strokeWeight(2);
+    line(0, 460, 1440, 460);
+    
+    // positive horizontal lines + sublines
+    strokeWeight(1.1);
+    for (int i=460; i<870; i+=100) {
+      line(0, i, 1440, i);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=460; i<870; i+=25) {
+      line(0, i, 1440, i);
+    }
+    
+    // negative horizontal lines + sublines
+    strokeWeight(1.1);
+    for (int i=460; i>50; i-=100) {
+      line(0, i, 1440, i);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=460; i>50; i-=25) {
+      line(0, i, 1440, i);
+    }
   }
 }
 

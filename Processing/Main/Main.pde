@@ -6,7 +6,9 @@ void setup() {
   equationsBar();
   grid();
   topBar();
-  functionsBar();
+  if (equationsBarOpen) {
+    functionsBar();
+  }
 }
 
 void keyPressed() {
