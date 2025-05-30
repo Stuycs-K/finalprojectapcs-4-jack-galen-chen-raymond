@@ -102,6 +102,7 @@ void mouseClicked() {
 
 void addEquation() {
   numEquations++;
+  eqs.add(new Equation());
 }
 
 void removeEquation() {
@@ -115,7 +116,6 @@ void removeEquation() {
 
 void graph() {
  int origin = 720;
- Equation e = new Equation("(x-5) * (x-3)"); 
 
  strokeWeight(5);
  stroke(38,89,255);
@@ -124,7 +124,7 @@ void graph() {
  }
  for (int i = 0; i < 1440; i++){
    float x = (i - origin) * zoomLevel / 100.0;
-   float y = 460 - (100.0f / zoomLevel) * (float)e.evaluate(x);
+   float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
    if (y > 50){
      point(i,y);
    }
