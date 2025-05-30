@@ -148,58 +148,65 @@ void grid() {
   }
   
   else { // FOR FULLSCREEN GRID
+    stroke(0);
+    fill(0);
+    textSize(15);
+    
     // vertical lines + numbers along x-axis
     strokeWeight(2);
     line(720, 50, 720, 870);
     
     // positive vertical lines + sublines
-    //strokeWeight(1.1);
-    //for (int i=820; i<1440; i+=100) {
-    //  line(i, 50, i, 870);
-    //}
+    strokeWeight(1.1);
+    int mult = 1;
+    for (int i=820; i<1440; i+=100) {
+      line(i, 50, i, 870);
+      text(mult*zoomLevel, i-3, 477);
+      mult++;
+    }
     
-    //strokeWeight(0.3);
-    //for (int i=720; i<1440; i+=25) {
-    //  line(i, 50, i, 870);
-    //}
+    strokeWeight(0.3);
+    for (int i=720; i<1440; i+=25) {
+      line(i, 50, i, 870);
+    }
     
     // negative vertical lines + sublines
-    //strokeWeight(1.1);
-    //for (int i=820; i<1440; i-=100) {
-    //  line(i, 50, i, 870);
-    //}
+    strokeWeight(1.1);
+    for (int i=820; i>0; i-=100) {
+      line(i, 50, i, 870);
+    }
     
-    //strokeWeight(0.3);
-    //for (int i=720; i>0; i-=25) {
-    //  line(i, 50, i, 870);
-    //}
+    strokeWeight(0.3);
+    for (int i=720; i>0; i-=25) {
+      line(i, 50, i, 870);
+    }
     
     
     // horizontal lines + numbers along y-axis
-    //strokeWeight(2);
-    //line(0, 460, 1440, 460);
+    strokeWeight(2);
+    line(0, 460, 1440, 460);
     
     // positive horizontal lines + sublines
-    //strokeWeight(1.1);
-    //for (int i=460; i<870; i+=100) {
-    //  line(0, i, 1440, i);
-    //}
+    strokeWeight(1.1);
+    for (int i=460; i<870; i+=100) {
+      line(0, i, 1440, i);
+    }
     
-    //strokeWeight(0.3);
-    //for (int i=460; i<870; i+=25) {
-    //  line(0, i, 1440, i);
-    //}
+    strokeWeight(0.3);
+    for (int i=460; i<870; i+=25) {
+      line(0, i, 1440, i);
+    }
     
     // negative horizontal lines + sublines
-    //strokeWeight(1.1);
-    //for (int i=460; i>50; i-=100) {
-    //  line(0, i, 1440, i);
-    //}
+    strokeWeight(1.1);
+    for (int i=460; i>50; i-=100) {
+      line(0, i, 1440, i);
+    }
     
-    //strokeWeight(0.3);
-    //for (int i=460; i>50; i-=25) {
-    //  line(0, i, 1440, i);
-    //}
+    strokeWeight(0.3);
+    for (int i=460; i>50; i-=25) {
+      line(0, i, 1440, i);
+    }
   }
 }
 
