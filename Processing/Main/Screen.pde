@@ -44,7 +44,10 @@ void equationsBar() {
     
     textSize(20);
     fill(0);
-    text("hide", 400, 100);
+    
+    rotate(PI/2);
+    image(loadImage("arrow.png"), 60, -430, 50, 50);
+    rotate(3*PI/2);
     
     
     // the equations
@@ -70,9 +73,9 @@ void equationsBar() {
   }
   
   else {
-    textSize(20);
-    fill(0);
-    text("open eq bar", 10, 70); // CHNAGE THIS!!!
+    rotate(-PI/2);
+    image(loadImage("arrow.png"), -110, 10, 50, 50);
+    rotate(PI/2);
   }
 }
 
@@ -145,14 +148,22 @@ void grid() {
   }
   
   else { // FOR FULLSCREEN GRID
+    stroke(0);
+    fill(0);
+    textSize(15);
+    text(0, 705, 477);
+    
     // vertical lines + numbers along x-axis
     strokeWeight(2);
     line(720, 50, 720, 870);
     
     // positive vertical lines + sublines
     strokeWeight(1.1);
+    int mult = 1;
     for (int i=820; i<1440; i+=100) {
       line(i, 50, i, 870);
+      text(mult*zoomLevel, i-3, 477);
+      mult++;
     }
     
     strokeWeight(0.3);
@@ -162,8 +173,11 @@ void grid() {
     
     // negative vertical lines + sublines
     strokeWeight(1.1);
-    for (int i=820; i<1440; i-=100) {
+    mult=-1;
+    for (int i=620; i>0; i-=100) {
       line(i, 50, i, 870);
+      text(mult*zoomLevel, i-6, 477);
+      mult--;
     }
     
     strokeWeight(0.3);
@@ -178,8 +192,11 @@ void grid() {
     
     // positive horizontal lines + sublines
     strokeWeight(1.1);
-    for (int i=460; i<870; i+=100) {
+    mult=-1;
+    for (int i=560; i<870; i+=100) {
       line(0, i, 1440, i);
+      text(mult*zoomLevel, 700, i+5);
+      mult--;
     }
     
     strokeWeight(0.3);
@@ -189,8 +206,11 @@ void grid() {
     
     // negative horizontal lines + sublines
     strokeWeight(1.1);
-    for (int i=460; i>50; i-=100) {
+    mult=1;
+    for (int i=360; i>50; i-=100) {
       line(0, i, 1440, i);
+      text(mult*zoomLevel, 705, i+5);
+      mult++;
     }
     
     strokeWeight(0.3);
