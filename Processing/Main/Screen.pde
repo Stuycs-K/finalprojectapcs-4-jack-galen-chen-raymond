@@ -192,8 +192,11 @@ void grid() {
     
     // positive horizontal lines + sublines
     strokeWeight(1.1);
-    for (int i=460; i<870; i+=100) {
+    mult=-1;
+    for (int i=560; i<870; i+=100) {
       line(0, i, 1440, i);
+      text(mult*zoomLevel, 700, i+5);
+      mult--;
     }
     
     strokeWeight(0.3);
@@ -203,8 +206,11 @@ void grid() {
     
     // negative horizontal lines + sublines
     strokeWeight(1.1);
-    for (int i=460; i>50; i-=100) {
+    mult=1;
+    for (int i=360; i>50; i-=100) {
       line(0, i, 1440, i);
+      text(mult*zoomLevel, 705, i+5);
+      mult++;
     }
     
     strokeWeight(0.3);
