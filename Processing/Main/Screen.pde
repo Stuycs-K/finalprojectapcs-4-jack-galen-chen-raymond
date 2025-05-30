@@ -151,6 +151,7 @@ void grid() {
     stroke(0);
     fill(0);
     textSize(15);
+    text(0, 705, 477);
     
     // vertical lines + numbers along x-axis
     strokeWeight(2);
@@ -172,8 +173,11 @@ void grid() {
     
     // negative vertical lines + sublines
     strokeWeight(1.1);
-    for (int i=820; i>0; i-=100) {
+    mult=-1;
+    for (int i=620; i>0; i-=100) {
       line(i, 50, i, 870);
+      text(mult*zoomLevel, i-6, 477);
+      mult--;
     }
     
     strokeWeight(0.3);
