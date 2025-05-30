@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = false;
+private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -42,6 +42,10 @@ void equationsBar() {
     
     image(loadImage("plus.png"), 20, 65, 40, 40);
     
+    textSize(20);
+    fill(0);
+    text("hide", 400, 100);
+    
     
     // the equations
     strokeWeight(1);
@@ -63,6 +67,12 @@ void equationsBar() {
       textSize(15);
       text(i+1, 10, 140+70*i);
     }
+  }
+  
+  else {
+    textSize(20);
+    fill(0);
+    text("open eq bar", 10, 70); // CHNAGE THIS!!!
   }
 }
 
