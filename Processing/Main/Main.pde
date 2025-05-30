@@ -20,7 +20,7 @@ void setup() {
 
 void keyPressed() {
   if (keyCode == ENTER) {
-    numEquations++;
+    addEquation();
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
     removeEquation();
@@ -33,7 +33,7 @@ void keyPressed() {
   }
   if (keyCode == DOWN) {
     if (whichEquationSelected >= numEquations) {
-      numEquations++;
+      addEquation();
     }
     whichEquationSelected++;
   }
@@ -50,7 +50,7 @@ void mouseClicked() {
     
     // the blue return/add button
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
-      numEquations++;
+      addEquation();
     }
     
     // the delete button
@@ -100,7 +100,9 @@ void mouseClicked() {
 
 // helper methods
 
-
+void addEquation() {
+  numEquations++;
+}
 
 void removeEquation() {
   if (numEquations>1) {
