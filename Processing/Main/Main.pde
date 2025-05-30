@@ -112,27 +112,20 @@ void removeEquation() {
 }
 
 void graph() {
- int x = 0;
- int start = 720;
- int startNeg = 0;
- Equation e = new Equation("x*x"); 
+ int origin = 720;
+ Equation e = new Equation("(x-5) * (x-3)"); 
 
  strokeWeight(5);
  stroke(38,89,255);
  if (equationsBarOpen){
-   start = 940;
-   startNeg = 440;
+   origin = 940;
  }
- for (int i = start; i < 1440; i++){
-   point((float)i, 460 - (float)e.evaluate(x));
-   x++;
-
- }
- x = startNeg - start;
- for (int i = startNeg; i < start; i++){
-   point((float)i, 460 - (float)e.evaluate(x));
-   x++;
-
+ for (int i = 0; i < 1440; i++){
+   float x = (i - origin) * zoomLevel / 100.0;
+   float y = 460 - (100.0f / zoomLevel) * (float)e.evaluate(x);
+   if (y > 50){
+     point(i,y);
+   }
  }
 }
 
