@@ -3,10 +3,12 @@ void setup() {
   
   background(255); // clear screen
   
-  topBar();
   equationsBar();
   grid();
-  functionsBar();
+  topBar();
+  if (equationsBarOpen) {
+    functionsBar();
+  }
 }
 
 void keyPressed() {
@@ -14,12 +16,7 @@ void keyPressed() {
     numEquations++;
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
-    if (numEquations>1) {
-       numEquations--;
-    }
-    if (whichEquationSelected>1) {
-      whichEquationSelected--;
-    }
+    removeEquation();
   }
   
   if (keyCode == UP) {
@@ -44,19 +41,14 @@ void mouseClicked() {
       functionBoardOpen=false;
     }
     
-    // the blue return/add butotn
+    // the blue return/add button
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
       numEquations++;
     }
     
     // the delete button
     if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
-      if (numEquations>1) {
-         numEquations--;
-      }
-      if (whichEquationSelected>1) {
-        whichEquationSelected--;
-      }
+      removeEquation();
     }
   }
   else {
@@ -72,14 +64,45 @@ void mouseClicked() {
        // if the mouseClicked is selecting an equation
        whichEquationSelected = (mouseY/70)-1;
     }
+    if (mouseX<=440 && mouseX>=400 && mouseY<=120 && mouseY>=50) {
+      equationsBarOpen=false;
+    }
   }
   else {
+    if (mouseX<=50 && mouseY>=50 && mouseY<=100) {
+      equationsBarOpen=true;
+    }
+  }
+  
+  // ZOOM IN AND OUT
+  if (mouseX>=1395 && mouseX<=1435 && mouseY>=100 && mouseY<=140) {
+    // zoom in
+    if (zoomLevel>1) {
+      zoomLevel/=2;
+    }
+  }
+  if (mouseX>=1395 && mouseX<=1435 && mouseY>=140 && mouseY<=180) {
+    // zoom out
+    zoomLevel*=2;
   }
   
   setup();
 }
 
 
+
+// helper methods
+
+
+
+void removeEquation() {
+  if (numEquations>1) {
+     numEquations--;
+  }
+  if (whichEquationSelected>1) {
+    whichEquationSelected--;
+  }
+}
 
 void draw() {
 }

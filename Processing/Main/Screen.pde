@@ -2,6 +2,7 @@ private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
+private int zoomLevel = 2; // this is the value at the first marked tick on the grid
 
 void topBar() {
   // CREATE DESMOS LOGO ON TOP
@@ -10,99 +11,192 @@ void topBar() {
   fill(255);
   textSize(35);
   text("desmos", 667, 37);
+  
+  // Create icons on the right side
+  fill(220, 255);
+  rect(1395, 55, 40, 40, 5); // options button
+  
+  rect(1395, 100, 40, 80, 5); // zoom in / out button
+  if (zoomLevel==1) {
+    fill(100, 255);
+    rect(1395, 100, 40, 40, 5, 5, 1, 1);
+  }
+  
+  stroke(0);
+  line(1395, 140, 1435, 140);
 }
 
 void equationsBar() {
   // EQUATIONS BAR ON THE LEFT
-  // the entire rectangle holding the equations bar
-  fill(255);
-  strokeWeight(5);
-  rect(0, 50, 440, 870);
   
-  // the topmost bar holding the +, <--, -->, options, and hide equations bar
-  strokeWeight(1);
-  fill(226);
-  rect(2, 50, 436, 70);
-  
-  strokeWeight(1);
-  for (int i=0; i<numEquations; i++) {
-    if (i == whichEquationSelected-1) {
-      fill(38, 89, 255);
-      stroke(38, 89, 255);
-    }
-    else {
-      fill(226);
-      stroke(0);
-    }
+  if (equationsBarOpen) {
+    // the entire rectangle holding the equations bar
+    fill(255);
+    strokeWeight(5);
+    rect(0, 50, 440, 870);
     
-    rect(2, 120+70*i, 40, 70);
-    line(0, 120+70*i, 440, 120+70*i);
-    line(0, 190+70*i, 440, 190+70*i);
+    // the topmost bar holding the +, <--, -->, options, and hide equations bar
+    strokeWeight(1);
+    fill(226);
+    rect(2, 50, 436, 70);
     
+    image(loadImage("plus.png"), 20, 65, 40, 40);
+    
+    textSize(20);
     fill(0);
-    textSize(15);
-    text(i+1, 10, 140+70*i);
+    text("hide", 400, 100);
+    
+    
+    // the equations
+    strokeWeight(1);
+    for (int i=0; i<numEquations; i++) {
+      if (i == whichEquationSelected-1) {
+        fill(38, 89, 255);
+        stroke(38, 89, 255);
+      }
+      else {
+        fill(226);
+        stroke(0);
+      }
+      
+      rect(2, 120+70*i, 40, 70);
+      line(0, 120+70*i, 440, 120+70*i);
+      line(0, 190+70*i, 440, 190+70*i);
+      
+      fill(0);
+      textSize(15);
+      text(i+1, 10, 140+70*i);
+    }
+  }
+  
+  else {
+    textSize(20);
+    fill(0);
+    text("open eq bar", 10, 70); // CHNAGE THIS!!!
   }
 }
 
 void grid() {
-  // INITIAL GRID
   stroke(0);
-  
-  // the numbers
   textSize(15);
-  fill(0);
-  // on x-axis 
-  text("-10", 445, 477);
-  text("-8", 532, 477);
-  text("-6", 632, 477);
-  text("-4", 732, 477);
-  text("-2", 832, 477);
-  text("0", 927, 477);
-  text("2", 1036, 477);
-  text("4", 1136, 477);
-  text("6", 1236, 477);
-  text("8", 1336, 477);
-  text("10", 1422, 477);
-  // on y-axis
-  text("8", 927, 65);
-  text("6", 927, 165);
-  text("4", 927, 265);
-  text("2", 927, 365);
-  text("-2", 922, 565);
-  text("-4", 922, 665);
-  text("-6", 922, 765);
-  text("-8", 922, 865);
-  
-  
-  // vertical lines
-  strokeWeight(2);
-  line(940, 50, 940, 870);
-  
-  strokeWeight(1.3);
-  for (int i=1440; i>400; i-=100) {
-    line(i, 50, i, 870);
+  if (equationsBarOpen) {
+    // INITIAL GRID / HALF SCREEN GRID
+
+    // vertical lines + numbers along x-axis
+    strokeWeight(2);
+    line(940, 50, 940, 870);
+    
+    int mult = 5; // this is used to display the right number based on the zoomLevel
+    strokeWeight(1.1);
+    for (int i=1440; i>400; i-=100) {
+      line(i, 50, i, 870);
+      
+      if (mult==5) {
+        text(zoomLevel*mult, i-17, 475);
+      }
+      else if (mult>0) {
+        text(zoomLevel*mult, i-3, 475);
+      }
+      else if (mult==0) {
+        text(zoomLevel*mult, i-10, 475);
+      }
+      else if (mult==-5) {
+        text(zoomLevel*mult, i+5, 475);
+      }
+      else if (mult<0) {
+        text(zoomLevel*mult, i-7, 475);
+      } 
+      
+      mult--;
+    }
+    
+    // vertical sub-lines
+    strokeWeight(0.3);
+    for (int i=1440; i>440; i-=25) {
+      line(i, 50, i, 870);
+    }
+    
+    
+    
+    // horizontal lines + numbers along y-axis
+    strokeWeight(2);
+    line(440, 460, 1440, 460);
+    
+    int mult2 = -4; // this is used to display the right number based on the zoomLevel
+    strokeWeight(1.1);
+    for (int i=860; i>50; i-=100) {
+      line(440, i, 1440, i);
+      
+      if (mult2>0) {
+        text(zoomLevel*mult2, 928, i+5);
+      }
+      if (mult2<0) {
+        text(zoomLevel*mult2, 922, i+5);
+      }
+      
+      mult2++;
+    }
+    
+    // horizontal sub-lines
+    strokeWeight(0.3);
+    for (int i=860; i>50; i-=25) {
+      line(440, i, 1440, i);
+    }
   }
   
-  // vertical sub-lines
-  strokeWeight(0.3);
-  for (int i=1440; i>440; i-=25) {
-    line(i, 50, i, 870);
-  }
-  
-  // horizontal lines
-  strokeWeight(2);
-  line(440, 460, 1440, 460);
-  
-  strokeWeight(1.3);
-  for (int i=860; i>50; i-=100) {
-    line(440, i, 1440, i);
-  }
-  
-  // horizontal sub-lines
-  strokeWeight(0.3);
-  for (int i=860; i>50; i-=25) {
-    line(440, i, 1440, i);
+  else { // FOR FULLSCREEN GRID
+    // vertical lines + numbers along x-axis
+    strokeWeight(2);
+    line(720, 50, 720, 870);
+    
+    // positive vertical lines + sublines
+    strokeWeight(1.1);
+    for (int i=820; i<1440; i+=100) {
+      line(i, 50, i, 870);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=720; i<1440; i+=25) {
+      line(i, 50, i, 870);
+    }
+    
+    // negative vertical lines + sublines
+    strokeWeight(1.1);
+    for (int i=820; i<1440; i-=100) {
+      line(i, 50, i, 870);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=720; i>0; i-=25) {
+      line(i, 50, i, 870);
+    }
+    
+    
+    // horizontal lines + numbers along y-axis
+    strokeWeight(2);
+    line(0, 460, 1440, 460);
+    
+    // positive horizontal lines + sublines
+    strokeWeight(1.1);
+    for (int i=460; i<870; i+=100) {
+      line(0, i, 1440, i);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=460; i<870; i+=25) {
+      line(0, i, 1440, i);
+    }
+    
+    // negative horizontal lines + sublines
+    strokeWeight(1.1);
+    for (int i=460; i>50; i-=100) {
+      line(0, i, 1440, i);
+    }
+    
+    strokeWeight(0.3);
+    for (int i=460; i>50; i-=25) {
+      line(0, i, 1440, i);
+    }
   }
 }
 
