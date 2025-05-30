@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = false;
+private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
