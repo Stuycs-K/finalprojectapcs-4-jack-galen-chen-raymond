@@ -1,5 +1,5 @@
 private boolean functionBoardOpen = false;
-private boolean equationsBarOpen = false;
+private boolean equationsBarOpen = true;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -67,69 +67,74 @@ void equationsBar() {
 }
 
 void grid() {
-  // INITIAL GRID
-  stroke(0);
-  textSize(15);
-  
-  // vertical lines + numbers along x-axis
-  strokeWeight(2);
-  line(940, 50, 940, 870);
-  
-  int mult = 5; // this is used to display the right number based on the zoomLevel
-  strokeWeight(1.1);
-  for (int i=1440; i>400; i-=100) {
-    line(i, 50, i, 870);
+  if (equationsBarOpen) {
+    // INITIAL GRID
+    stroke(0);
+    textSize(15);
     
-    if (mult==5) {
-      text(zoomLevel*mult, i-17, 475);
-    }
-    else if (mult>0) {
-      text(zoomLevel*mult, i-3, 475);
-    }
-    else if (mult==0) {
-      text(zoomLevel*mult, i-10, 475);
-    }
-    else if (mult==-5) {
-      text(zoomLevel*mult, i+5, 475);
-    }
-    else if (mult<0) {
-      text(zoomLevel*mult, i-7, 475);
-    } 
+    // vertical lines + numbers along x-axis
+    strokeWeight(2);
+    line(940, 50, 940, 870);
     
-    mult--;
+    int mult = 5; // this is used to display the right number based on the zoomLevel
+    strokeWeight(1.1);
+    for (int i=1440; i>400; i-=100) {
+      line(i, 50, i, 870);
+      
+      if (mult==5) {
+        text(zoomLevel*mult, i-17, 475);
+      }
+      else if (mult>0) {
+        text(zoomLevel*mult, i-3, 475);
+      }
+      else if (mult==0) {
+        text(zoomLevel*mult, i-10, 475);
+      }
+      else if (mult==-5) {
+        text(zoomLevel*mult, i+5, 475);
+      }
+      else if (mult<0) {
+        text(zoomLevel*mult, i-7, 475);
+      } 
+      
+      mult--;
+    }
+    
+    // vertical sub-lines
+    strokeWeight(0.3);
+    for (int i=1440; i>440; i-=25) {
+      line(i, 50, i, 870);
+    }
+    
+    
+    
+    // horizontal lines + numbers along y-axis
+    strokeWeight(2);
+    line(440, 460, 1440, 460);
+    
+    int mult2 = -4; // this is used to display the right number based on the zoomLevel
+    strokeWeight(1.1);
+    for (int i=860; i>50; i-=100) {
+      line(440, i, 1440, i);
+      
+      if (mult2>0) {
+        text(zoomLevel*mult2, 928, i+5);
+      }
+      if (mult2<0) {
+        text(zoomLevel*mult2, 922, i+5);
+      }
+      
+      mult2++;
+    }
+    
+    // horizontal sub-lines
+    strokeWeight(0.3);
+    for (int i=860; i>50; i-=25) {
+      line(440, i, 1440, i);
+    }
   }
   
-  // vertical sub-lines
-  strokeWeight(0.3);
-  for (int i=1440; i>440; i-=25) {
-    line(i, 50, i, 870);
-  }
-  
-  
-  
-  // horizontal lines + numbers along y-axis
-  strokeWeight(2);
-  line(440, 460, 1440, 460);
-  
-  int mult2 = -4; // this is used to display the right number based on the zoomLevel
-  strokeWeight(1.1);
-  for (int i=860; i>50; i-=100) {
-    line(440, i, 1440, i);
-    
-    if (mult2>0) {
-      text(zoomLevel*mult2, 928, i+5);
-    }
-    if (mult2<0) {
-      text(zoomLevel*mult2, 922, i+5);
-    }
-    
-    mult2++;
-  }
-  
-  // horizontal sub-lines
-  strokeWeight(0.3);
-  for (int i=860; i>50; i-=25) {
-    line(440, i, 1440, i);
+  else {
   }
 }
 
