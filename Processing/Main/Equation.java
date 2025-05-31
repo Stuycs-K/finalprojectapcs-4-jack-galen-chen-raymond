@@ -4,8 +4,7 @@ public class Equation {
   private static String eq;
 
   public Equation() {
-    //  THIS NO ARG CONSTRUCTOR IS FOR TESTING PURPOSES ONLY
-    eq = "";
+    eq = "x+5";
   }
 
   public void add(String s){

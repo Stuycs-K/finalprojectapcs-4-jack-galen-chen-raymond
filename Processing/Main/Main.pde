@@ -156,7 +156,12 @@ void graph() {
          }
        }
      }
-     else {
+   }
+ }
+ else {
+   for (Equation eq : eqs) {
+     if (!eq.toString().equals("")) {
+       // if the Equation is not empty
        origin = 720;
        for (int i = 0; i < 1440; i++){
          float x = (i - origin) * zoomLevel / 100.0;
