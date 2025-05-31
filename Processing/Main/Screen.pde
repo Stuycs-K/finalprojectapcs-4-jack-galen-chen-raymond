@@ -75,6 +75,10 @@ void equationsBar() {
       textSize(15);
       text(i+1, 10, 140+70*i);
     }
+    
+    
+    
+    text(eqs.toString(), 50, 800); // FOR TESTING PURPOSES
   }
   
   else {

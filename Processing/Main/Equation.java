@@ -4,7 +4,7 @@ public class Equation {
   private static String eq;
 
   public Equation() {
-    eq = "x+5";
+    eq = "";
   }
 
   public void add(String s){

@@ -132,6 +132,7 @@ void addEquation() {
 void removeEquation() {
   if (numEquations>1) {
      numEquations--;
+     eqs.remove(whichEquationSelected-1);
   }
   if (whichEquationSelected>1) {
     whichEquationSelected--;
