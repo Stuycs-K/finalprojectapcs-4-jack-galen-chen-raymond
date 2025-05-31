@@ -40,6 +40,12 @@ void keyPressed() {
     whichEquationSelected++;
   }
   
+  // FOR MODIFYING EQUATIONS
+  if (key==1 || key==2 || key==3 || key==4 || key==5 || key==6 || key==7 || key==8 || key==9 || key=='x' || key=='y') {
+    eqs.get(whichEquationSelected).add("hi");
+    // THIS IS FOR TESTING CHANGE THIS
+  }
+  
   setup();
 }
 

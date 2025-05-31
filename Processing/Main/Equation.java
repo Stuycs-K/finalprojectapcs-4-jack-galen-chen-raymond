@@ -7,6 +7,7 @@ public class Equation {
     //  THIS NO ARG CONSTRUCTOR IS FOR TESTING PURPOSES ONLY
     eq = "x+5";
   }
+  
   public Equation(String s) {
     eq = s;
   }
@@ -21,6 +22,10 @@ public class Equation {
   }
   public void remove(){
     eq=eq.substring(0,eq.length()-1);
+  }
+  
+  public String toString() {
+    return eq;
   }
 
   public double evaluate(double x) {

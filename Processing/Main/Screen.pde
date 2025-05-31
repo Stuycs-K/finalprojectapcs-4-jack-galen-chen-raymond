@@ -67,6 +67,10 @@ void equationsBar() {
       line(0, 120+70*i, 440, 120+70*i);
       line(0, 190+70*i, 440, 190+70*i);
       
+      textSize(30);
+      fill(0);
+      text(eqs.get(whichEquationSelected-1).toString(), 60, 160+70*i);
+      
       fill(0);
       textSize(15);
       text(i+1, 10, 140+70*i);
