@@ -1,22 +1,21 @@
 import java.util.Stack;
 
 public class Equation {
-  private static String eq;
+  private String eq;
 
-  public Equation(String s) {
-    eq = s;
+  public Equation() {
+    eq = "";
   }
 
-  public static void main(String[] args) {
-    Equation e = new Equation("x + 4 + (30 * 6 - 5) / 5");
-    System.out.println(e.evaluate(0.5));
-
-  }
   public void add(String s){
     eq+=s;
   }
   public void remove(){
     eq=eq.substring(0,eq.length()-1);
+  }
+  
+  public String toString() {
+    return eq;
   }
 
   public double evaluate(double x) {
@@ -34,9 +33,13 @@ public class Equation {
         num += ch; //This works by "buildng" num and then resetting it as appropriate
         negate = false;
       }
-      else if (ch == 'x'){
-        num = "";
-        num+=x;
+      else if (ch == 'x') {
+        if (!num.isEmpty()) {
+          vals.push(Double.parseDouble(num));
+          num = "";
+        }
+        vals.push(x); // push x's value directly to stack
+        negate = false;
       }
       else if (ch == '-' && negate) {
         num += ch; 
@@ -84,7 +87,7 @@ public class Equation {
 
 
   private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want
-    return ch == '+' || ch == '-' || ch == '*' || ch == '/';
+    return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
   }
 
   private static void applyOp(Stack<Character> ops, Stack<Double> vals) {
@@ -102,6 +105,8 @@ public class Equation {
         vals.push(a * b);
     } else if (op == '/') {
         vals.push(a / b);
+    } else if (op == '^') {
+      vals.push(Math.pow(a,b));
     }
   }
 
@@ -110,8 +115,11 @@ public class Equation {
         return 1;
     } else if (op == '*' || op == '/') {
         return 2;
-    } else {
-        return 0;
+    } else if (op == '^'){
+        return 3;
+    }
+    else {
+        return 0; 
     }
   }
 }

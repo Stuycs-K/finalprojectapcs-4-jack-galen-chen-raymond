@@ -33,6 +33,7 @@ void equationsBar() {
     // the entire rectangle holding the equations bar
     fill(255);
     strokeWeight(5);
+    stroke(0);
     rect(0, 50, 440, 870);
     
     // the topmost bar holding the +, <--, -->, options, and hide equations bar
@@ -65,6 +66,10 @@ void equationsBar() {
       rect(2, 120+70*i, 40, 70);
       line(0, 120+70*i, 440, 120+70*i);
       line(0, 190+70*i, 440, 190+70*i);
+      
+      textSize(30);
+      fill(0);
+      text(eqs.get(i).toString(), 60, 160+70*i);
       
       fill(0);
       textSize(15);

@@ -20,4 +20,5 @@ This document must be updated daily every time you finish a work session.
 ~3 hrs - Made code for the grid (and to create the numbers on the grid) more efficient, created the feature to hide the equations bar and fullscreen the grid, may now be too slow to run so need to fix that
 
 ### 2025-05-30 - Added equations + more functions
-~3 hrs - Finished fullscreen grid features + transitioning between fullscreen and halfscreen grid
+~1.5 hrs - Finished fullscreen grid features + transitioning between fullscreen and halfscreen grid, worked on Galen's computer in class to implement graph()
+~2 hrs - Implemented typing characters, graphing, deleting equations and deleting from equations, but still buggy (empty strings cause issues, the sketch tends to crash after a few actions, typing does not always work)
