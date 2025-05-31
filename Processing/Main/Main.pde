@@ -113,7 +113,7 @@ void removeEquation() {
 
 void graph() {
  int origin = 720;
- Equation e = new Equation("(x-5) * (x-3)"); 
+ Equation e = new Equation("((x - 5) * (x - 4) * (x - 5)) / (x - 10)"); 
 
  strokeWeight(5);
  stroke(38,89,255);
