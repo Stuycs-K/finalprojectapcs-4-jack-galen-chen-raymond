@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class Equation {
-  private static String eq;
+  private String eq;
 
   public Equation() {
     eq = "";

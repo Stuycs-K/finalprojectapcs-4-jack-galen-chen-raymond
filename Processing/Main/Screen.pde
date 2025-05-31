@@ -69,7 +69,7 @@ void equationsBar() {
       
       textSize(30);
       fill(0);
-      text(eqs.get(whichEquationSelected-1).toString(), 60, 160+70*i);
+      text(eqs.get(i).toString(), 60, 160+70*i);
       
       fill(0);
       textSize(15);
