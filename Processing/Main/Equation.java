@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class Equation {
-  private static String eq;
+  private static String eq = "";
 
   public Equation() {
     //  THIS NO ARG CONSTRUCTOR IS FOR TESTING PURPOSES ONLY
