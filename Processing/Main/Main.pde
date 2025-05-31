@@ -1,29 +1,38 @@
+import java.util.Arrays;
+
 private int screenXFull = 1440;
 private int screenXSide = 1000; //starts at 440
 private int screenYFull = 820; //starts at 50
 
-
+private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation()));
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
   background(255); // clear screen
   
+  graph();
   equationsBar();
   grid();
   topBar();
   if (equationsBarOpen) {
     functionsBar();
   }
-  graph();
 }
 
 void keyPressed() {
   if (keyCode == ENTER) {
-    numEquations++;
+    addEquation();
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
-    removeEquation();
+    if ((eqs.get(whichEquationSelected-1).toString()).equals("")) {
+      // if the equation is empty, remove the equation
+      removeEquation();
+    }
+    else {
+      // if the equation has stuff in it, delete from the equation
+      eqs.get(whichEquationSelected-1).remove();
+    }
   }
   
   if (keyCode == UP) {
@@ -33,9 +42,17 @@ void keyPressed() {
   }
   if (keyCode == DOWN) {
     if (whichEquationSelected >= numEquations) {
-      numEquations++;
+      addEquation();
     }
     whichEquationSelected++;
+  }
+  
+  // FOR MODIFYING EQUATIONS
+  if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
+      || key=='x' || key=='y' 
+      || key=='+' || key=='-' || key=='*' || key=='/') 
+      {
+    eqs.get(whichEquationSelected-1).add(""+key);
   }
   
   setup();
@@ -50,12 +67,19 @@ void mouseClicked() {
     
     // the blue return/add button
     if (mouseX>=1030 && mouseX<=1185 && mouseY>=810 && mouseY<=855) {
-      numEquations++;
+      addEquation();
     }
     
     // the delete button
     if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
-      removeEquation();
+      if ((eqs.get(whichEquationSelected-1).toString()).equals("")) {
+        // if the equation is empty, remove the equation
+        removeEquation();
+      }
+      else {
+        // if the equation has stuff in it, delete from the equation
+        eqs.get(whichEquationSelected-1).remove();
+      }
     }
   }
   else {
@@ -100,11 +124,15 @@ void mouseClicked() {
 
 // helper methods
 
-
+void addEquation() {
+  numEquations++;
+  eqs.add(new Equation());
+}
 
 void removeEquation() {
   if (numEquations>1) {
      numEquations--;
+     eqs.remove(whichEquationSelected-1);
   }
   if (whichEquationSelected>1) {
     whichEquationSelected--;
@@ -112,27 +140,39 @@ void removeEquation() {
 }
 
 void graph() {
- int x = 0;
- int start = 720;
- int startNeg = 0;
- Equation e = new Equation("x*x"); 
-
+ int origin;
  strokeWeight(5);
  stroke(38,89,255);
- if (equationsBarOpen){
-   start = 940;
-   startNeg = 440;
+ 
+ if (equationsBarOpen) {
+   for (Equation eq : eqs) {
+     if (!eq.toString().equals("")) {
+       // if the Equation is not empty
+       origin = 940;
+       for (int i = 440; i < 1440; i++){
+         float x = (i - origin) * zoomLevel / 100.0;
+         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+         if (y > 50){
+           point(i,y);
+         }
+       }
+     }
+   }
  }
- for (int i = start; i < 1440; i++){
-   point((float)i, 460 - (float)e.evaluate(x));
-   x++;
-
- }
- x = startNeg - start;
- for (int i = startNeg; i < start; i++){
-   point((float)i, 460 - (float)e.evaluate(x));
-   x++;
-
+ else {
+   for (Equation eq : eqs) {
+     if (!eq.toString().equals("")) {
+       // if the Equation is not empty
+       origin = 720;
+       for (int i = 0; i < 1440; i++){
+         float x = (i - origin) * zoomLevel / 100.0;
+         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+         if (y > 50){
+           point(i,y);
+         }
+       }
+     }
+   }
  }
 }
 
