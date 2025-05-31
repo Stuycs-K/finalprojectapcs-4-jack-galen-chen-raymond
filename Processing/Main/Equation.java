@@ -1,15 +1,11 @@
 import java.util.Stack;
 
 public class Equation {
-  private static String eq = "";
+  private static String eq;
 
   public Equation() {
     //  THIS NO ARG CONSTRUCTOR IS FOR TESTING PURPOSES ONLY
-    eq = "x+5";
-  }
-  
-  public Equation(String s) {
-    eq = s;
+    eq = "";
   }
 
   public void add(String s){

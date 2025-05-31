@@ -143,23 +143,28 @@ void graph() {
  strokeWeight(5);
  stroke(38,89,255);
  
- if (equationsBarOpen){
-   origin = 940;
-   for (int i = 440; i < 1440; i++){
-     float x = (i - origin) * zoomLevel / 100.0;
-     float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-     if (y > 50){
-       point(i,y);
+ if (equationsBarOpen) {
+   for (Equation eq : eqs) {
+     if (!eq.toString().equals("")) {
+       // if the Equation is not empty
+       origin = 940;
+       for (int i = 440; i < 1440; i++){
+         float x = (i - origin) * zoomLevel / 100.0;
+         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+         if (y > 50){
+           point(i,y);
+         }
+       }
      }
-   }
- }
- else {
-   origin = 720;
-   for (int i = 0; i < 1440; i++){
-     float x = (i - origin) * zoomLevel / 100.0;
-     float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-     if (y > 50){
-       point(i,y);
+     else {
+       origin = 720;
+       for (int i = 0; i < 1440; i++){
+         float x = (i - origin) * zoomLevel / 100.0;
+         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+         if (y > 50){
+           point(i,y);
+         }
+       }
      }
    }
  }
