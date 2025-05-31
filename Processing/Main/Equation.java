@@ -12,11 +12,6 @@ public class Equation {
     eq = s;
   }
 
-  public static void main(String[] args) {
-    Equation e = new Equation("x + 4 + (30 * 6 - 5) / 5");
-    System.out.println(e.evaluate(0.5));
-
-  }
   public void add(String s){
     eq+=s;
   }

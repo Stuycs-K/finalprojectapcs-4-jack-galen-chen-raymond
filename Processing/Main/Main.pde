@@ -25,7 +25,7 @@ void keyPressed() {
     addEquation();
   }
   if (keyCode == BACKSPACE || keyCode == DELETE) {
-    if (eqs.get(whichEquationSelected-1).toString().equals("")) {
+    if ((eqs.get(whichEquationSelected-1).toString()).equals("")) {
       // if the equation is empty, remove the equation
       removeEquation();
     }
@@ -48,9 +48,11 @@ void keyPressed() {
   }
   
   // FOR MODIFYING EQUATIONS
-  if (key==1 || key==2 || key==3 || key==4 || key==5 || key==6 || key==7 || key==8 || key==9 || key=='x' || key=='y') {
-    eqs.get(whichEquationSelected-1).add("hi");
-    // THIS IS FOR TESTING CHANGE THIS
+  if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
+      || key=='x' || key=='y' 
+      || key=='+' || key=='-' || key=='*' || key=='/') 
+      {
+    eqs.get(whichEquationSelected-1).add(""+key);
   }
   
   setup();
@@ -70,7 +72,7 @@ void mouseClicked() {
     
     // the delete button
     if (mouseX>=1070 && mouseX<=1185 && mouseY>=760 && mouseY<=805) {
-      if (eqs.get(whichEquationSelected-1).toString().equals("")) {
+      if ((eqs.get(whichEquationSelected-1).toString()).equals("")) {
         // if the equation is empty, remove the equation
         removeEquation();
       }
