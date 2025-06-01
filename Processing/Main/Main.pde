@@ -50,7 +50,8 @@ void keyPressed() {
   // FOR MODIFYING EQUATIONS
   if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
       || key=='x' || key=='y' 
-      || key=='+' || key=='-' || key=='*' || key=='/' || key=='=') 
+      || key=='+' || key=='-' || key=='*' || key=='/' || key=='=' || key=='^' 
+      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.') 
       {
     eqs.get(whichEquationSelected-1).add(""+key);
   }
@@ -82,7 +83,60 @@ void mouseClicked() {
       }
     }
     
-    // all the number buttons
+    // all the function buttons (left block) 
+    if (mouseX>=230 && mouseX<=310 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("x");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("y");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("^2");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("^");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("(");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add(")");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("<");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add(">");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("|");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add(",");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("<=");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add(">=");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("?");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("√");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("π");
+    }
+    
+    // all the number buttons (middle block)
     if (mouseX>=625 && mouseX<=705 && mouseY>=660 && mouseY<=705) {
       eqs.get(whichEquationSelected-1).add("7");
     }
