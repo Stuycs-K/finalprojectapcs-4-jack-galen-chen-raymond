@@ -81,6 +81,59 @@ void mouseClicked() {
         eqs.get(whichEquationSelected-1).remove();
       }
     }
+    
+    // all the number buttons
+    if (mouseX>=625 && mouseX<=705 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("7");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("8");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("9");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).add("/");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("4");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("5");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("6");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).add("*");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("1");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("2");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("3");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).add("*");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("0");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add(".");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("=");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).add("+");
+    }
   }
   else {
     if (mouseX>=10 && mouseX<=90 && mouseY>=810 && mouseY<=860) {
