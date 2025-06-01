@@ -11,7 +11,7 @@ void setup() {
   
   background(255); // clear screen
   
-  // graph();
+  graph();
   equationsBar();
   grid();
   topBar();
@@ -248,35 +248,28 @@ void removeEquation() {
 
 void graph() {
  int origin;
+ int start;
  strokeWeight(5);
  stroke(38,89,255);
  
  if (equationsBarOpen) {
-   for (Equation eq : eqs) {
-     if (!eq.toString().equals("")) {
-       // if the Equation is not empty
-       origin = 940;
-       for (int i = 440; i < 1440; i++){
-         float x = (i - origin) * zoomLevel / 100.0;
-         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-         if (y > 50){
-           point(i,y);
-         }
-       }
-     }
-   }
+   origin = 940;
+   start = 440;
  }
+
  else {
-   for (Equation eq : eqs) {
-     if (!eq.toString().equals("")) {
-       // if the Equation is not empty
-       origin = 720;
-       for (int i = 0; i < 1440; i++){
-         float x = (i - origin) * zoomLevel / 100.0;
-         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-         if (y > 50){
-           point(i,y);
-         }
+   origin = 720;
+   start = 0;
+ }
+ 
+ for (Equation equ : eqs) {
+   if (!equ.toString().equals("")) {
+     // if the Equation is not empty
+     for (int i = start; i < 1440; i++){
+       float x = (i - origin) * zoomLevel / 100.0;
+       float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+       if (y > 50){
+         point(i,y);
        }
      }
    }
