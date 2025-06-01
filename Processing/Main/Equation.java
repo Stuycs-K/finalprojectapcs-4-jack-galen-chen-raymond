@@ -7,10 +7,10 @@ public class Equation {
     eq = "";
   }
 
-  public void add(String s){
+  public void addToEq(String s){
     eq+=s;
   }
-  public void remove(){
+  public void removeFromEq(){
     eq=eq.substring(0,eq.length()-1);
   }
   

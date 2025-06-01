@@ -4,7 +4,8 @@ private int screenXFull = 1440;
 private int screenXSide = 1000; //starts at 440
 private int screenYFull = 820; //starts at 50
 
-private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation()));
+private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation())); 
+// initialized with one empty equation to prevent index error
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
@@ -31,7 +32,7 @@ void keyPressed() {
     }
     else {
       // if the equation has stuff in it, delete from the equation
-      eqs.get(whichEquationSelected-1).remove();
+      eqs.get(whichEquationSelected-1).removeFromEq();
     }
   }
   
@@ -53,7 +54,7 @@ void keyPressed() {
       || key=='+' || key=='-' || key=='*' || key=='/' || key=='=' || key=='^' 
       || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.') 
       {
-    eqs.get(whichEquationSelected-1).add(""+key);
+    eqs.get(whichEquationSelected-1).addToEq(""+key);
   }
   
   setup();
@@ -79,114 +80,114 @@ void mouseClicked() {
       }
       else {
         // if the equation has stuff in it, delete from the equation
-        eqs.get(whichEquationSelected-1).remove();
+        eqs.get(whichEquationSelected-1).removeFromEq();
       }
     }
     
     // all the function buttons (left block) 
     if (mouseX>=230 && mouseX<=310 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("x");
+      eqs.get(whichEquationSelected-1).addToEq("x");
     }
     if (mouseX>=315 && mouseX<=395 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("y");
+      eqs.get(whichEquationSelected-1).addToEq("y");
     }
     if (mouseX>=400 && mouseX<=480 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("^2");
+      eqs.get(whichEquationSelected-1).addToEq("^2");
     }
     if (mouseX>=485 && mouseX<=565 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("^");
+      eqs.get(whichEquationSelected-1).addToEq("^");
     }
     
     if (mouseX>=230 && mouseX<=310 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("(");
+      eqs.get(whichEquationSelected-1).addToEq("(");
     }
     if (mouseX>=315 && mouseX<=395 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add(")");
+      eqs.get(whichEquationSelected-1).addToEq(")");
     }
     if (mouseX>=400 && mouseX<=480 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("<");
+      eqs.get(whichEquationSelected-1).addToEq("<");
     }
     if (mouseX>=485 && mouseX<=565 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add(">");
+      eqs.get(whichEquationSelected-1).addToEq(">");
     }
     
     if (mouseX>=230 && mouseX<=310 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("|");
+      eqs.get(whichEquationSelected-1).addToEq("|");
     }
     if (mouseX>=315 && mouseX<=395 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add(",");
+      eqs.get(whichEquationSelected-1).addToEq(",");
     }
     if (mouseX>=400 && mouseX<=480 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("<=");
+      eqs.get(whichEquationSelected-1).addToEq("<=");
     }
     if (mouseX>=485 && mouseX<=565 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add(">=");
+      eqs.get(whichEquationSelected-1).addToEq(">=");
     }
     
     if (mouseX>=230 && mouseX<=310 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("");
+      eqs.get(whichEquationSelected-1).addToEq("");
     }
     if (mouseX>=315 && mouseX<=395 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("?");
+      eqs.get(whichEquationSelected-1).addToEq("?");
     }
     if (mouseX>=400 && mouseX<=480 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("√");
+      eqs.get(whichEquationSelected-1).addToEq("√");
     }
     if (mouseX>=485 && mouseX<=565 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("π");
+      eqs.get(whichEquationSelected-1).addToEq("π");
     }
     
     // all the number buttons (middle block)
     if (mouseX>=625 && mouseX<=705 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("7");
+      eqs.get(whichEquationSelected-1).addToEq("7");
     }
     if (mouseX>=710 && mouseX<=790 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("8");
+      eqs.get(whichEquationSelected-1).addToEq("8");
     }
     if (mouseX>=795 && mouseX<=875 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("9");
+      eqs.get(whichEquationSelected-1).addToEq("9");
     }
     if (mouseX>=880 && mouseX<=960 && mouseY>=660 && mouseY<=705) {
-      eqs.get(whichEquationSelected-1).add("/");
+      eqs.get(whichEquationSelected-1).addToEq("/");
     }
     
     if (mouseX>=625 && mouseX<=705 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("4");
+      eqs.get(whichEquationSelected-1).addToEq("4");
     }
     if (mouseX>=710 && mouseX<=790 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("5");
+      eqs.get(whichEquationSelected-1).addToEq("5");
     }
     if (mouseX>=795 && mouseX<=875 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("6");
+      eqs.get(whichEquationSelected-1).addToEq("6");
     }
     if (mouseX>=880 && mouseX<=960 && mouseY>=710 && mouseY<=755) {
-      eqs.get(whichEquationSelected-1).add("*");
+      eqs.get(whichEquationSelected-1).addToEq("*");
     }
     
     if (mouseX>=625 && mouseX<=705 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("1");
+      eqs.get(whichEquationSelected-1).addToEq("1");
     }
     if (mouseX>=710 && mouseX<=790 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("2");
+      eqs.get(whichEquationSelected-1).addToEq("2");
     }
     if (mouseX>=795 && mouseX<=875 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("3");
+      eqs.get(whichEquationSelected-1).addToEq("3");
     }
     if (mouseX>=880 && mouseX<=960 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).add("*");
+      eqs.get(whichEquationSelected-1).addToEq("*");
     }
     
     if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("0");
+      eqs.get(whichEquationSelected-1).addToEq("0");
     }
     if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add(".");
+      eqs.get(whichEquationSelected-1).addToEq(".");
     }
     if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("=");
+      eqs.get(whichEquationSelected-1).addToEq("=");
     }
     if (mouseX>=880 && mouseX<=960 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).add("+");
+      eqs.get(whichEquationSelected-1).addToEq("+");
     }
   }
   else {
