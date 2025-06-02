@@ -24,4 +24,4 @@ This document must be updated daily every time you finish a work session.
 ~2 hrs - Implemented typing characters, graphing, deleting equations and deleting from equations, but still buggy (empty strings cause issues, the sketch tends to crash after a few actions, typing does not always work)
 
 ### 2025-06-01 - Fixing bugs + more functionality
-~0.5 hr - Implemented typing on the function bar as inputs to the equations, updated buttons on top right with symbols
+~0.5 hr - Implemented typing on the function bar as inputs to the equations, and added symbols onto the buttons on the top right
