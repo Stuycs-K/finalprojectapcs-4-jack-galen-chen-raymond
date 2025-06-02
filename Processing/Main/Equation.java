@@ -1,8 +1,8 @@
 import java.util.Stack;
-
 public class Equation {
   private String eq;
-
+  private double pi = 3.14159265358979323846264338327950288419716939937510;
+  private double e = 2.718281828459045235360287471352662497757247093699959574966;
   public Equation() {
     eq = "";
   }
@@ -39,6 +39,24 @@ public class Equation {
           num = "";
         }
         vals.push(x); // push x's value directly to stack
+        negate = false;
+      }
+      else if (ch == 'π') {
+        if (!num.isEmpty()) {
+          vals.push(Double.parseDouble(num));
+          num = "";
+        }
+        System.out.println("pi");
+        vals.push(pi); // push x's value directly to stack
+        negate = false;
+      }
+      else if (ch == 'e') {
+        if (!num.isEmpty()) {
+          vals.push(Double.parseDouble(num));
+          num = "";
+        }
+        System.out.println("E");
+        vals.push(e); // push x's value directly to stack
         negate = false;
       }
       else if (ch == '-' && negate) {
@@ -113,7 +131,7 @@ public class Equation {
         if (lastWasDeci) return false;
         lastWasDeci = true;
         lastWasOp = false;
-      } else if (Character.isDigit(ch) || ch == 'x') {
+      } else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
         lastWasOp = false;
         lastWasDeci = false;
       } else {

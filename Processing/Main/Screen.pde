@@ -74,9 +74,13 @@ void equationsBar() {
       fill(0);
       text(eqs.get(i).toString(), 60, 160+70*i);
       
-      fill(0);
       textSize(15);
       text(i+1, 10, 140+70*i);
+      
+      fill(255);
+      stroke(0);
+      strokeWeight(0.5);
+      circle(23, 160+70*i, 30);
     }
   }
   
@@ -95,6 +99,7 @@ void grid() {
 
     // vertical lines + numbers along x-axis
     strokeWeight(2);
+    fill(0);
     line(940, 50, 940, 870);
     
     int mult = 5; // this is used to display the right number based on the zoomLevel
@@ -131,6 +136,7 @@ void grid() {
     
     // horizontal lines + numbers along y-axis
     strokeWeight(2);
+    fill(0);
     line(440, 460, 1440, 460);
     
     int mult2 = -4; // this is used to display the right number based on the zoomLevel

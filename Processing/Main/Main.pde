@@ -7,6 +7,12 @@ private int screenYFull = 820; //starts at 50
 private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation())); 
 // initialized with one empty equation to prevent index error
 
+// private ArrayList<color> colors = {new color(38, 89, 255)};
+
+// new color(255, 23, 23), new color(0, 235, 23), new color(230, 238, 0), new color(238, 135, 0), new color(137, 0, 229), new color(229, 0, 183), new color(0, 0, 0)};
+                                   
+// blue, red, green, yellow, orange, violet, pink, black
+
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
@@ -54,7 +60,7 @@ void keyPressed() {
   if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
       || key=='x' || key=='y' 
       || key=='+' || key=='-' || key=='*' || key=='/' || key=='=' || key=='^' 
-      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.' || key == '(' || key == ')') 
+      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.' || key == '(' || key == ')' || key == 'e') 
       {
     eqs.get(whichEquationSelected-1).addToEq(""+key);
   }
