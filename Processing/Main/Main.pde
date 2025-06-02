@@ -174,7 +174,7 @@ void mouseClicked() {
       eqs.get(whichEquationSelected-1).addToEq("3");
     }
     if (mouseX>=880 && mouseX<=960 && mouseY>=760 && mouseY<=805) {
-      eqs.get(whichEquationSelected-1).addToEq("*");
+      eqs.get(whichEquationSelected-1).addToEq("-");
     }
     
     if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
