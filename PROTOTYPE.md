@@ -16,9 +16,11 @@ UML Diagrams and descriptions of key algorithms, classes, and how things fit tog
 ![Alt text](UML.jpg?raw=true "Title")
 ![Alt text](uml.png?raw=true "Title")
 
-The Main class has an ArrayList of equations ~~and a corresponding ArrayList of graphs (these will be indexed simultaneously so that edits to equations will show up as edits to the corresponding graph)~~. keyPressed() will mainly edit the equations, mouseClicked() will select equations and click on functions or graphs. addEq and removeEq will add a new equation or remove an equation, and the corresponding graph.
+The Main class has an ArrayList of equations ~~and a corresponding ArrayList of graphs (these will be indexed simultaneously so that edits to equations will show up as edits to the corresponding graph)~~. keyPressed() will mainly edit the equations, mouseClicked() will select equations and click on functions or graphs. addEq and removeEq will add a new equation or remove an equation, and the corresponding graph. Overall, the Main class implements functionality.
 
-As for the Equation itself, it will have a String as a field and, and addToEq and ~~deleteFromEq~~ removeFromEq to edit the String. ~~makeGraph~~ graph() will create a graph based on the current equation String. 
+Most of the Screen class's methods were intended to be in the Main class (they are all intended for setting up the screen and drawing the UI), but the Main and Screen were separated for convenience and organization. The Screen class draws all the UI.
+
+As for the Equation itself, it will have a String as a field and, and addToEq and ~~deleteFromEq~~ removeFromEq to edit the String. ~~makeGraph~~ graph() will create a graph based on the current equation String. Screen will display each Equation's String on the left, in the appropriate slot. 
 
 ~~The Graph object will contain the function (the Equation) and a set of points generated over the range of the graph displayed in an ArrayList. The Graph will have a method to display the graph, graph(), and a method to redo the points, redoPoints, when the equation is changed.~~
 
