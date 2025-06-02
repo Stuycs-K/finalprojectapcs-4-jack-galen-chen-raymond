@@ -85,7 +85,45 @@ public class Equation {
     return vals.pop();
   }
 
-
+  public boolean validCheck() {
+    if (eq == null || eq.isEmpty()) return false;
+  
+    int parenCount = 0;
+    boolean lastWasOp = true;
+    boolean lastWasDeci = false;
+  
+    for (int i = 0; i < eq.length(); i++) {
+      char ch = eq.charAt(i);
+  
+      if (Character.isWhitespace(ch)) continue;
+  
+      if (ch == '(') {
+        parenCount++;
+        lastWasOp = true;
+        lastWasDeci = false;
+      } else if (ch == ')') {
+        parenCount--;
+        if (parenCount < 0) return false;
+        lastWasOp = false;
+        lastWasDeci = false;
+      } else if (isOperator(ch)) {
+        if (lastWasOp && ch != '-') return false;
+        lastWasOp = true;
+        lastWasDeci = false;
+      } else if (ch == '.') {
+        if (lastWasDeci) return false;
+        lastWasDeci = true;
+        lastWasOp = false;
+      } else if (Character.isDigit(ch) || ch == 'x') {
+        lastWasOp = false;
+        lastWasDeci = false;
+      } else {
+        return false;
+      }
+    }
+  
+    return !lastWasOp && parenCount == 0;
+  }
   private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want
     return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
   }
