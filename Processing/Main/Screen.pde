@@ -22,6 +22,8 @@ void topBar() {
     rect(1395, 100, 40, 40, 5, 5, 1, 1);
   }
   
+  image(loadImage("plus.png"), 1403, 108, 25, 25);
+  
   stroke(0);
   line(1395, 140, 1435, 140);
 }
