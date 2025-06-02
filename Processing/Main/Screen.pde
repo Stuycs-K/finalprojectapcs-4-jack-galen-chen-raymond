@@ -23,6 +23,7 @@ void topBar() {
   }
   
   image(loadImage("plus.png"), 1403, 108, 25, 25);
+  image(loadImage("minus.png"), 1403, 147, 25, 25);
   
   stroke(0);
   line(1395, 140, 1435, 140);
