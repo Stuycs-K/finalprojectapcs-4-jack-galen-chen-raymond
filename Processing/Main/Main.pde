@@ -264,7 +264,7 @@ void graph() {
  }
  
  for (Equation equ : eqs) {
-   if (!equ.toString().equals("")) {
+   if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
      for (int i = start; i < 1440; i++){
        float x = (i - origin) * zoomLevel / 100.0;
