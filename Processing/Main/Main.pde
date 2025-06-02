@@ -45,7 +45,9 @@ void keyPressed() {
     if (whichEquationSelected >= numEquations) {
       addEquation();
     }
-    whichEquationSelected++;
+    else {
+      whichEquationSelected++;
+    }
   }
   
   // FOR MODIFYING EQUATIONS
