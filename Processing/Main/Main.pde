@@ -268,7 +268,7 @@ void graph() {
      // if the Equation is not empty
      for (int i = start; i < 1440; i++){
        float x = (i - origin) * zoomLevel / 100.0;
-       float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+       float y = 460 - (100.0f / zoomLevel) * (float)(equ).evaluate(x);
        if (y > 50){
          point(i,y);
        }
