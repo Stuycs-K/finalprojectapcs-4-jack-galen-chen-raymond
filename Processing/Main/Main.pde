@@ -4,7 +4,8 @@ private int screenXFull = 1440;
 private int screenXSide = 1000; //starts at 440
 private int screenYFull = 820; //starts at 50
 
-private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation()));
+private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation())); 
+// initialized with one empty equation to prevent index error
 
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
@@ -31,7 +32,7 @@ void keyPressed() {
     }
     else {
       // if the equation has stuff in it, delete from the equation
-      eqs.get(whichEquationSelected-1).remove();
+      eqs.get(whichEquationSelected-1).removeFromEq();
     }
   }
   
@@ -50,9 +51,10 @@ void keyPressed() {
   // FOR MODIFYING EQUATIONS
   if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
       || key=='x' || key=='y' 
-      || key=='+' || key=='-' || key=='*' || key=='/') 
+      || key=='+' || key=='-' || key=='*' || key=='/' || key=='=' || key=='^' 
+      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.') 
       {
-    eqs.get(whichEquationSelected-1).add(""+key);
+    eqs.get(whichEquationSelected-1).addToEq(""+key);
   }
   
   setup();
@@ -78,8 +80,114 @@ void mouseClicked() {
       }
       else {
         // if the equation has stuff in it, delete from the equation
-        eqs.get(whichEquationSelected-1).remove();
+        eqs.get(whichEquationSelected-1).removeFromEq();
       }
+    }
+    
+    // all the function buttons (left block) 
+    if (mouseX>=230 && mouseX<=310 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("x");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("y");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("^2");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("^");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("(");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq(")");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("<");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq(">");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("|");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq(",");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("<=");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq(">=");
+    }
+    
+    if (mouseX>=230 && mouseX<=310 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("");
+    }
+    if (mouseX>=315 && mouseX<=395 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("?");
+    }
+    if (mouseX>=400 && mouseX<=480 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("√");
+    }
+    if (mouseX>=485 && mouseX<=565 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("π");
+    }
+    
+    // all the number buttons (middle block)
+    if (mouseX>=625 && mouseX<=705 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("7");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("8");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("9");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=660 && mouseY<=705) {
+      eqs.get(whichEquationSelected-1).addToEq("/");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("4");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("5");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("6");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=710 && mouseY<=755) {
+      eqs.get(whichEquationSelected-1).addToEq("*");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("1");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("2");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("3");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=760 && mouseY<=805) {
+      eqs.get(whichEquationSelected-1).addToEq("*");
+    }
+    
+    if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("0");
+    }
+    if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq(".");
+    }
+    if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("=");
+    }
+    if (mouseX>=880 && mouseX<=960 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq("+");
     }
   }
   else {
@@ -141,35 +249,28 @@ void removeEquation() {
 
 void graph() {
  int origin;
+ int start;
  strokeWeight(5);
  stroke(38,89,255);
  
  if (equationsBarOpen) {
-   for (Equation eq : eqs) {
-     if (!eq.toString().equals("")) {
-       // if the Equation is not empty
-       origin = 940;
-       for (int i = 440; i < 1440; i++){
-         float x = (i - origin) * zoomLevel / 100.0;
-         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-         if (y > 50){
-           point(i,y);
-         }
-       }
-     }
-   }
+   origin = 940;
+   start = 440;
  }
+
  else {
-   for (Equation eq : eqs) {
-     if (!eq.toString().equals("")) {
-       // if the Equation is not empty
-       origin = 720;
-       for (int i = 0; i < 1440; i++){
-         float x = (i - origin) * zoomLevel / 100.0;
-         float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-         if (y > 50){
-           point(i,y);
-         }
+   origin = 720;
+   start = 0;
+ }
+ 
+ for (Equation equ : eqs) {
+   if (!equ.toString().equals("")) {
+     // if the Equation is not empty
+     for (int i = start; i < 1440; i++){
+       float x = (i - origin) * zoomLevel / 100.0;
+       float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+       if (y > 50){
+         point(i,y);
        }
      }
    }

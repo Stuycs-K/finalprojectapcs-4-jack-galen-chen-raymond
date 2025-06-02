@@ -22,3 +22,6 @@ This document must be updated daily every time you finish a work session.
 ### 2025-05-30 - Added equations + more functions
 ~1.5 hrs - Finished fullscreen grid features + transitioning between fullscreen and halfscreen grid, worked on Galen's computer in class to implement graph()
 ~2 hrs - Implemented typing characters, graphing, deleting equations and deleting from equations, but still buggy (empty strings cause issues, the sketch tends to crash after a few actions, typing does not always work)
+
+### 2025-06-01 - Fixing bugs + more functionality
+~0.5 hr - Implemented typing on the function bar as inputs to the equations, and added symbols onto the buttons on the top right

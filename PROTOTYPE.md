@@ -46,7 +46,7 @@ May 29th:
 May 30th:
 - mouseClicked():
   - UI should have the keyboard of functions on the bottom already
-  - Now, mouseClicked() should be able to click on a function and insert it into the selected equation
+  - Now, mouseClicked() should be able to click on a ~function~ character or number and insert it into the selected equation
 
 May 31st:
 - More Desmos UI:
