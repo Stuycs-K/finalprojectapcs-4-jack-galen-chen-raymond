@@ -180,9 +180,9 @@ void mouseClicked() {
     if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("0");
     }
-    if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).addToEq(".");
-    }
+    //if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
+    //  eqs.get(whichEquationSelected-1).addToEq(".");
+    //}
     if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("=");
     }
@@ -235,6 +235,7 @@ void mouseClicked() {
 void addEquation() {
   numEquations++;
   eqs.add(new Equation());
+  whichEquationSelected++;
 }
 
 void removeEquation() {
