@@ -99,6 +99,7 @@ void grid() {
 
     // vertical lines + numbers along x-axis
     strokeWeight(2);
+    fill(0);
     line(940, 50, 940, 870);
     
     int mult = 5; // this is used to display the right number based on the zoomLevel
@@ -135,6 +136,7 @@ void grid() {
     
     // horizontal lines + numbers along y-axis
     strokeWeight(2);
+    fill(0);
     line(440, 460, 1440, 460);
     
     int mult2 = -4; // this is used to display the right number based on the zoomLevel
