@@ -72,7 +72,6 @@ public class Equation {
           negate = true;
         }
       }
-
     }
 
     if (!num.isEmpty()) {

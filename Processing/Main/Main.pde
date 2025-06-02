@@ -180,9 +180,9 @@ void mouseClicked() {
     if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("0");
     }
-    if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
-      eqs.get(whichEquationSelected-1).addToEq(".");
-    }
+    //if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
+    //  eqs.get(whichEquationSelected-1).addToEq(".");
+    //}
     if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("=");
     }
@@ -235,6 +235,7 @@ void mouseClicked() {
 void addEquation() {
   numEquations++;
   eqs.add(new Equation());
+  whichEquationSelected++;
 }
 
 void removeEquation() {
@@ -268,7 +269,7 @@ void graph() {
      // if the Equation is not empty
      for (int i = start; i < 1440; i++){
        float x = (i - origin) * zoomLevel / 100.0;
-       float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+       float y = 460 - (100.0f / zoomLevel) * (float)(equ).evaluate(x);
        if (y > 50){
          point(i,y);
        }
