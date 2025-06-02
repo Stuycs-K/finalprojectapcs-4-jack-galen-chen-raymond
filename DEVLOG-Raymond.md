@@ -25,3 +25,4 @@ This document must be updated daily every time you finish a work session.
 
 ### 2025-06-01 - Fixing bugs + more functionality
 ~0.5 hr - Implemented typing on the function bar as inputs to the equations, and added symbols onto the buttons on the top right
+~1 hr - Updated Prototype description and UML to reflect the minor changes made
