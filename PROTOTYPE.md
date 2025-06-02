@@ -14,7 +14,7 @@ Mostly, these will be using a mouseclicked() method and finding the coordinates 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
 ![Alt text](UML.jpg?raw=true "Title")
-![Alt text](UML.png?raw=true "Title")
+![Alt text](uml.png?raw=true "Title")
 
 The Main class has an ArrayList of equations ~~and a corresponding ArrayList of graphs (these will be indexed simultaneously so that edits to equations will show up as edits to the corresponding graph)~~. keyPressed() will mainly edit the equations, mouseClicked() will select equations and click on functions or graphs. addEq and removeEq will add a new equation or remove an equation, and the corresponding graph.
 
