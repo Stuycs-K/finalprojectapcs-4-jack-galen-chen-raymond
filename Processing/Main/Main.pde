@@ -52,7 +52,7 @@ void keyPressed() {
   if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4' || key=='5' || key=='6' || key=='7' || key=='8' || key=='9' 
       || key=='x' || key=='y' 
       || key=='+' || key=='-' || key=='*' || key=='/' || key=='=' || key=='^' 
-      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.') 
+      || key=='√' || key=='<' || key=='>' || key=='|' || key==',' || key == '.' || key == '(' || key == ')') 
       {
     eqs.get(whichEquationSelected-1).addToEq(""+key);
   }
@@ -264,7 +264,7 @@ void graph() {
  }
  
  for (Equation equ : eqs) {
-   if (!equ.toString().equals("")) {
+   if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
      for (int i = start; i < 1440; i++){
        float x = (i - origin) * zoomLevel / 100.0;
