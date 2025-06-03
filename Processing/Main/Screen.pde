@@ -77,7 +77,7 @@ void equationsBar() {
       textSize(15);
       text(i+1, 10, 140+70*i);
       
-      fill(colors[i%7]);
+      fill(colors[eqs.get(i).getColor()]);
       stroke(0);
       strokeWeight(0.5);
       circle(23, 160+70*i, 30);

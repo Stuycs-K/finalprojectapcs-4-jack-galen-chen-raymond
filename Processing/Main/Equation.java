@@ -3,6 +3,8 @@ public class Equation {
   private String eq;
   private double pi = 3.14159265358979323846264338327950288419716939937510;
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
+  private int whichColor = (int)(Math.random()*8);
+  
   public Equation() {
     eq = "";
   }
@@ -16,6 +18,10 @@ public class Equation {
   
   public String toString() {
     return eq;
+  }
+  
+  public int getColor() {
+    return whichColor;
   }
 
   public double evaluate(double x) {

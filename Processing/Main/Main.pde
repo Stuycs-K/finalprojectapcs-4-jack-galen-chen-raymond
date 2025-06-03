@@ -238,6 +238,9 @@ void mouseClicked() {
     zoomLevel*=2;
   }
   
+  // TO CHANGE THE COLOR OF THE SELECTED EQUATION
+  
+  
   setup();
 }
 
@@ -278,7 +281,7 @@ void graph() {
  
  for (int i=0; i<numEquations; i++) {
    Equation equ = eqs.get(i);
-   stroke(colors[i%7]);
+   stroke(colors[equ.getColor()]);
    
    if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
