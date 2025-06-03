@@ -23,6 +23,15 @@ public class Equation {
   public int getColor() {
     return whichColor;
   }
+  
+  public void changeColor() {
+    if (whichColor<=7) {
+      whichColor=0;
+    }
+    else {
+      whichColor++;
+    }
+  }
 
   public double evaluate(double x) {
     Stack<Character> ops = new Stack<>();
