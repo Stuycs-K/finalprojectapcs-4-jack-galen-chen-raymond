@@ -265,7 +265,6 @@ void graph() {
  int origin;
  int start;
  strokeWeight(5);
- stroke(38,89,255);
  
  if (equationsBarOpen) {
    origin = 940;
@@ -277,14 +276,17 @@ void graph() {
    start = 0;
  }
  
- for (Equation equ : eqs) {
+ for (int i=0; i<numEquations; i++) {
+   Equation equ = eqs.get(i);
+   stroke(colors[i%7]);
+   
    if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
-     for (int i = start; i < 1440; i++){
-       float x = (i - origin) * zoomLevel / 100.0;
-       float y = 460 - (100.0f / zoomLevel) * (float)(equ).evaluate(x);
+     for (int j=start; j<1440; j++) {
+       float x = (j - origin) * zoomLevel / 100.0;
+       float y = 460 - (100.0f / zoomLevel) * (float)equ.evaluate(x);
        if (y > 50){
-         point(i,y);
+         point(j,y);
        }
      }
    }
