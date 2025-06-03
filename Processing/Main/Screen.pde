@@ -77,7 +77,7 @@ void equationsBar() {
       textSize(15);
       text(i+1, 10, 140+70*i);
       
-      fill(255);
+      fill(colors[i%7]);
       stroke(0);
       strokeWeight(0.5);
       circle(23, 160+70*i, 30);
