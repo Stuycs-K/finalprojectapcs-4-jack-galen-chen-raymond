@@ -266,12 +266,35 @@ void graph() {
  for (Equation equ : eqs) {
    if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
-     for (int i = start; i < 1440; i++){
-       float x = (i - origin) * zoomLevel / 100.0;
+     float i = start;
+     float x = (start - origin) * zoomLevel / 100.0;
+     float oldVal = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
+     System.out.println(oldVal);
+     while (i < 1440){
+       
+       x = (i - origin) * zoomLevel / 100.0;
        float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
        if (y > 50){
          point(i,y);
        }
+       if (Math.abs(y - oldVal) > 1){
+         if (x < 0){
+           System.out.println(x);
+           System.out.println(Math.abs(y - oldVal));
+         }
+         //System.out.println(i);
+         if (Math.abs(y - oldVal) < 0.5){
+           i+= 1/(Math.abs(y - oldVal));
+         }
+         else{
+           i+=0.2;
+         }
+         
+       }
+       else{
+         i++;
+       }
+       oldVal = y;
      }
    }
  }
