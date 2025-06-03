@@ -16,14 +16,7 @@ color violet = color(137, 0, 229);
 color pink = color(229, 0, 183);
 color black = color(0, 0, 0);
 
-int blueIndex = 0;
-int redIndex = 1;
-int greenIndex = 2;
-int yellowIndex = 3;
-int orangeIndex = 4;
-int violetIndex = 5;
-int pinkIndex = 6;
-int blackIndex = 7;
+private color[] colors = {blue, red, green, yellow, orange, violet, pink, black};
                                    
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
