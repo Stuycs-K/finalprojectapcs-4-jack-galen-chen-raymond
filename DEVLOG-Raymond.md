@@ -28,4 +28,4 @@ This document must be updated daily every time you finish a work session.
 ~1.5 hr - Updated Prototype description and UML to reflect the minor changes made, bugfixed and tested to make sure the basic features work
 
 ### 2025-06-03 - Implemented additional features
-~1 hr - Implemented colors, where each equation has a different color
+~1.5 hr - Implemented colors, where each equation has a different color, and each equation's color can be changed by clicking on the circle next to each equation
