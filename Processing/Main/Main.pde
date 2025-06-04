@@ -239,7 +239,7 @@ void mouseClicked() {
   }
   
   // TO CHANGE THE COLOR OF THE SELECTED EQUATION BY CLICKING ON THE COLORED CIRCLE
-  if (mouseX>=23 && mouseX<=83 && mouseY>=160+70*(whichEquationSelected-1) && mouseY<=190+70*(whichEquationSelected-1)) {
+  if (mouseX>=8 && mouseX<=38 && mouseY>=145+70*(whichEquationSelected-1) && mouseY<=175+70*(whichEquationSelected-1)) {
     eqs.get(whichEquationSelected-1).changeColor();
   }
   
