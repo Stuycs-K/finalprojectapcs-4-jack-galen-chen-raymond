@@ -10,7 +10,8 @@ void topBar() {
   rect(0, 0, 1440, 50);
   fill(255);
   textSize(35);
-  text("desmos", 667, 37);
+  // text("desmos", 667, 37);
+  image(loadImage("desmos.png"), 640, 10, 154, 32);
   
   // Create icons on the right side
   fill(220, 255);
