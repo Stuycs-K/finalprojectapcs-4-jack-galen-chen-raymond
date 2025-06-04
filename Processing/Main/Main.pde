@@ -7,12 +7,17 @@ private int screenYFull = 820; //starts at 50
 private ArrayList<Equation> eqs = new ArrayList<Equation>(Arrays.asList(new Equation())); 
 // initialized with one empty equation to prevent index error
 
-// private ArrayList<color> colors = {new color(38, 89, 255)};
+color blue = color(38, 89, 255);
+color red = color(255, 23, 23);
+color green = color(0, 235, 23);
+color yellow = color(230, 238, 0);
+color orange = color(238, 135, 0);
+color violet = color(137, 0, 229);
+color pink = color(229, 0, 183);
+color black = color(0, 0, 0);
 
-// new color(255, 23, 23), new color(0, 235, 23), new color(230, 238, 0), new color(238, 135, 0), new color(137, 0, 229), new color(229, 0, 183), new color(0, 0, 0)};
+private color[] colors = {blue, red, green, yellow, orange, violet, pink, black};
                                    
-// blue, red, green, yellow, orange, violet, pink, black
-
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
   
@@ -233,6 +238,11 @@ void mouseClicked() {
     zoomLevel*=2;
   }
   
+  // TO CHANGE THE COLOR OF THE SELECTED EQUATION BY CLICKING ON THE COLORED CIRCLE
+  if (mouseX>=8 && mouseX<=38 && mouseY>=145+70*(whichEquationSelected-1) && mouseY<=175+70*(whichEquationSelected-1)) {
+    eqs.get(whichEquationSelected-1).changeColor();
+  }
+  
   setup();
 }
 
@@ -260,7 +270,6 @@ void graph() {
  int origin;
  int start;
  strokeWeight(5);
- stroke(38,89,255);
  
  if (equationsBarOpen) {
    origin = 940;
@@ -272,14 +281,17 @@ void graph() {
    start = 0;
  }
  
- for (Equation equ : eqs) {
+ for (int i=0; i<numEquations; i++) {
+   Equation equ = eqs.get(i);
+   stroke(colors[equ.getColor()]);
+   
    if (!equ.toString().equals("") && equ.validCheck()) {
      // if the Equation is not empty
-     for (int i = start; i < 1440; i++){
-       float x = (i - origin) * zoomLevel / 100.0;
-       float y = 460 - (100.0f / zoomLevel) * (float)(equ).evaluate(x);
+     for (int j=start; j<1440; j++) {
+       float x = (j - origin) * zoomLevel / 100.0;
+       float y = 460 - (100.0f / zoomLevel) * (float)equ.evaluate(x);
        if (y > 50){
-         point(i,y);
+         point(j,y);
        }
      }
    }
