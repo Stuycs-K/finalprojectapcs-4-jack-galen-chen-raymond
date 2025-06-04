@@ -16,7 +16,7 @@ color violet = color(137, 0, 229);
 color pink = color(229, 0, 183);
 color black = color(0, 0, 0);
 
-private color[] colors = {blue, red, green, yellow, orange, violet, pink, black};
+private color[] colors = {red, orange, yellow, green, blue, violet, pink, black};
                                    
 void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
@@ -193,9 +193,9 @@ void mouseClicked() {
     if (mouseX>=625 && mouseX<=705 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("0");
     }
-    //if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
-    //  eqs.get(whichEquationSelected-1).addToEq(".");
-    //}
+    if (mouseX>=710 && mouseX<=790 && mouseY>=810 && mouseY<=855) {
+      eqs.get(whichEquationSelected-1).addToEq(".");
+    }
     if (mouseX>=795 && mouseX<=875 && mouseY>=810 && mouseY<=855) {
       eqs.get(whichEquationSelected-1).addToEq("=");
     }
