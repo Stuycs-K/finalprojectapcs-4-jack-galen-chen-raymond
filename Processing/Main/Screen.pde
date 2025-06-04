@@ -21,6 +21,10 @@ void topBar() {
     fill(100, 255);
     rect(1395, 100, 40, 40, 5, 5, 1, 1);
   }
+  if (zoomLevel==16384) {
+    fill(100, 255);
+    rect(1395, 140, 40, 40, 1, 1, 5, 5);
+  }
   
   image(loadImage("plus.png"), 1403, 108, 25, 25);
   image(loadImage("minus.png"), 1403, 147, 25, 25);
@@ -94,6 +98,7 @@ void equationsBar() {
 void grid() {
   stroke(0);
   textSize(15);
+  
   if (equationsBarOpen) {
     // INITIAL GRID / HALF SCREEN GRID
 
@@ -101,27 +106,23 @@ void grid() {
     strokeWeight(2);
     fill(0);
     line(940, 50, 940, 870);
+    text("0", 928, 475);
     
     int mult = 5; // this is used to display the right number based on the zoomLevel
     strokeWeight(1.1);
     for (int i=1440; i>400; i-=100) {
       line(i, 50, i, 870);
+      int num = zoomLevel*mult;
       
       if (mult==5) {
-        text(zoomLevel*mult, i-17, 475);
-      }
-      else if (mult>0) {
-        text(zoomLevel*mult, i-3, 475);
-      }
-      else if (mult==0) {
-        text(zoomLevel*mult, i-10, 475);
+        text(num, i-(""+num).length()*8, 475);
       }
       else if (mult==-5) {
-        text(zoomLevel*mult, i+5, 475);
+        text(num, i+(""+num).length(), 475);
       }
-      else if (mult<0) {
-        text(zoomLevel*mult, i-7, 475);
-      } 
+      else if (mult!=0) {
+        text(num, i-(""+num).length()*4, 475);
+      }
       
       mult--;
     }
@@ -139,19 +140,18 @@ void grid() {
     fill(0);
     line(440, 460, 1440, 460);
     
-    int mult2 = -4; // this is used to display the right number based on the zoomLevel
+    mult = -4; // this is used to display the right number based on the zoomLevel
     strokeWeight(1.1);
     for (int i=860; i>50; i-=100) {
       line(440, i, 1440, i);
       
-      if (mult2>0) {
-        text(zoomLevel*mult2, 928, i+5);
-      }
-      if (mult2<0) {
-        text(zoomLevel*mult2, 922, i+5);
+      int num = zoomLevel*mult;
+      
+      if (mult!=0) {
+        text(num, 935-(""+num).length()*7, i+5);
       }
       
-      mult2++;
+      mult++;
     }
     
     // horizontal sub-lines
