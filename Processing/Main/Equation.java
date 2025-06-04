@@ -25,7 +25,7 @@ public class Equation {
   }
   
   public void changeColor() {
-    if (whichColor<=7) {
+    if (whichColor>=7) {
       whichColor=0;
     }
     else {
