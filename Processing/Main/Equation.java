@@ -45,6 +45,10 @@ public class Equation {
   public int incCursorPos() {
     cursorPos += 2;
   }
+  
+  public void setCursorPos(int pos) {
+    cursorPos = pos;
+  }
 
   public double evaluate(double x) {
     Stack<Character> ops = new Stack<>();

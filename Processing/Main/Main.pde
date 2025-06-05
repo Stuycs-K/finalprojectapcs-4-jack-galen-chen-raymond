@@ -233,7 +233,8 @@ void mouseClicked() {
   if (equationsBarOpen) {
     if (mouseX <= 440 && mouseY >= 120 && mouseY <= (120 + 70 * numEquations)) {
       // if the mouseClicked is selecting an equation
-      whichEquationSelected = (mouseY / 70) - 1;
+      whichEquationSelected = (mouseY / 70) - 1; // to select the equation
+      eqs.get(whichEquationSelected-1).setCursorPos(eqs.get(whichEquationSelected-1).toString().length());
     }
     if (mouseX <= 440 && mouseX >= 360 && mouseY <= 120 && mouseY >= 50) {
       equationsBarOpen = false;
