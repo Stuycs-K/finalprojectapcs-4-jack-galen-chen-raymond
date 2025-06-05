@@ -67,7 +67,8 @@ void equationsBar() {
         stroke(38, 89, 255);
         
         // to display the cursor
-        text("|", eqs.get(i).getCursorPos()*10, 120+70*i);
+        textSize(40);
+        text("|", eqs.get(i).getCursorPos()*10 + 60, 165+70*i);
       }
       else {
         fill(226);

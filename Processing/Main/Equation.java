@@ -12,9 +12,11 @@ public class Equation {
 
   public void addToEq(String s){
     eq+=s;
+    cursorPos+=2;
   }
   public void removeFromEq(){
     eq=eq.substring(0,eq.length()-2);
+    cursorPos-=2;
   }
   
   public String toString() {
