@@ -32,7 +32,7 @@ void setup() {
 
   background(255); // clear screen
 
-  PFont tnr = createFont("Serif", 100);
+  PFont tnr = createFont("Times New Roman", 100);
   textFont(tnr);
   
   graph();
