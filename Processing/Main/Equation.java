@@ -14,9 +14,16 @@ public class Equation {
     eq+=s;
     cursorPos+=2;
   }
-  public void removeFromEq(){
-    eq=eq.substring(0,eq.length()-2);
-    cursorPos-=2;
+  //public void removeFromEq(){
+  //  eq=eq.substring(0,eq.length()-2);
+  //  cursorPos-=2;
+  //}
+  
+  public void removeFromEq() {
+    if (cursorPos > 0) {
+      eq = eq.substring(0, cursorPos-2) + eq.substring(cursorPos);
+      cursorPos-=2;
+    }
   }
   
   public String toString() {
