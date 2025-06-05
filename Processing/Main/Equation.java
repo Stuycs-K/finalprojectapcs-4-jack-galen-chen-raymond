@@ -38,11 +38,11 @@ public class Equation {
     return cursorPos;
   }
   
-  public int decCursorPos() {
+  public void decCursorPos() {
     cursorPos -= 2;
   }
   
-  public int incCursorPos() {
+  public void incCursorPos() {
     cursorPos += 2;
   }
   
