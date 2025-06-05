@@ -4,6 +4,7 @@ public class Equation {
   private double pi = 3.14159265358979323846264338327950288419716939937510;
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
+  private int cursorPos;
   
   public Equation() {
     eq = "";
@@ -31,6 +32,18 @@ public class Equation {
     else {
       whichColor++;
     }
+  }
+  
+  public int getCursorPos() {
+    return cursorPos;
+  }
+  
+  public int decCursorPos() {
+    cursorPos -= 2;
+  }
+  
+  public int incCursorPos() {
+    cursorPos += 2;
   }
 
   public double evaluate(double x) {

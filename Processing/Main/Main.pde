@@ -58,6 +58,7 @@ void keyPressed() {
     }
   }
 
+  // TO NAVIGATE AROUND EQUATIONS
   if (keyCode == UP) {
     if (whichEquationSelected > 1) {
       whichEquationSelected--;
@@ -68,6 +69,18 @@ void keyPressed() {
       addEquation();
     } else {
       whichEquationSelected++;
+    }
+  }
+  
+  // TO MOVE CURSOR ON THE SAME EQUATION
+  if (keyCode == LEFT) {
+    if (eqs.get(whichEquationSelected-1).getCursorPos() > 0) {
+      eqs.get(whichEquationSelected-1).decCursorPos();
+    }
+  }
+  if (keyCode == RIGHT) {
+    if (eqs.get(whichEquationSelected-1).getCursorPos() < eqs.get(whichEquationSelected-1).toString().length()) {
+      eqs.get(whichEquationSelected-1).incCursorPos();
     }
   }
 
