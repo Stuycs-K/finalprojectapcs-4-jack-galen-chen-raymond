@@ -32,6 +32,9 @@ void setup() {
 
   background(255); // clear screen
 
+  PFont tnr = createFont("Serif", 100);
+  textFont(tnr);
+  
   graph();
   equationsBar();
   grid();
@@ -73,7 +76,7 @@ void keyPressed() {
     key == 'x' || key == 'y' ||
     key == '+' || key == '-' || key == '*' || key == '/' || key == '=' || key == '^' ||
     key == '√' || key == '<' || key == '>' || key == '|' || key == ',' || key == '.' || key == '(' || key == ')' || key == 'e') {
-    eqs.get(whichEquationSelected - 1).addToEq("" + key);
+    eqs.get(whichEquationSelected - 1).addToEq(key+" ");
   }
 
   setup();

@@ -13,7 +13,7 @@ public class Equation {
     eq+=s;
   }
   public void removeFromEq(){
-    eq=eq.substring(0,eq.length()-1);
+    eq=eq.substring(0,eq.length()-2);
   }
   
   public String toString() {
