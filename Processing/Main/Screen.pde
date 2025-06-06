@@ -259,17 +259,17 @@ void functionsBar() {
     // creating the buttons
     textSize(20);
     // variables and special operators
-    String[] buttons = {"   x   ", "   y  ", "a^2 ", "a^b ", 
-                        "   (  ", "   )  ", "   <  ", "   >  ", 
-                        "  |a| ", "   ,  ", " <=  ", " >=  ", 
-                        "ABC", "  ?", "  √  ", "  π  "};
+    String[] buttons = {"  x", "  y", "a^2", "a^b", 
+                        "  (", "  )", " <", "  >", 
+                        " |a|", "  ,", "<=", ">=", 
+                        "ABC", "  ?", "  √", " π"};
     int index = 0;
     for (int i=0; i<4; i++) {
       for (int j=0; j<4; j++) {
         fill(255);
         rect(230+j*(85), 660+i*(50), 80, 45, 5);
         fill(0);
-        text(buttons[index], 255+j*85, 688+i*(50));
+        text(buttons[index], 252+j*85, 688+i*(51));
         index++;
       }
     }
@@ -285,7 +285,7 @@ void functionsBar() {
         fill(255);
         rect(625+j*(85), 660+i*(50), 80, 45, 5);
         fill(0);
-        text(buttons2[index], 660+j*85, 688+i*(50));
+        text(buttons2[index], 660+j*85, 688+i*(51));
         index++;
       }
     }
@@ -298,12 +298,14 @@ void functionsBar() {
     fill(139);
     rect(1030, 710, 75, 45, 5);
     fill(0);
-    text("<——", 1050, 740);
+    // rotate(PI);
+    image(loadImage("thinArrow.png"), 700, 400, 50, 50);
     
+    // rotate(PI);
     fill(139);
     rect(1110, 710, 75, 45, 5);
     fill(0);
-    text("——>", 1130, 740);
+    image(loadImage("thinArrow.png"), 1125, 708, 50, 50);
 
     fill(139);
     rect(1070, 760, 115, 45, 5);
