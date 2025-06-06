@@ -4,16 +4,36 @@ public class Equation {
   private double pi = 3.14159265358979323846264338327950288419716939937510;
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
+  private int cursorPos;
   
   public Equation() {
     eq = "";
   }
 
   public void addToEq(String s){
-    eq+=s;
+    if (cursorPos == eq.length()) {
+      // if adding to end of equation
+      eq+=s;
+      cursorPos+=2;
+    }
+    
+    else if (cursorPos == 0) {
+      // if adding to beginning of equation
+      eq = s+eq;
+      cursorPos+=2;
+    }
+    
+    else {
+      eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
+      cursorPos+=2;
+    }
   }
-  public void removeFromEq(){
-    eq=eq.substring(0,eq.length()-1);
+  
+  public void removeFromEq() {
+    if (cursorPos > 0) {
+      eq = eq.substring(0, cursorPos-2) + eq.substring(cursorPos);
+      cursorPos-=2;
+    }
   }
   
   public String toString() {
@@ -31,6 +51,22 @@ public class Equation {
     else {
       whichColor++;
     }
+  }
+  
+  public int getCursorPos() {
+    return cursorPos;
+  }
+  
+  public void decCursorPos() {
+    cursorPos -= 2;
+  }
+  
+  public void incCursorPos() {
+    cursorPos += 2;
+  }
+  
+  public void setCursorPos(int pos) {
+    cursorPos = pos;
   }
 
   public double evaluate(double x) {

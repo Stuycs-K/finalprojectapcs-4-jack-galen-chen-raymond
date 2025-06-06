@@ -31,4 +31,7 @@ This document must be updated daily every time you finish a work session.
 ~1.5 hr - Implemented colors, where each equation has a different color, and each equation's color can be changed by clicking on the circle next to each equation
 
 ### 2025-06-04 - Improved UI
-~0.5 hr - Fixed spacing on the numbers on the grid, put an upper bound on the zoom out function
+~1 hr - Fixed spacing on the numbers on the grid, put an upper bound on the zoom out function, added better logos for UI
+
+### 2025-06-05 - More UI Improvements
+~1 hr - Added a cursor in so that different parts of the equation can be deleted
