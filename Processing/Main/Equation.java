@@ -11,13 +11,23 @@ public class Equation {
   }
 
   public void addToEq(String s){
-    eq+=s;
-    cursorPos+=2;
+    if (cursorPos == eq.length()) {
+      // if adding to end of equation
+      eq+=s;
+      cursorPos+=2;
+    }
+    
+    else if (cursorPos == 0) {
+      // if adding to beginning of equation
+      eq = s+eq;
+      cursorPos+=2;
+    }
+    
+    else {
+      eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
+      cursorPos+=2;
+    }
   }
-  //public void removeFromEq(){
-  //  eq=eq.substring(0,eq.length()-2);
-  //  cursorPos-=2;
-  //}
   
   public void removeFromEq() {
     if (cursorPos > 0) {
