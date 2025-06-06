@@ -273,48 +273,6 @@ void graph() {
   int start;
   strokeWeight(5);
 
-<<<<<<< HEAD
- else {
-   origin = 720;
-   start = 0;
- }
- 
- for (Equation equ : eqs) {
-   if (!equ.toString().equals("") && equ.validCheck()) {
-     // if the Equation is not empty
-     float i = start;
-     float x = (start - origin) * zoomLevel / 100.0;
-     float oldVal = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-     System.out.println(oldVal);
-     while (i < 1440){
-       
-       x = (i - origin) * zoomLevel / 100.0;
-       float y = 460 - (100.0f / zoomLevel) * (float)(eqs.get(whichEquationSelected-1)).evaluate(x);
-       if (y > 50){
-         point(i,y);
-       }
-       if (Math.abs(y - oldVal) > 1){
-         if (x < 0){
-           System.out.println(x);
-           System.out.println(Math.abs(y - oldVal));
-         }
-         //System.out.println(i);
-         if (Math.abs(y - oldVal) < 0.5){
-           i+= 1/(Math.abs(y - oldVal));
-         }
-         else{
-           i+=0.2;
-         }
-         
-       }
-       else{
-         i++;
-       }
-       oldVal = y;
-     }
-   }
- }
-=======
   if (equationsBarOpen) {
     origin = 940;
     start = 440;
@@ -334,24 +292,18 @@ void graph() {
         x = (i - origin) * zoomLevel / 100.0;
         float y = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x));
         if (y > 50) {
-          point(i, y);
+          line(i-1,oldVal,i,y);
         }
-        if (Math.abs(y - oldVal) > 1) {
-          //System.out.println(i);
-          if (Math.abs(y - oldVal) < 0.5) {
-            i += 1 / (Math.abs(y - oldVal));
-          } else {
-            i += 0.2;
-          }
-    
-        } else {
-          i++;
+        if (Math.abs(50 - y) < 1){
+          i+=0.00001;
+        }
+        else{
+          i+=0.01;
         }
         oldVal = y;
       }
     }
   }
->>>>>>> origin/main
 }
 
 void draw() {}
