@@ -250,7 +250,8 @@ void functionsBar() {
     
     rect(10, 595, 80, 50, 10);
     fill(0);
-    triangle(60, 615, 80, 615, 70, 625);
+    image(loadImage("keyboard.png"), 15, 595, 47, 50);
+    triangle(65, 615, 85, 615, 75, 625);
     
     fill(190);
     rect(10, 652, 1420, 208, 10);
@@ -319,6 +320,7 @@ void functionsBar() {
   else {
     rect(10, 810, 80, 50, 10);
     fill(0);
-    triangle(60, 840, 80, 840, 70, 830);
+    image(loadImage("keyboard.png"), 15, 810, 47, 50);
+    triangle(65, 840, 85, 840, 75, 830);
   }
 }
