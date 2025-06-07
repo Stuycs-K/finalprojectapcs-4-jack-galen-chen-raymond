@@ -103,6 +103,7 @@ void mouseClicked() {
       functionBoardOpen = false;
     }
 
+    // RIGHT BLOCK
     // the blue return/add button
     if (mouseX >= 1030 && mouseX <= 1185 && mouseY >= 810 && mouseY <= 855) {
       addEquation();
@@ -116,6 +117,20 @@ void mouseClicked() {
       } else {
         // if the equation has stuff in it, delete from the equation
         eqs.get(whichEquationSelected - 1).removeFromEq();
+      }
+    }
+    
+    // move cursor left/right
+    if (mouseX>=1030 && mouseX<=1105 && mouseY>=710 && mouseY<=755) {
+      // left
+      if (eqs.get(whichEquationSelected-1).getCursorPos() > 0) {
+        eqs.get(whichEquationSelected-1).decCursorPos();
+      }
+    }
+    if (mouseX>=1110 && mouseX<=1185 && mouseY>=710 && mouseY<=755) {
+      // right
+      if (eqs.get(whichEquationSelected-1).getCursorPos() < eqs.get(whichEquationSelected-1).toString().length()) {
+        eqs.get(whichEquationSelected-1).incCursorPos();
       }
     }
 

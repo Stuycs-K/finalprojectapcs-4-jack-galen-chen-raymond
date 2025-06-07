@@ -298,10 +298,10 @@ void functionsBar() {
     fill(139);
     rect(1030, 710, 75, 45, 5);
     fill(0);
-    // rotate(PI);
-    image(loadImage("thinArrow.png"), 700, 400, 50, 50);
+    rotate(8*PI/8);
+    image(loadImage("thinArrow.png"), -1090, -758, 50, 50);
     
-    // rotate(PI);
+    rotate(8*PI/8);
     fill(139);
     rect(1110, 710, 75, 45, 5);
     fill(0);
