@@ -38,3 +38,6 @@ This document must be updated daily every time you finish a work session.
 
 ### 2025-06-06 - Minor UI fixes
 ~1.5 hr - Changed font to make spacing on the cursor better, created a reset button on the top right, fixed spacing and alignment on the function bar keys, changed some of the keys' functions to make sense with the capabilities of the sketch
+
+## 2025-06-07 - Bugfixing, UI fixes, and notes
+~3 hrs - Added notes (similar to comments in code) that can be typed in by the user, accessed through a new menu opened by clicking the plus sign in the top left, fixed bugs where clicking on the equations bar would cause an indexoutofbounds error, changed font on cursor to make sure it aligns properly
