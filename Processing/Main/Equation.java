@@ -172,6 +172,7 @@ public class Equation {
     int parenCount = 0;
     boolean lastWasOp = true;
     boolean lastWasDeci = false;
+    boolean graphable = false; // if the equation contains a variable or number
   
     for (int i = 0; i < eq.length(); i++) {
       char ch = eq.charAt(i);
@@ -198,12 +199,18 @@ public class Equation {
       } else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
         lastWasOp = false;
         lastWasDeci = false;
+        graphable=true;
+      } else if (ch=='0' || ch=='1' || ch=='2' || ch=='3' || ch=='4' || ch=='5' || ch=='6' || ch=='7' || ch=='8' || ch=='9'){
+        lastWasOp = false;
+        lastWasDeci = false;
+        graphable = true;
       } else {
         return false;
       }
     }
-    return !lastWasOp && parenCount == 0;
+    return !lastWasOp && (parenCount==0) && graphable;   
   }
+  
   private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want
     return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
   }
