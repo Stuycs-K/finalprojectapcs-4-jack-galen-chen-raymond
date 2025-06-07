@@ -90,10 +90,17 @@ void equationsBar() {
       textSize(15);
       text(i+1, 10, 140+70*i);
       
-      fill(colors[eqs.get(i).getColor()]);
-      stroke(0);
-      strokeWeight(0.5);
-      circle(23, 160+70*i, 30);
+      if (eqs.get(i).isNote()) {
+        textSize(50);
+        fill(0);
+        text("\"", 5, 190+70*i);
+      }
+      else {
+        fill(colors[eqs.get(i).getColor()]);
+        stroke(0);
+        strokeWeight(0.5);
+        circle(23, 160+70*i, 30);
+      }
     }
   }
   

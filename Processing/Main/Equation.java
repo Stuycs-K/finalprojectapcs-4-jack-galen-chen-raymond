@@ -15,7 +15,7 @@ public class Equation {
     return isNote;
   }
   
-  public boolean setNote(boolean note) {
+  public void setNote(boolean note) {
     isNote = note;
   }
   
