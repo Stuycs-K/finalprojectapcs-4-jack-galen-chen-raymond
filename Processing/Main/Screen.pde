@@ -14,7 +14,8 @@ void topBar() {
   
   // Create icons on the right side
   fill(220, 255);
-  rect(1395, 55, 40, 40, 5); // options button
+  rect(1395, 55, 40, 40, 5); // reset button
+  image(loadImage("circleArrow.png"), 1399, 60, 30, 30);
   
   rect(1395, 100, 40, 80, 5); // zoom in / out button
   if (zoomLevel==1) {

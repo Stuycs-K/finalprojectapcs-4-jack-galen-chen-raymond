@@ -239,7 +239,9 @@ void mouseClicked() {
     if (mouseX >= 880 && mouseX <= 960 && mouseY >= 810 && mouseY <= 855) {
       eqs.get(whichEquationSelected - 1).addToEq("+");
     }
-  } else {
+  } 
+  
+  else {
     if (mouseX >= 10 && mouseX <= 90 && mouseY >= 810 && mouseY <= 860) {
       functionBoardOpen = true;
     }
@@ -273,6 +275,10 @@ void mouseClicked() {
     if (zoomLevel < 16384) {
       zoomLevel *= 2;
     }
+  }
+  // reset zoom button
+  if (mouseX>=1395 && mouseX<=1435 && mouseY>=55 && mouseY<=95) {
+    zoomLevel=2;
   }
 
   // TO CHANGE THE COLOR OF THE SELECTED EQUATION BY CLICKING ON THE COLORED CIRCLE
