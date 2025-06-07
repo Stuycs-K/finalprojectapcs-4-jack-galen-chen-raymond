@@ -34,4 +34,4 @@ This document must be updated daily every time you finish a work session.
 ~1 hr - Fixed spacing on the numbers on the grid, put an upper bound on the zoom out function, added better logos for UI
 
 ### 2025-06-05 - More UI Improvements
-~1 hr - Added a cursor in so that different parts of the equation can be deleted
+~1.5 hr - Added a cursor in so that different parts of the equation can be deleted, cursor can be controlled with the function bar keys
