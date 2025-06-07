@@ -270,7 +270,7 @@ void mouseClicked() {
       addEquation();
     }
     if (mouseX>=2 && mouseX<=202 && mouseY>=170 && mouseY<=220) {
-      // addNote();
+      addNote();
     }
     else {
       plusMenuOpen=false; 
@@ -314,6 +314,15 @@ void addEquation() {
   numEquations++;
   eqs.add(new Equation());
   whichEquationSelected++;
+}
+
+void addNote() {
+  numEquations++;
+  eqs.add(new Equation());
+  eqs.get(eqs.size()-1).setNote(true);
+  whichEquationSelected++;
+  
+  plusMenuOpen=false;
 }
 
 void removeEquation() {
