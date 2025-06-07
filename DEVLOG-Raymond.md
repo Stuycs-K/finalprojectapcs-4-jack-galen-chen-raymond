@@ -41,3 +41,4 @@ This document must be updated daily every time you finish a work session.
 
 ## 2025-06-07 - Bugfixing, UI fixes, and notes
 ~3 hrs - Added notes (similar to comments in code) that can be typed in by the user, accessed through a new menu opened by clicking the plus sign in the top left, fixed bugs where clicking on the equations bar would cause an indexoutofbounds error, changed font on cursor to make sure it aligns properly
+~0.5 hrs - Fixed an issue where invalid equations would crash, implemented validCheck() better to do so
