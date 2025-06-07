@@ -14,25 +14,25 @@ public class Equation {
     if (cursorPos == eq.length()) {
       // if adding to end of equation
       eq+=s;
-      cursorPos+=2;
+      cursorPos+=1;
     }
     
     else if (cursorPos == 0) {
       // if adding to beginning of equation
       eq = s+eq;
-      cursorPos+=2;
+      cursorPos+=1;
     }
     
     else {
       eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
-      cursorPos+=2;
+      cursorPos+=1;
     }
   }
   
   public void removeFromEq() {
     if (cursorPos > 0) {
-      eq = eq.substring(0, cursorPos-2) + eq.substring(cursorPos);
-      cursorPos-=2;
+      eq = eq.substring(0, cursorPos-1) + eq.substring(cursorPos);
+      cursorPos-=1;
     }
   }
   
@@ -58,11 +58,11 @@ public class Equation {
   }
   
   public void decCursorPos() {
-    cursorPos -= 2;
+    cursorPos -= 1;
   }
   
   public void incCursorPos() {
-    cursorPos += 2;
+    cursorPos += 1;
   }
   
   public void setCursorPos(int pos) {

@@ -31,9 +31,9 @@ void setup() {
   size(1440, 870); // FULL SIZE OF MACBOOK SCREEN
 
   background(255); // clear screen
-
-  PFont tnr = createFont("monospace", 100);
-  textFont(tnr);
+  
+  PFont s = createFont("PTMono-Regular", 100);
+  textFont(s);
   
   graph();
   equationsBar();
@@ -89,8 +89,8 @@ void keyPressed() {
     key == 'x' || key == 'y' ||
     key == '+' || key == '-' || key == '*' || key == '/' || key == '=' || key == '^' ||
     key == '√' || key == '<' || key == '>' || key == '|' || key == ',' || key == '.' || key == '(' || key == ')' || key == 'e') {
-        
-      eqs.get(whichEquationSelected - 1).addToEq(key+" ");
+      
+      eqs.get(whichEquationSelected - 1).addToEq(key+"");
   }
 
   setup();
