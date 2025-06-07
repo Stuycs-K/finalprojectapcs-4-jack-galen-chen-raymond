@@ -332,10 +332,10 @@ void functionsBar() {
       }
     }
     
-    fill(139);
-    rect(1030, 660, 155, 45, 5);
-    fill(0);
-    text("functions", 1070, 690);
+    //fill(139);
+    //rect(1030, 660, 155, 45, 5);
+    //fill(0);
+    //text("functions", 1070, 690);
     
     fill(139);
     rect(1030, 710, 75, 45, 5);
