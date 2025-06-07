@@ -325,7 +325,7 @@ void graph() {
     Equation equ = eqs.get(j);
     stroke(colors[equ.getColor()]);
     
-    if (equ.validCheck() && !equ.toString().equals("")) {
+    if (equ.validCheck() && !equ.toString().equals("") && !equ.isNote()) {
       //System.out.println("graphed");
       //System.out.println(equ.validCheck());
       //System.out.println(equ.toString().equals(""));

@@ -5,7 +5,7 @@ public class Equation {
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
   private int cursorPos;
-  private boolean isNote;
+  private boolean isNote = false;
   
   public Equation() {
     eq = "";
@@ -13,6 +13,10 @@ public class Equation {
 
   public boolean isNote() {
     return isNote;
+  }
+  
+  public boolean setNote(boolean note) {
+    isNote = note;
   }
   
   public void addToEq(String s){
