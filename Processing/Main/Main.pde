@@ -47,7 +47,7 @@ void setup() {
 void keyPressed() {
   if (eqs.get(whichEquationSelected-1).isNote()) {
     // FOR MODIFYING NOTES
-    if (keyCode == ENTER) {
+    if (keyCode == ENTER || keyCode == RETURN) {
       addEquation();
     }
     else if (keyCode == BACKSPACE || keyCode == DELETE) {
@@ -94,7 +94,7 @@ void keyPressed() {
 
   else {
     // FOR MODIFYING EQUATIONS
-    if (keyCode == ENTER) {
+    if (keyCode == ENTER || keyCode == RETURN) {
       addEquation();
     }
     else if (keyCode == BACKSPACE || keyCode == DELETE) {
