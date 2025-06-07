@@ -87,7 +87,13 @@ void keyPressed() {
     }
     
     else {
-      eqs.get(whichEquationSelected-1).addToEq(key+"");
+      // cmd = 157
+      // shift = 16
+      // option =  65406
+      // control = 17
+      if (keyCode!= 157 && keyCode!=16 && keyCode!=65406 && keyCode!=17) {
+        eqs.get(whichEquationSelected-1).addToEq(key+"");
+      }
     }
   }
 
