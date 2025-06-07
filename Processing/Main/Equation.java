@@ -5,11 +5,16 @@ public class Equation {
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
   private int cursorPos;
+  private boolean isNote;
   
   public Equation() {
     eq = "";
   }
 
+  public boolean isNote() {
+    return isNote;
+  }
+  
   public void addToEq(String s){
     if (cursorPos == eq.length()) {
       // if adding to end of equation
