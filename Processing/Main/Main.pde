@@ -175,7 +175,7 @@ void mouseClicked() {
     }
 
     if (mouseX >= 230 && mouseX <= 310 && mouseY >= 810 && mouseY <= 855) {
-      eqs.get(whichEquationSelected - 1).addToEq("");
+      eqs.get(whichEquationSelected - 1).changeColor(); 
     }
     if (mouseX >= 315 && mouseX <= 395 && mouseY >= 810 && mouseY <= 855) {
       eqs.get(whichEquationSelected - 1).addToEq("?");
@@ -322,7 +322,7 @@ void graph() {
   for (int j = 0; j <numEquations; j++){
     Equation equ = eqs.get(j);
     stroke(colors[equ.getColor()]);
-    if (!equ.toString().equals("") && equ.validCheck()) {
+    if (equ.validCheck() && !equ.toString().equals("")) {
       float i = start;
       float x = (i - origin) * zoomLevel / 100.0;
       float oldVal = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x));

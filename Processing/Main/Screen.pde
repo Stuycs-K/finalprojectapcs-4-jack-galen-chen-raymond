@@ -271,7 +271,7 @@ void functionsBar() {
     String[] buttons = {"   x", "    y", "  a^2", "  a^b", 
                         "   (", "    )", "   <", "    >", 
                         "   |a|", "    ,", "  <=", "  >=", 
-                        "ABC", "    ?", "   √", "   π"};
+                        "color", "    ?", "   √", "   π"};
     int index = 0;
     for (int i=0; i<4; i++) {
       for (int j=0; j<4; j++) {
