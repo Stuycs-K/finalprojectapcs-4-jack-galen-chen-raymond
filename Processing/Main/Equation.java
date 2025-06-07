@@ -14,7 +14,7 @@ public class Equation {
     if (cursorPos == eq.length()) {
       // if adding to end of equation
       eq+=s;
-      cursorPos+=1;
+      cursorPos+=(s.length());
     }
     
     else if (cursorPos == 0) {
