@@ -1,5 +1,6 @@
 private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
+private boolean plusMenuOpen = false;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -101,6 +102,28 @@ void equationsBar() {
         strokeWeight(0.5);
         circle(23, 160+70*i, 30);
       }
+    }
+    
+    // the plus menu
+    if (plusMenuOpen) {
+      textFont(tnr);
+      
+      fill(200, 255);
+      rect(2, 120, 200, 100);
+      triangle(40, 105, 15, 120, 65, 120);
+      
+      strokeWeight(1.5);
+      stroke(200, 200, 200, 255);
+      line(15, 120, 65, 120);
+      
+      strokeWeight(1);
+      stroke(0);
+      line(2, 170, 202, 170);
+      
+      fill(0);
+      textSize(25);
+      text("New Expression", 10, 155);
+      text("New Note", 10, 205);
     }
   }
   
