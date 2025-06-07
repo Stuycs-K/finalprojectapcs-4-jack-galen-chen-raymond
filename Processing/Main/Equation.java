@@ -5,35 +5,48 @@ public class Equation {
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
   private int cursorPos;
+  private boolean isNote = false;
   
   public Equation() {
     eq = "";
   }
 
+  public boolean isNote() {
+    return isNote;
+  }
+  
+  public void setNote(boolean note) {
+    isNote = note;
+  }
+  
   public void addToEq(String s){
     if (cursorPos == eq.length()) {
       // if adding to end of equation
       eq+=s;
-      cursorPos+=2;
+      cursorPos+=(s.length());
     }
     
     else if (cursorPos == 0) {
       // if adding to beginning of equation
       eq = s+eq;
-      cursorPos+=2;
+      cursorPos+=1;
     }
     
     else {
       eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
-      cursorPos+=2;
+      cursorPos+=1;
     }
   }
   
   public void removeFromEq() {
     if (cursorPos > 0) {
-      eq = eq.substring(0, cursorPos-2) + eq.substring(cursorPos);
-      cursorPos-=2;
+      eq = eq.substring(0, cursorPos-1) + eq.substring(cursorPos);
+      cursorPos-=1;
     }
+  }
+  
+  public void setEq(String s) {
+    eq = s;
   }
   
   public String toString() {
@@ -58,11 +71,11 @@ public class Equation {
   }
   
   public void decCursorPos() {
-    cursorPos -= 2;
+    cursorPos -= 1;
   }
   
   public void incCursorPos() {
-    cursorPos += 2;
+    cursorPos += 1;
   }
   
   public void setCursorPos(int pos) {
@@ -97,7 +110,7 @@ public class Equation {
           vals.push(Double.parseDouble(num));
           num = "";
         }
-        System.out.println("pi");
+        // System.out.println("pi");
         vals.push(pi); // push x's value directly to stack
         negate = false;
       }
@@ -106,7 +119,7 @@ public class Equation {
           vals.push(Double.parseDouble(num));
           num = "";
         }
-        System.out.println("E");
+        // System.out.println("E");
         vals.push(e); // push x's value directly to stack
         negate = false;
       }
@@ -189,7 +202,6 @@ public class Equation {
         return false;
       }
     }
-  
     return !lastWasOp && parenCount == 0;
   }
   private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want

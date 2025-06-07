@@ -1,5 +1,6 @@
 private boolean functionBoardOpen = false;
 private boolean equationsBarOpen = true;
+private boolean plusMenuOpen = false;
 private int numEquations = 1;
 private int whichEquationSelected = 1;
 private int zoomLevel = 2; // this is the value at the first marked tick on the grid
@@ -10,12 +11,12 @@ void topBar() {
   rect(0, 0, 1440, 50);
   fill(255);
   textSize(35);
-  // text("desmos", 667, 37);
   image(loadImage("desmos.png"), 640, 10, 154, 32);
   
   // Create icons on the right side
   fill(220, 255);
-  rect(1395, 55, 40, 40, 5); // options button
+  rect(1395, 55, 40, 40, 5); // reset button
+  image(loadImage("circleArrow.png"), 1399, 60, 30, 30);
   
   rect(1395, 100, 40, 80, 5); // zoom in / out button
   if (zoomLevel==1) {
@@ -35,6 +36,8 @@ void topBar() {
 }
 
 void equationsBar() {
+  PFont tnr = createFont("TimesNewRomanPSMT", 15);
+  textFont(tnr);
   // EQUATIONS BAR ON THE LEFT
   
   if (equationsBarOpen) {
@@ -44,7 +47,7 @@ void equationsBar() {
     stroke(0);
     rect(0, 50, 440, 870);
     
-    // the topmost bar holding the +, <--, -->, options, and hide equations bar
+    // the topmost bar holding the +, options, and hide equations bar
     strokeWeight(1);
     fill(226);
     rect(2, 50, 436, 70);
@@ -60,36 +63,70 @@ void equationsBar() {
     
     
     // the equations
-    strokeWeight(1);
+    PFont s = createFont("PTMono-Regular", 100);
+
     for (int i=0; i<numEquations; i++) {
       if (i == whichEquationSelected-1) {
         fill(38, 89, 255);
         stroke(38, 89, 255);
         
         // to display the cursor
-        textSize(40);
-        text("|", eqs.get(i).getCursorPos()*14 + 49, 165+70*i);
+        textFont(tnr);
+        textSize(35);
+        text("|", eqs.get(i).getCursorPos()*18 + 57, 163+70*i);
       }
       else {
         fill(226);
         stroke(0);
       }
       
+      textFont(s);
+      strokeWeight(1);
+
       rect(2, 120+70*i, 40, 70);
       line(0, 120+70*i, 440, 120+70*i);
       line(0, 190+70*i, 440, 190+70*i);
       
       textSize(30);
       fill(0);
-      text(eqs.get(i).toString(), 60, 160+70*i);
+      text(eqs.get(i).toString(), 60, 165+70*i);
       
       textSize(15);
       text(i+1, 10, 140+70*i);
       
-      fill(colors[eqs.get(i).getColor()]);
+      if (eqs.get(i).isNote()) {
+        textSize(50);
+        fill(0);
+        text("\"", 5, 190+70*i);
+      }
+      else {
+        fill(colors[eqs.get(i).getColor()]);
+        stroke(0);
+        strokeWeight(0.5);
+        circle(23, 160+70*i, 30);
+      }
+    }
+    
+    // the plus menu
+    if (plusMenuOpen) {
+      textFont(tnr);
+      
+      fill(200, 255);
+      rect(2, 120, 200, 100);
+      triangle(40, 105, 15, 120, 65, 120);
+      
+      strokeWeight(1.5);
+      stroke(200, 200, 200, 255);
+      line(15, 120, 65, 120);
+      
+      strokeWeight(1);
       stroke(0);
-      strokeWeight(0.5);
-      circle(23, 160+70*i, 30);
+      line(2, 170, 202, 170);
+      
+      fill(0);
+      textSize(25);
+      text("New Expression", 10, 155);
+      text("New Note", 10, 205);
     }
   }
   
@@ -103,6 +140,9 @@ void equationsBar() {
 void grid() {
   stroke(0);
   textSize(15);
+  
+  PFont tnr = createFont("TimesNewRomanPSMT", 15);
+  textFont(tnr);
   
   if (equationsBarOpen) {
     // INITIAL GRID / HALF SCREEN GRID
@@ -240,6 +280,8 @@ void grid() {
 }
 
 void functionsBar() {
+  PFont tnr = createFont("TimesNewRomanPSMT", 15);
+  textFont(tnr);
   // FUNCTION BAR ON THE BOTTOM
   // initial state is just as the icon
   strokeWeight(0.5);
@@ -259,17 +301,17 @@ void functionsBar() {
     // creating the buttons
     textSize(20);
     // variables and special operators
-    String[] buttons = {"  x", "  y", "a^2", "a^b", 
-                        "  (", "  )", " <", "  >", 
-                        " |a|", "  ,", "<=", ">=", 
-                        "ABC", "  ?", "  √", " π"};
+    String[] buttons = {"   x", "    y", "  a^2", "  a^b", 
+                        "   (", "    )", "   <", "    >", 
+                        "   |a|", "    ,", "  <=", "  >=", 
+                        "color", " reset", "   √", "   π"};
     int index = 0;
     for (int i=0; i<4; i++) {
       for (int j=0; j<4; j++) {
         fill(255);
         rect(230+j*(85), 660+i*(50), 80, 45, 5);
         fill(0);
-        text(buttons[index], 252+j*85, 688+i*(51));
+        text(buttons[index], 248+j*85, 688+i*(51));
         index++;
       }
     }
@@ -290,10 +332,10 @@ void functionsBar() {
       }
     }
     
-    fill(139);
-    rect(1030, 660, 155, 45, 5);
-    fill(0);
-    text("functions", 1070, 690);
+    //fill(139);
+    //rect(1030, 660, 155, 45, 5);
+    //fill(0);
+    //text("functions", 1070, 690);
     
     fill(139);
     rect(1030, 710, 75, 45, 5);
