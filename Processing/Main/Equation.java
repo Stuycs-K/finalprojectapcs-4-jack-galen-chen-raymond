@@ -36,6 +36,10 @@ public class Equation {
     }
   }
   
+  public void setEq(String s) {
+    eq = s;
+  }
+  
   public String toString() {
     return eq;
   }
@@ -97,7 +101,7 @@ public class Equation {
           vals.push(Double.parseDouble(num));
           num = "";
         }
-        System.out.println("pi");
+        // System.out.println("pi");
         vals.push(pi); // push x's value directly to stack
         negate = false;
       }
@@ -106,7 +110,7 @@ public class Equation {
           vals.push(Double.parseDouble(num));
           num = "";
         }
-        System.out.println("E");
+        // System.out.println("E");
         vals.push(e); // push x's value directly to stack
         negate = false;
       }
@@ -189,7 +193,6 @@ public class Equation {
         return false;
       }
     }
-  
     return !lastWasOp && parenCount == 0;
   }
   private static boolean isOperator(char ch) { //Conditional to make sure the character is one we want

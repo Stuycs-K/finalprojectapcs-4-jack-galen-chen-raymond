@@ -35,3 +35,6 @@ This document must be updated daily every time you finish a work session.
 
 ### 2025-06-05 - More UI Improvements
 ~1.5 hr - Added a cursor in so that different parts of the equation can be deleted, cursor can be controlled with the function bar keys
+
+### 2025-06-06 - Minor UI fixes
+~1.5 hr - Changed font to make spacing on the cursor better, created a reset button on the top right, fixed spacing and alignment on the function bar keys, changed some of the keys' functions to make sense with the capabilities of the sketch
