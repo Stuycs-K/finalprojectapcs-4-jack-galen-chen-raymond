@@ -263,6 +263,24 @@ void mouseClicked() {
       equationsBarOpen = true;
     }
   }
+  
+  // FOR THE PLUS MENU
+  if (plusMenuOpen) {
+    if (mouseX>=2 && mouseX<=202 && mouseY>=120 && mouseY<=170) {
+      addEquation();
+    }
+    if (mouseX>=2 && mouseX<=202 && mouseY>=170 && mouseY<=220) {
+      // addNote();
+    }
+    else {
+      plusMenuOpen=false; 
+    }
+  }  
+  else {
+    if (mouseX>=20 && mouseX<=60 && mouseY>=65 && mouseY<=105) {
+      plusMenuOpen=true;
+    }
+  }
 
   // ZOOM IN AND OUT
   if (mouseX >= 1395 && mouseX <= 1435 && mouseY >= 100 && mouseY <= 140) {
