@@ -63,7 +63,8 @@ void equationsBar() {
     
     
     // the equations
-    strokeWeight(1);
+    PFont s = createFont("PTMono-Regular", 100);
+
     for (int i=0; i<numEquations; i++) {
       if (i == whichEquationSelected-1) {
         fill(38, 89, 255);
@@ -78,11 +79,12 @@ void equationsBar() {
         stroke(0);
       }
       
+      strokeWeight(1);
+
       rect(2, 120+70*i, 40, 70);
       line(0, 120+70*i, 440, 120+70*i);
       line(0, 190+70*i, 440, 190+70*i);
       
-      PFont s = createFont("PTMono-Regular", 100);
       textFont(s);
       textSize(30);
       fill(0);

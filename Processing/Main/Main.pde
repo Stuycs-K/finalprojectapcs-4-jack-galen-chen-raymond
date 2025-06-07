@@ -45,52 +45,101 @@ void setup() {
 }
 
 void keyPressed() {
-  if (keyCode == ENTER) {
-    addEquation();
-  }
-  if (keyCode == BACKSPACE || keyCode == DELETE) {
-    if ((eqs.get(whichEquationSelected - 1).toString()).equals("")) {
-      // if the equation is empty, remove the equation
-      removeEquation();
-    } else {
-      // if the equation has stuff in it, delete from the equation
-      eqs.get(whichEquationSelected - 1).removeFromEq();
-    }
-  }
-
-  // TO NAVIGATE AROUND EQUATIONS
-  if (keyCode == UP) {
-    if (whichEquationSelected > 1) {
-      whichEquationSelected--;
-    }
-  }
-  if (keyCode == DOWN) {
-    if (whichEquationSelected >= numEquations) {
+  if (eqs.get(whichEquationSelected-1).isNote()) {
+    // FOR MODIFYING NOTES
+    if (keyCode == ENTER) {
       addEquation();
-    } else {
-      whichEquationSelected++;
     }
-  }
+    else if (keyCode == BACKSPACE || keyCode == DELETE) {
+      if ((eqs.get(whichEquationSelected - 1).toString()).equals("")) {
+        // if the equation is empty, remove the equation
+        removeEquation();
+      } else {
+        // if the equation has stuff in it, delete from the equation
+        eqs.get(whichEquationSelected - 1).removeFromEq();
+      }
+    }
   
-  // TO MOVE CURSOR ON THE SAME EQUATION
-  if (keyCode == LEFT) {
-    if (eqs.get(whichEquationSelected-1).getCursorPos() > 0) {
-      eqs.get(whichEquationSelected-1).decCursorPos();
+    // TO NAVIGATE AROUND EQUATIONS
+    else if (keyCode == UP) {
+      if (whichEquationSelected > 1) {
+        whichEquationSelected--;
+      }
     }
-  }
-  if (keyCode == RIGHT) {
-    if (eqs.get(whichEquationSelected-1).getCursorPos() < eqs.get(whichEquationSelected-1).toString().length()) {
-      eqs.get(whichEquationSelected-1).incCursorPos();
+    else if (keyCode == DOWN) {
+      if (whichEquationSelected >= numEquations) {
+        addEquation();
+      } else {
+        whichEquationSelected++;
+      }
+    }
+    
+    // TO MOVE CURSOR ON THE SAME EQUATION
+    else if (keyCode == LEFT) {
+      if (eqs.get(whichEquationSelected-1).getCursorPos() > 0) {
+        eqs.get(whichEquationSelected-1).decCursorPos();
+      }
+    }
+    else if (keyCode == RIGHT) {
+      if (eqs.get(whichEquationSelected-1).getCursorPos() < eqs.get(whichEquationSelected-1).toString().length()) {
+        eqs.get(whichEquationSelected-1).incCursorPos();
+      }
+    }
+    
+    else {
+      eqs.get(whichEquationSelected-1).addToEq(key+"");
     }
   }
 
-  // FOR MODIFYING EQUATIONS
-  if (key == '0' || key == '1' || key == '2' || key == '3' || key == '4' || key == '5' || key == '6' || key == '7' || key == '8' || key == '9' ||
+
+  else {
+    // FOR MODIFYING EQUATIONS
+    if (keyCode == ENTER) {
+      addEquation();
+    }
+    else if (keyCode == BACKSPACE || keyCode == DELETE) {
+      if ((eqs.get(whichEquationSelected - 1).toString()).equals("")) {
+        // if the equation is empty, remove the equation
+        removeEquation();
+      } else {
+        // if the equation has stuff in it, delete from the equation
+        eqs.get(whichEquationSelected - 1).removeFromEq();
+      }
+    }
+  
+    // TO NAVIGATE AROUND EQUATIONS
+    else if (keyCode == UP) {
+      if (whichEquationSelected > 1) {
+        whichEquationSelected--;
+      }
+    }
+    else if (keyCode == DOWN) {
+      if (whichEquationSelected >= numEquations) {
+        addEquation();
+      } else {
+        whichEquationSelected++;
+      }
+    }
+    
+    // TO MOVE CURSOR ON THE SAME EQUATION
+    else if (keyCode == LEFT) {
+      if (eqs.get(whichEquationSelected-1).getCursorPos() > 0) {
+        eqs.get(whichEquationSelected-1).decCursorPos();
+      }
+    }
+    else if (keyCode == RIGHT) {
+      if (eqs.get(whichEquationSelected-1).getCursorPos() < eqs.get(whichEquationSelected-1).toString().length()) {
+        eqs.get(whichEquationSelected-1).incCursorPos();
+      }
+    }
+    
+    else if (key == '0' || key == '1' || key == '2' || key == '3' || key == '4' || key == '5' || key == '6' || key == '7' || key == '8' || key == '9' ||
     key == 'x' || key == 'y' ||
     key == '+' || key == '-' || key == '*' || key == '/' || key == '=' || key == '^' ||
     key == '√' || key == '<' || key == '>' || key == '|' || key == ',' || key == '.' || key == '(' || key == ')' || key == 'e') {
       
       eqs.get(whichEquationSelected - 1).addToEq(key+"");
+    }
   }
 
   setup();
@@ -250,35 +299,35 @@ void mouseClicked() {
 
   // FOR THINGS INVOLVING THE EQUATIONS BAR
   if (equationsBarOpen) {
-    if (mouseX <= 440 && mouseY >= 120 && mouseY <= (120 + 70 * numEquations)) {
-      // if the mouseClicked is selecting an equation
-      whichEquationSelected = (mouseY / 70) - 1; // to select the equation
-      eqs.get(whichEquationSelected-1).setCursorPos(eqs.get(whichEquationSelected-1).toString().length());
+    // FOR THE PLUS MENU
+    if (plusMenuOpen) {
+      if (mouseX>=2 && mouseX<=202 && mouseY>=120 && mouseY<=170) {
+        addEquation();
+      }
+      if (mouseX>=2 && mouseX<=202 && mouseY>=170 && mouseY<=220) {
+        addNote();
+      }
+      else {
+        plusMenuOpen=false; 
+      }
+    }  
+    else {
+      if (mouseX>=20 && mouseX<=60 && mouseY>=65 && mouseY<=105) {
+        plusMenuOpen=true;
+      }
+      if (mouseX <= 440 && mouseY >= 120 && mouseY <= (120 + 70 * numEquations)) {
+        // if the mouseClicked is selecting an equation
+        whichEquationSelected = (mouseY / 70)-1; // to select the equation
+        eqs.get(whichEquationSelected-1).setCursorPos(eqs.get(whichEquationSelected-1).toString().length());
+      }
+      if (mouseX <= 440 && mouseX >= 360 && mouseY <= 120 && mouseY >= 50) {
+        equationsBarOpen = false;
+      }
     }
-    if (mouseX <= 440 && mouseX >= 360 && mouseY <= 120 && mouseY >= 50) {
-      equationsBarOpen = false;
-    }
-  } else {
+  } 
+  else {
     if (mouseX <= 80 && mouseY >= 50 && mouseY <= 110) {
       equationsBarOpen = true;
-    }
-  }
-  
-  // FOR THE PLUS MENU
-  if (plusMenuOpen) {
-    if (mouseX>=2 && mouseX<=202 && mouseY>=120 && mouseY<=170) {
-      addEquation();
-    }
-    if (mouseX>=2 && mouseX<=202 && mouseY>=170 && mouseY<=220) {
-      addNote();
-    }
-    else {
-      plusMenuOpen=false; 
-    }
-  }  
-  else {
-    if (mouseX>=20 && mouseX<=60 && mouseY>=65 && mouseY<=105) {
-      plusMenuOpen=true;
     }
   }
 
