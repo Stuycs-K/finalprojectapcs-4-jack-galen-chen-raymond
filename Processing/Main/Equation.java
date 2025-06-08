@@ -143,6 +143,9 @@ public class Equation {
         lastWasOp = true;
         lastWasDeci = false;
       } else if (ch == '.') {
+        if (i == eq.length() - 1){
+          return false;
+        }
         if (lastWasDeci) return false;
         lastWasDeci = true;
         lastWasOp = false;
