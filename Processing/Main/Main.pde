@@ -361,6 +361,8 @@ void mouseClicked() {
   }
 
   setup();
+  
+  displayPoint(mouseX, mouseY);
 }
 
 // helper methods
@@ -390,7 +392,7 @@ void removeEquation() {
   }
 }
 
-void displayPoint() {
+void displayPoint(float xmouse, float ymouse) {
   int origin;
   int start;
 
@@ -403,12 +405,30 @@ void displayPoint() {
   }
   
   
-  Equation equ = eqs.get(whichEquationSelected-1);
+  if (eqs.get(whichEquationSelected-1).validCheck()) {
+    Equation equ = eqs.get(whichEquationSelected-1);
   
-  float x = (mouseX - origin) * zoomLevel / 100.0;
-  if (mouseY == 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x))) {
-    System.out.println("this works");
+    float x = (xmouse - origin) * zoomLevel / 100.0; // CALCULATED X
+    float y = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x)); // ACTUAL Y
+    
+    if (ymouse >= y-10 && ymouse <= y+10) {
+      // if the point clicked is on the graph
+      stroke(0);
+      if (equ.getColor()==7) {
+        stroke(38, 89, 255);
+      }
+      strokeWeight(8);
+      point(mouseX, y);
+      textSize(20);
+      
+      text("X: " + x, xmouse+10, ymouse+20);
+      text("Y: " + (float)(equ.evaluate(x)), xmouse+10, ymouse+50);
+    }
   }
+  
+  //if (mouseY == 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x))) {
+  //  System.out.println("this works");
+  //}
 }
 
 
