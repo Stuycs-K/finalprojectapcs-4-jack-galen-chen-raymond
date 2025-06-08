@@ -58,6 +58,8 @@ The **√ button** inserts a square root symbol into the selected equation.
 
 The **π button** inserts a pi symbol in the selected equation.
 
+The **e key on the keyboard** inserts Euler's constant into the selected equation.
+
 The **1 button** inserts a 1 into the selected equation.
 
 The **2 button** inserts a 2 into the selected equation.
