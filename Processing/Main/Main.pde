@@ -361,6 +361,8 @@ void mouseClicked() {
   }
 
   setup();
+  
+  displayPoint(mouseX, mouseY);
 }
 
 // helper methods
@@ -389,6 +391,61 @@ void removeEquation() {
     whichEquationSelected--;
   }
 }
+
+void displayPoint(float xmouse, float ymouse) {
+  int origin;
+  int start;
+
+  if (equationsBarOpen) {
+    origin = 940;
+    start = 440;
+  } else {
+    origin = 720;
+    start = 0;
+  }
+  
+  
+  if (eqs.get(whichEquationSelected-1).validCheck()) {
+    Equation equ = eqs.get(whichEquationSelected-1);
+  
+    float x = (xmouse - origin) * zoomLevel / 100.0; // CALCULATED X
+    float y = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x)); // ACTUAL Y
+    
+    if (ymouse >= y-10 && ymouse <= y+10) {
+      // if the point clicked is on the graph
+      stroke(0);
+      if (equ.getColor()==7) {
+        stroke(38, 89, 255);
+      }
+      strokeWeight(8);
+      point(mouseX, y);
+      textSize(20);
+      
+      // to truncate the y-value
+      double truncatedY = ((int)(equ.evaluate(x)*Math.pow(10, 2))) / (double)Math.pow(10, 2);
+      
+      if (ymouse+50>=870) {
+        // if the display will go off the bottom of the screen
+        text("X: " + x, xmouse-70, ymouse-40);
+        text("Y: " + truncatedY, xmouse-70, ymouse-20);
+      }
+      else if (xmouse+70>=1440) {
+        // if the display will go off the right of the screen
+        text("X: " + x, xmouse-70, ymouse+20);
+        text("Y: " + truncatedY, xmouse-70, ymouse+40);
+      }
+      else {
+        text("X: " + x, xmouse+10, ymouse+20);
+        text("Y: " + truncatedY, xmouse+10, ymouse+40);
+      }
+    }
+  }
+  
+  //if (mouseY == 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x))) {
+  //  System.out.println("this works");
+  //}
+}
+
 
 void graph() {
   int origin;
