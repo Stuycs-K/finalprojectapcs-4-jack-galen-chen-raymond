@@ -424,13 +424,20 @@ void displayPoint(float xmouse, float ymouse) {
       // to truncate the y-value
       double truncatedY = ((int)(equ.evaluate(x)*Math.pow(10, 2))) / (double)Math.pow(10, 2);
       
-      //if (ymouse+50>=870) {
-      //  // if the display will go offscreen
-      //  text("X: " + x, xmouse-100, ymouse+
-      //}
-      
-      text("X: " + x, xmouse+10, ymouse+20);
-      text("Y: " + truncatedY, xmouse+10, ymouse+50);
+      if (ymouse+50>=870) {
+        // if the display will go off the bottom of the screen
+        text("X: " + x, xmouse-70, ymouse-40);
+        text("Y: " + truncatedY, xmouse-70, ymouse-20);
+      }
+      else if (xmouse+70>=1440) {
+        // if the display will go off the right of the screen
+        text("X: " + x, xmouse-70, ymouse+20);
+        text("Y: " + truncatedY, xmouse-70, ymouse+40);
+      }
+      else {
+        text("X: " + x, xmouse+10, ymouse+20);
+        text("Y: " + truncatedY, xmouse+10, ymouse+40);
+      }
     }
   }
   
