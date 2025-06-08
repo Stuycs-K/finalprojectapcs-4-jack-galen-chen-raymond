@@ -35,7 +35,9 @@ System.out.println(evalEq);
   }
   public void removeFromEq(){
     eq=eq.substring(0,eq.length()-1);
-    changeEq();
+    if (eq.length() > 0){
+      changeEq();
+    }
   }
   
   public String toString() {
@@ -150,39 +152,52 @@ System.out.println(evalEq);
     int parenCount = 0;
     boolean lastWasOp = true;
     boolean lastWasDeci = false;
+    boolean lastWasVar = false;
   
     for (int i = 0; i < evalEq.length(); i++) {
       char ch = evalEq.charAt(i);
   
       if (Character.isWhitespace(ch)) continue;
-      
+      if (Character.isDigit(ch) && lastWasVar){
+        return false;
+      }
       if (ch == '(') {
         parenCount++;
         lastWasOp = true;
         lastWasDeci = false;
+        lastWasVar = false;
         if (parenCount >= evalEq.length()/2.0){
           return false;
         }
-      } else if (ch == ')') {
+      } 
+      else if (ch == ')') {
         parenCount--;
         if (parenCount < 0) return false;
         lastWasOp = false;
         lastWasDeci = false;
-      } else if (isOperator(ch)) {
+        lastWasVar = false;
+      } 
+      else if (isOperator(ch)) {
         if (lastWasOp && ch != '-') return false;
+        lastWasVar = false;
         lastWasOp = true;
         lastWasDeci = false;
-      } else if (ch == '.') {
+      } 
+      else if (ch == '.') {
         if (i == evalEq.length() - 1){
           return false;
         }
         if (lastWasDeci) return false;
+        lastWasVar = false;
         lastWasDeci = true;
         lastWasOp = false;
-      } else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
+      } 
+      else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
+        lastWasVar = ch == 'x';
         lastWasOp = false;
         lastWasDeci = false;
-      } else {
+      } 
+      else {
         return false;
       }
     }
