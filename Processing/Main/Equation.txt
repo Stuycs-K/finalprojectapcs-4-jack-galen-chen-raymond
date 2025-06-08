@@ -5,49 +5,43 @@ public class Equation {
   private double pi = 3.14159265358979323846264338327950288419716939937510;
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
-  private int cursorPos;
-  private boolean isNote = false;
-  
+
   public Equation() {
     eq = "";
   }
 
-  public boolean isNote() {
-    return isNote;
+  public void changeEq() {
+    evalEq = "";
+    int j = 0;
+    while (j < eq.length() - 1) {
+      char ch1 = eq.charAt(j);
+      char chNext = eq.charAt(j + 1);
+      evalEq += ch1;
+      if ((Character.isDigit(ch1) && chNext == '(') ||
+          (ch1 == ')' && Character.isDigit(chNext)) ||
+          (ch1 == ')' && chNext == '(') ||
+          (chNext == 'x' && Character.isDigit(ch1)) ||
+          (chNext == 'x' && ch1 == 'x')) {
+        evalEq += "*";
+      }
+      j++;
+    }
+    if (!eq.isEmpty()) {
+      evalEq += eq.charAt(eq.length() - 1);
+    }
+    System.out.println(evalEq);
   }
-  
-  public void setNote(boolean note) {
-    isNote = note;
-  }
-  
+
   public void addToEq(String s){
-    if (cursorPos == eq.length()) {
-      // if adding to end of equation
-      eq+=s;
-      cursorPos+=(s.length());
-    }
-    
-    else if (cursorPos == 0) {
-      // if adding to beginning of equation
-      eq = s+eq;
-      cursorPos+=1;
-    }
-    
-    else {
-      eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
-      cursorPos+=1;
-    }
+    eq += s;
+    changeEq();
   }
-  
-  public void removeFromEq() {
-    if (cursorPos > 0) {
-      eq = eq.substring(0, cursorPos-1) + eq.substring(cursorPos);
-      cursorPos-=1;
+
+  public void removeFromEq(){
+    if (!eq.isEmpty()) {
+      eq = eq.substring(0, eq.length() - 1);
+      if (!eq.isEmpty()) changeEq();
     }
-  }
-  
-  public void setEq(String s) {
-    eq = s;
   }
 
   @Override
@@ -61,22 +55,6 @@ public class Equation {
 
   public void changeColor() {
     whichColor = (whichColor + 1) % 8;
-  }
-  
-  public int getCursorPos() {
-    return cursorPos;
-  }
-  
-  public void decCursorPos() {
-    cursorPos -= 1;
-  }
-  
-  public void incCursorPos() {
-    cursorPos += 1;
-  }
-  
-  public void setCursorPos(int pos) {
-    cursorPos = pos;
   }
 
   public double evaluate(double x) {
@@ -101,25 +79,9 @@ public class Equation {
           vals.push(Double.parseDouble(num));
           num = "";
         }
-        vals.push(x); // push x's value directly to stack
-        negate = false;
-      }
-      else if (ch == 'π') {
-        if (!num.isEmpty()) {
-          vals.push(Double.parseDouble(num));
-          num = "";
-        }
-        // System.out.println("pi");
-        vals.push(pi); // push x's value directly to stack
-        negate = false;
-      }
-      else if (ch == 'e') {
-        if (!num.isEmpty()) {
-          vals.push(Double.parseDouble(num));
-          num = "";
-        }
-        // System.out.println("E");
-        vals.push(e); // push x's value directly to stack
+        if (ch == 'x')      vals.push(x);
+        else if (ch == 'π') vals.push(pi);
+        else                vals.push(e);
         negate = false;
       }
       else if (ch == '-' && negate) {

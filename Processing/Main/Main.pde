@@ -473,23 +473,10 @@ void graph() {
       float x = (i - origin) * zoomLevel / 100.0;
       float oldVal = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x));
       while (i < 1440) {
-    
         x = (i - origin) * zoomLevel / 100.0;
         float y = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x));
-        if (y > 50) {
-          point(i, y);
-        }
-        if (Math.abs(y - oldVal) > 1) {
-          //System.out.println(i);
-          if (Math.abs(y - oldVal) < 0.5) {
-            i += 1 / (Math.abs(y - oldVal));
-          } else {
-            i += 0.2;
-          }
-    
-        } else {
-          i++;
-        }
+          line(i-1,oldVal,i,y);
+          i+=0.01;
         oldVal = y;
       }
     }
