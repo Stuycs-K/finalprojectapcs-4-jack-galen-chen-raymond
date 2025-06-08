@@ -1,6 +1,7 @@
 import java.util.Stack;
 public class Equation {
   private String eq;
+  private String evalEq = "";
   private double pi = 3.14159265358979323846264338327950288419716939937510;
   private double e = 2.718281828459045235360287471352662497757247093699959574966;
   private int whichColor = (int)(Math.random()*8);
@@ -8,12 +9,33 @@ public class Equation {
   public Equation() {
     eq = "";
   }
+  public void changeEq() {
+    evalEq = "";
+    int j = 0;
+    while (j < eq.length() - 1) {
+      char ch1 = eq.charAt(j);
+      char chNext = eq.charAt(j + 1);
+      evalEq += ch1;
+      if ((Character.isDigit(ch1) && chNext == '(') ||
+        (ch1 == ')' && Character.isDigit(chNext)) ||
+        (ch1 == ')' && chNext == '(') ||
+        (chNext == 'x' && Character.isDigit(ch1)) ||
+        (chNext == 'x' && ch1 == 'x')) {
+        evalEq += "*";
+      }
+    j++;
+  }
 
+evalEq += eq.charAt(eq.length() - 1);
+System.out.println(evalEq);
+  }
   public void addToEq(String s){
     eq+=s;
+    changeEq();
   }
   public void removeFromEq(){
     eq=eq.substring(0,eq.length()-1);
+    changeEq();
   }
   
   public String toString() {
@@ -33,13 +55,18 @@ public class Equation {
     }
   }
 
+
+
+
+
+
   public double evaluate(double x) {
     Stack<Character> ops = new Stack<>();
     Stack<Double> vals = new Stack<>();
     String num = "";
     boolean negate = true;
-    for (int i = 0; i < eq.length(); i++) {
-      char ch = eq.charAt(i);
+    for (int i = 0; i < evalEq.length(); i++) {
+      char ch = evalEq.charAt(i);
 
       if (Character.isWhitespace(ch)) { //Ignores spaces 
         continue;
@@ -118,14 +145,14 @@ public class Equation {
   }
 
   public boolean validCheck() {
-    if (eq == null || eq.isEmpty()) return false;
+    if (evalEq == null || evalEq.isEmpty()) return false;
   
     int parenCount = 0;
     boolean lastWasOp = true;
     boolean lastWasDeci = false;
   
-    for (int i = 0; i < eq.length(); i++) {
-      char ch = eq.charAt(i);
+    for (int i = 0; i < evalEq.length(); i++) {
+      char ch = evalEq.charAt(i);
   
       if (Character.isWhitespace(ch)) continue;
       
@@ -133,7 +160,7 @@ public class Equation {
         parenCount++;
         lastWasOp = true;
         lastWasDeci = false;
-        if (parenCount >= eq.length()/2.0){
+        if (parenCount >= evalEq.length()/2.0){
           return false;
         }
       } else if (ch == ')') {
@@ -146,7 +173,7 @@ public class Equation {
         lastWasOp = true;
         lastWasDeci = false;
       } else if (ch == '.') {
-        if (i == eq.length() - 1){
+        if (i == evalEq.length() - 1){
           return false;
         }
         if (lastWasDeci) return false;
