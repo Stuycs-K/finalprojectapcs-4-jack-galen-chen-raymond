@@ -34,4 +34,26 @@ in an expression because there would be moments where while typing the expressio
 valid. In order to fix this, I added a method to Equation.java that checks if an equation is valid. 
 I then called this before graphing in Main.pde. This took me 1 hour.
 
+## 2025-06-02 - Dynamic step size
+I improved our system for supporting constants including pi and e. I added support in the GUI for these constants so there is now the capability of typing in e and entering pi with the GUI.
+This took me 1 hour.
+
+
+## 2025-06-03 - Dynamic step size
+I added support for Dynamic step size which adjusts the distance between points based on the difference between points. This works but it is inconsistant and buggy. I am fine tuning the rights values.
+This took me 1 hour.
+
+## 2025-06-04 - Dynamic step size
+I improved support for Dynamic step size which makes equations smoother. I am still experiencing issues where one side is less smooth. 
+This took me 45 minutes.
+
+## 2025-06-06 - Line implementation
+After spending a while trying out different ways of making the graphs smoother, I figured out that using lines was the best solution. This took 1 hour.
+
+## 2025-06-08 - Absolute value, implied multiplication and many many bugfixes
+I created a copy of the instance variable eq, evalEq which is invisible to the user. This version of the equation allows us to keep the equation looking clean for the user and readable for our code. As of right now, we parse the users input for implied multiplication and replace it with regular multiplication. I then added support for absolute value symbols which was extremely buggy and took a long time to get working. I fixed a number of bugs we've found over the past week which crash the program when specific sequences of characters are entered.
+This took me 4.5 hours.
+
+
+
 
