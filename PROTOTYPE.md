@@ -1,7 +1,7 @@
 AP Computer Science Semester 2 pd. 4 \
 Raymond Chen, Galen Jack \
 The Desmos Duo \
-This is a replica of the online graphing calculator Desmos. 
+This is a replica of the online graphing calculator Desmos. It will be able to take in user-inputted equations and graph them on a grid. There is an on-screen keyboard that can be accessed on the screen, and the grid can zoom in an out.
 
 # Technical Details:
 
