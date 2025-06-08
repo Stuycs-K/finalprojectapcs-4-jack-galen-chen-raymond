@@ -128,11 +128,14 @@ public class Equation {
       char ch = eq.charAt(i);
   
       if (Character.isWhitespace(ch)) continue;
-  
+      
       if (ch == '(') {
         parenCount++;
         lastWasOp = true;
         lastWasDeci = false;
+        if (parenCount >= eq.length()/2.0){
+          return false;
+        }
       } else if (ch == ')') {
         parenCount--;
         if (parenCount < 0) return false;
