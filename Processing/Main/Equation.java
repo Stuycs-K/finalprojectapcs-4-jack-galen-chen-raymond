@@ -219,29 +219,50 @@ public class Equation {
 
       if (Character.isDigit(ch) && lastWasVar) return false;
       if (ch == '(') {
-        parenCount++; lastWasOp = true; lastWasDeci = false; lastWasVar = false;
+        parenCount++; 
+        lastWasOp = true; 
+        lastWasDeci = false; 
+        lastWasVar = false;
         if (parenCount >= evalEq.length()/2.0) return false;
       }
-      else if (ch == '|') {
-        if (absCount == 0) { absCount++; lastWasOp = true; }
-        else            { absCount--; lastWasOp = false; }
-        lastWasDeci = false; lastWasVar = false;
-      }
       else if (ch == ')') {
-        parenCount--; if (parenCount < 0) return false;
-        lastWasOp = false; lastWasDeci = false; lastWasVar = false;
+        parenCount--; 
+        if (parenCount < 0) return false;
+        lastWasOp = false; 
+        lastWasDeci = false; 
+        lastWasVar = false;
+      }
+      else if (ch == '|') {
+        if (absCount == 0){ 
+          absCount++; 
+          lastWasOp = true; 
+        }
+        else{
+          absCount--; 
+          lastWasOp = false; 
+        }
+        lastWasDeci = false; 
+        lastWasVar = false;
       }
       else if (isOperator(ch)) {
         if (lastWasOp && ch != '-') return false;
-        lastWasVar = false; lastWasOp = true; lastWasDeci = false;
+        if (i == evalEq.length() - 1 || evalEq.charAt(i + 1) == ')' || isOperator(evalEq.charAt(i + 1))) {
+          return false;
+        }
+        lastWasVar = false; 
+        lastWasOp = true; 
+        lastWasDeci = false;
       }
       else if (ch == '.') {
         if (i == evalEq.length() - 1 || lastWasDeci) return false;
-        lastWasVar = false; lastWasDeci = true; lastWasOp = false;
+        lastWasVar = false; 
+        lastWasDeci = true; 
+        lastWasOp = false;
       }
       else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
         lastWasVar = (ch == 'x');
-        lastWasOp = false; lastWasDeci = false;
+        lastWasOp = false; 
+        lastWasDeci = false;
       }
       else return false;
     }
