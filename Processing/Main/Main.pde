@@ -421,8 +421,16 @@ void displayPoint(float xmouse, float ymouse) {
       point(mouseX, y);
       textSize(20);
       
+      // to truncate the y-value
+      double truncatedY = ((int)(equ.evaluate(x)*Math.pow(10, 2))) / (double)Math.pow(10, 2);
+      
+      //if (ymouse+50>=870) {
+      //  // if the display will go offscreen
+      //  text("X: " + x, xmouse-100, ymouse+
+      //}
+      
       text("X: " + x, xmouse+10, ymouse+20);
-      text("Y: " + (float)(equ.evaluate(x)), xmouse+10, ymouse+50);
+      text("Y: " + truncatedY, xmouse+10, ymouse+50);
     }
   }
   
