@@ -11,7 +11,27 @@ public class Equation {
   public Equation() {
     eq = "";
   }
-
+  public void changeEq() {
+    evalEq = "";
+    int j = 0;
+    while (j < eq.length() - 1) {
+      char ch1 = eq.charAt(j);
+      char chNext = eq.charAt(j + 1);
+      evalEq += ch1;
+      if ((Character.isDigit(ch1) && chNext == '(') ||
+          (ch1 == ')' && Character.isDigit(chNext)) ||
+          (ch1 == ')' && chNext == '(') ||
+          (chNext == 'x' && Character.isDigit(ch1)) ||
+          (chNext == 'x' && ch1 == 'x')) {
+        evalEq += "*";
+      }
+      j++;
+    }
+    if (!eq.isEmpty()) {
+      evalEq += eq.charAt(eq.length() - 1);
+    }
+    System.out.println(evalEq);
+  }
   public boolean isNote() {
     return isNote;
   }
@@ -24,17 +44,20 @@ public class Equation {
     if (cursorPos == eq.length()) {
       // if adding to end of equation
       eq+=s;
+      changeEq();
       cursorPos+=(s.length());
     }
     
     else if (cursorPos == 0) {
       // if adding to beginning of equation
       eq = s+eq;
+      changeEq();
       cursorPos+=1;
     }
     
     else {
       eq = eq.substring(0, cursorPos)+s+eq.substring(cursorPos);
+      changeEq();
       cursorPos+=1;
     }
   }
@@ -42,6 +65,7 @@ public class Equation {
   public void removeFromEq() {
     if (cursorPos > 0) {
       eq = eq.substring(0, cursorPos-1) + eq.substring(cursorPos);
+      changeEq();
       cursorPos-=1;
     }
   }
@@ -50,7 +74,6 @@ public class Equation {
     eq = s;
   }
 
-  @Override
   public String toString() {
     return eq;
   }
