@@ -5,7 +5,7 @@ This is a replica of the online graphing calculator Desmos. It will be able to t
 
 # Technical Details:
 
-The user interface will replicate Desmos'. There will be a bar on the left where the user can input equations into the graphing calculator. There will be a bar on the bottom of the screen where symbols like the ~~square root symbol and absolute value bars~~ exponent operator can be accessed. The majority of the screen will be taken up by the graph itself, and there will be buttons in the top right to zoom in and out of the graph. 
+The user interface will replicate Desmos'. There will be a bar on the left where the user can input equations into the graphing calculator. There will be a bar on the bottom of the screen where symbols like the square root symbol, absolute value bars, and exponent can be accessed. The majority of the screen will be taken up by the graph itself, and there will be buttons in the top right to zoom in and out of the graph. 
 
 We hope to have a few other features as well. These include allowing the user to change the color of a graph, incorporating all the available functions in Desmos (such as sine, cosine, logarithms, etc.), allowing the user to manually change the scale and dimensions of the graph, and incorporating polar functions and the polar grid. We also hope to have the feature in Desmos where clicking on the graph can reveal the coordinates of the point that was clicked on. Another feature would be the slider that is available for variables that are not defined in the equations bar, and the reverse contrast mode.
 
@@ -25,7 +25,7 @@ The Main class has an ArrayList of equations ~~and a corresponding ArrayList of 
 
 Most of the Screen class's methods were intended to be in the Main class (they are all intended for setting up the screen and drawing the UI), but the Main and Screen were separated for convenience and organization. The Screen class draws all the UI.
 
-As for the Equation itself, it will have a String as a field and, and addToEq and ~~deleteFromEq~~ removeFromEq to edit the String. ~~makeGraph~~ graph() will create a graph based on the current equation String. Screen will display each Equation's String on the left, in the appropriate slot. 
+As for the Equation itself, it will have a String as a field and, and addToEq and ~~deleteFromEq~~ removeFromEq to edit the String. ~~makeGraph~~ graph() will create a graph based on the current equation String. Screen will display each Equation's String on the left, in the appropriate slot. A separate graph() object is not necessary.
 
 ~~The Graph object will contain the function (the Equation) and a set of points generated over the range of the graph displayed in an ArrayList. The Graph will have a method to display the graph, graph(), and a method to redo the points, redoPoints, when the equation is changed.~~
 
