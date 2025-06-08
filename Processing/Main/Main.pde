@@ -390,6 +390,28 @@ void removeEquation() {
   }
 }
 
+void displayPoint() {
+  int origin;
+  int start;
+
+  if (equationsBarOpen) {
+    origin = 940;
+    start = 440;
+  } else {
+    origin = 720;
+    start = 0;
+  }
+  
+  
+  Equation equ = eqs.get(whichEquationSelected-1);
+  
+  float x = (mouseX - origin) * zoomLevel / 100.0;
+  if (mouseY == 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x))) {
+    System.out.println("this works");
+  }
+}
+
+
 void graph() {
   int origin;
   int start;
