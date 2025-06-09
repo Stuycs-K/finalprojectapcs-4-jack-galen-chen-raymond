@@ -6,6 +6,8 @@ Raymond Chen, Galen Jack \
 The Desmos Duo \
 This is a replica of the online graphing calculator Desmos. 
 
+Link to the video: https://drive.google.com/file/d/1NCcPuhGbGQV7Fu-TQtUPbMyVRu0UrsLB/view?usp=drive_link 
+
 # Intended usage:
 
 ## Equations Bar (left side of screen)
