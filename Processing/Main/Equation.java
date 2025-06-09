@@ -66,6 +66,7 @@ public class Equation {
       changeEq();
       cursorPos+=1;
     }
+    System.out.println(evalEq);
   }
   
   public void removeFromEq() {
@@ -127,7 +128,7 @@ public class Equation {
         num += ch;
         negate = false;
       }
-      else if (ch == 'x' || ch == 'π' || ch == 'e') {
+      else if (ch == 'x') {
 
         if (!num.isEmpty()) {
           vals.push(Double.parseDouble(num));
@@ -151,7 +152,7 @@ public class Equation {
           num = "";
         }
         // System.out.println("E");
-        vals.push(e); // push x's value directly to stack
+        vals.push(e); // push e's value directly to stack
         negate = false;
       }
       else if (ch == '-' && negate) {
