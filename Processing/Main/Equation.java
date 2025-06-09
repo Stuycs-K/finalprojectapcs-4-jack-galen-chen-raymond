@@ -18,9 +18,11 @@ public class Equation {
       char ch1 = eq.charAt(j);
       char chNext = eq.charAt(j + 1);
       evalEq += ch1;
-      if ((Character.isDigit(ch1) && chNext == '(') ||
-          (ch1 == ')' && Character.isDigit(chNext)) ||
+      if ((Character.isDigit(ch1) && (chNext == '(' || chNext == '|')) ||
+          ((ch1 == ')'  || ch1 == '|' )&& Character.isDigit(chNext)) ||
           (ch1 == ')' && chNext == '(') ||
+          (ch1 == '|' && chNext == '(') ||
+          (ch1 == ')' && chNext == '|') ||
           (chNext == 'x' && Character.isDigit(ch1)) ||
           (chNext == 'x' && ch1 == 'x')) {
         evalEq += "*";
