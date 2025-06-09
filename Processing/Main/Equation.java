@@ -116,6 +116,7 @@ public class Equation {
     boolean negate = true;
     int absCount = 0;
 
+
     for (int i = 0; i < evalEq.length(); i++) {
       char ch = evalEq.charAt(i);
 
@@ -123,10 +124,12 @@ public class Equation {
         continue;
       }
       if (Character.isDigit(ch) || ch == '.') {
+
         num += ch;
         negate = false;
       }
       else if (ch == 'x' || ch == 'π' || ch == 'e') {
+
         if (!num.isEmpty()) {
           vals.push(Double.parseDouble(num));
           num = "";
@@ -215,12 +218,19 @@ public class Equation {
   }
 
   public boolean validCheck() {
+    boolean graphable = false;
+    
     if (evalEq == null || evalEq.isEmpty()) return false;
 
     int parenCount = 0, absCount = 0;
     boolean lastWasOp = true, lastWasDeci = false, lastWasVar = false;
-
     for (int i = 0; i < evalEq.length(); i++) {
+      if (i < evalEq.length() - 1){
+        if (evalEq.charAt(i) == '(' && evalEq.charAt(i+1) == ')'){
+          return false;
+        }
+      }
+        
       char ch = evalEq.charAt(i);
       if (Character.isWhitespace(ch)) continue;
 
@@ -270,6 +280,7 @@ public class Equation {
         lastWasOp = false;
       }
       else if (Character.isDigit(ch) || ch == 'x' || ch == 'e' || ch == 'π') {
+        graphable = true;
         lastWasVar = (ch == 'x');
         lastWasOp = false; 
         lastWasDeci = false;
@@ -277,7 +288,7 @@ public class Equation {
       else return false;
     }
 
-    return (!lastWasOp && parenCount == 0 && absCount == 0);
+    return (!lastWasOp && parenCount == 0 && absCount == 0 && graphable);
   }
 
   private static boolean isOperator(char ch) {
