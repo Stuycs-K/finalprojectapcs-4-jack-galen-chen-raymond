@@ -82,10 +82,9 @@ void equationsBar() {
       strokeWeight(1);
       // to display the entire equation slot + which equation selected in blue
       if (i == whichEquationSelected-1) {
-        stroke(38, 89, 255);
-        rect(2, 120+70*i, 40, 70);
-        line(0, 120+70*i, 440, 120+70*i);
-        line(0, 190+70*i, 440, 190+70*i);
+        rect(3, 120+70*i, 40, 70);
+        line(5, 120+70*i, 440, 120+70*i);
+        line(5, 190+70*i, 440, 190+70*i);
       }
       else{
         rect(2, 120+70*i, 40, 70);
