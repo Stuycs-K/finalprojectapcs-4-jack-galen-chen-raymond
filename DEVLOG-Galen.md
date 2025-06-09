@@ -54,6 +54,4 @@ After spending a while trying out different ways of making the graphs smoother, 
 I created a copy of the instance variable eq, evalEq which is invisible to the user. This version of the equation allows us to keep the equation looking clean for the user and readable for our code. As of right now, we parse the users input for implied multiplication and replace it with regular multiplication. I then added support for absolute value symbols which was extremely buggy and took a long time to get working. I fixed a number of bugs we've found over the past week which crash the program when specific sequences of characters are entered. I improved our system for figuring out if an equation should be graphed greatly, accounting for all sorts of ungraphable equations which might include empty parenthesis.
 This took me 8 hours.
 
-
-
-
+I believe this document accurately reflects the contributions of my teammate. ~Raymond Chen
