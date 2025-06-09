@@ -32,7 +32,7 @@ public class Equation {
     if (!eq.isEmpty()) {
       evalEq += eq.charAt(eq.length() - 1);
     }
-    System.out.println(evalEq);
+    // System.out.println(evalEq);
   }
   public boolean isNote() {
     return isNote;

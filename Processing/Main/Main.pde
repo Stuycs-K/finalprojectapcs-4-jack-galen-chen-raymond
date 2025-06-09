@@ -440,10 +440,6 @@ void displayPoint(float xmouse, float ymouse) {
       }
     }
   }
-  
-  //if (mouseY == 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x))) {
-  //  System.out.println("this works");
-  //}
 }
 
 
@@ -464,11 +460,7 @@ void graph() {
     Equation equ = eqs.get(j);
     stroke(colors[equ.getColor()]);
     
-    if (equ.validCheck() && !equ.toString().equals("") && !equ.isNote()) {
-      //System.out.println("graphed");
-      //System.out.println(equ.validCheck());
-      //System.out.println(equ.toString().equals(""));
-      
+    if (equ.validCheck() && !equ.toString().equals("") && !equ.isNote()) {      
       float i = start;
       float x = (i - origin) * zoomLevel / 100.0;
       float oldVal = 460 - (100.0f / zoomLevel) * (float)(equ.evaluate(x));
