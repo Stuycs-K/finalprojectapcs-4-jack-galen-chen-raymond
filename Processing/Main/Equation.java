@@ -66,7 +66,6 @@ public class Equation {
       changeEq();
       cursorPos+=1;
     }
-    System.out.println(evalEq);
   }
   
   public void removeFromEq() {
