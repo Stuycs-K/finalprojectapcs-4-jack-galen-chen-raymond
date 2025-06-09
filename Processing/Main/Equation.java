@@ -37,7 +37,6 @@ public class Equation {
       j++;
     }
     evalEq += eq.charAt(eq.length() - 1);
-    System.out.println(evalEq);
   }
   public boolean isNote() {
     return isNote;
