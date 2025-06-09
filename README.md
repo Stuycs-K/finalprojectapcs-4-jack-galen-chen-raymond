@@ -70,3 +70,6 @@ The **return key** adds a new equation into the equation slot. \
 The **reset button** resets the zoom on the grid to the default zoom (100px = 2 units). \
 The **+ button** zooms in on the grid (the maximum zoom is 100px = 1 unit). \
 The **- button** zooms out on the grid (the minimum zoom is 100px = 16384 units). \
+
+## Clicking
+Click on **a point** on a selected equation to display the x and y values at that point
