@@ -14,25 +14,29 @@ public class Equation {
   public void changeEq() {
     evalEq = "";
     int j = 0;
+    boolean inAbs = false;
+    if (eq == null || eq.length() == 0){
+      return;
+    }
     while (j < eq.length() - 1) {
       char ch1 = eq.charAt(j);
       char chNext = eq.charAt(j + 1);
       evalEq += ch1;
-      if ((Character.isDigit(ch1) && (chNext == '(' || chNext == '|')) ||
-          ((ch1 == ')'  || ch1 == '|' )&& Character.isDigit(chNext)) ||
-          (ch1 == ')' && chNext == '(') ||
-          (ch1 == '|' && chNext == '(') ||
-          (ch1 == ')' && chNext == '|') ||
-          (chNext == 'x' && Character.isDigit(ch1)) ||
-          (chNext == 'x' && ch1 == 'x')) {
+      if (ch1 == '|') {
+          inAbs = !inAbs;
+      }
+      if ((Character.isDigit(ch1) && (chNext == '(' || (chNext == '|' && !inAbs))) ||
+        ((ch1 == ')' || (ch1 == '|' && !inAbs)) && Character.isDigit(chNext)) ||
+        (ch1 == ')' && chNext == '(') ||
+        (ch1 == '|' && chNext == '(' && !inAbs) ||
+        (ch1 == ')' && chNext == '|' && !inAbs) ||
+        (ch1 == '|' && chNext == '|' && !inAbs) ||
+        (chNext == 'x' && (Character.isDigit(ch1) || ch1 == 'x'))) {
         evalEq += "*";
       }
       j++;
     }
-    if (!eq.isEmpty()) {
-      evalEq += eq.charAt(eq.length() - 1);
-    }
-    // System.out.println(evalEq);
+    evalEq += eq.charAt(eq.length() - 1);
   }
   public boolean isNote() {
     return isNote;
@@ -65,13 +69,13 @@ public class Equation {
   }
   
   public void removeFromEq() {
-    if (cursorPos > 0) {
-      eq = eq.substring(0, cursorPos-1) + eq.substring(cursorPos);
+    if (cursorPos > 0 && cursorPos <= eq.length()) {
+      eq = eq.substring(0, cursorPos - 1) + eq.substring(cursorPos);
+      cursorPos--;
       changeEq();
-      cursorPos-=1;
     }
   }
-  
+    
   public void setEq(String s) {
     eq = s;
   }
