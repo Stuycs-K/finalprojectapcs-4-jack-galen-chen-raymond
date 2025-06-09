@@ -32,14 +32,19 @@ The **a^b button** inserts a *^* symbol to allow the user to raise the preceding
 The **( button** inserts a right-facing parentheses in the selected equation. \ 
 The **) button** inserts a left-facing parentheses in the selected equation. \
 The **< button** inserts a greater-than symbol in the selected equation. \ 
+*The < symbol is unfortunately not supported by our code, so inputting this will display no graph.
 The **> button** inserts a less-than symbol in the selected equation. \ 
+*The > symbol is unfortunately not supported by our code, so inputting this will display no graph.
 The **|a| button** inserts an absolute value bar *|* in the selected equation. \
 The **, button** inserts a comma in the selected equation. \
 The **<= button** inserts a greater-than-or-equal-to symbol in the selected equation. \
+*The <= symbol is unfortunately not supported by our code, so inputting this will display no graph.
 The **>= button** inserts a less-than-or-equal-to symbol in the selected equation. \
+*The >= symbol is unfortunately not supported by our code, so inputting this will display no graph.
 The **color button** changes the color of the selected equation's graph (in the order: red, orange, yellow, green, blue, violet, pink, black). \
 The **reset button** empties the current equation, getting rid of all characters. \
 The **√ button** inserts a square root symbol into the selected equation. \
+*The √ symbol is unfortunately not supported by our code, so inputting this will display no graph.
 The **π button** inserts a pi symbol in the selected equation. \
 The **e key on the keyboard** inserts Euler's constant into the selected equation. \
 The **1 button** inserts a 1 into the selected equation. \
